@@ -13,7 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.artiguez.tarea02_listadeproductos.R;
+import com.artiguez.proyectoma.R;
+
+import view.FrmPersona;
 
 public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.HolderProducto> {
 
@@ -27,7 +29,7 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Ho
     @NonNull
     @Override
     public HolderProducto onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.elementos,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.datos,parent,false);
         return new HolderProducto(v);
     }
 
@@ -37,17 +39,11 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Ho
         holder.txtPrecioProd.setText(Datos.prod.get(position).getfPrecio()+" €");
         holder.ratPuntuacion.setRating((Datos.prod.get(position).getEstrellas()));
 
-        if(Datos.prod.get(position).isbFragil()){
-           holder.imgFragil.setImageResource(R.drawable.fragile);
-        }else{
-            holder.imgFragil.setImageResource(R.drawable.bien);
-        }
-
         holder.cardProductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 cardPosition = position;
-                Intent ventanaEdicion = new Intent(c, SegundaPantalla.class);
+                Intent ventanaEdicion = new Intent(c, FrmPersona.class);
                 c.startActivity(ventanaEdicion);
             }
         });

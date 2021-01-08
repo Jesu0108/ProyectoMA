@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.artiguez.proyectoma.R;
 
@@ -17,11 +18,13 @@ import logic.Datos;
 import model.Productos;
 
 public class FrmPrincipal extends AppCompatActivity {
+    private AdaptadorProducto adaptador;
+    private Button btnGrafica;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.axctivity_frmPrincipal);
+        setContentView(R.layout.activity_main);
 
         Datos.prod = getElements();
 
@@ -38,14 +41,6 @@ public class FrmPrincipal extends AppCompatActivity {
 
         adaptador = new AdaptadorProducto(this);
         listaMain.setAdapter(adaptador);
-
-        btnGrafica = findViewById(R.id.btnGrafico);
-        btnGrafica.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent ventanaGrafica = new Intent(getApplicationContext(), GraficaView.class);
-            }
-        });
     }
 
     protected void onStart() {
@@ -61,6 +56,5 @@ public class FrmPrincipal extends AppCompatActivity {
             elementos.add(new Productos("Nombre", 1, 1, 1, 0, false,1));
         }
         return elementos;
-    }
     }
 }
