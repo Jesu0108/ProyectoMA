@@ -1,3 +1,50 @@
 <resources>
     <string name="app_name">ProyectoMA</string>
+    <string name="txtNombre">Nombre</string>
+    <string name="txtPrecio">Precio</string>
+    <string name="btnName">Guardar</string>
+    <string name="pack">Pack</string>
+    <string name="bolsa">Bolsa</string>
+    <string name="brick">Brick</string>
+    <string name="caja">Caja</string>
+    <string name="otro">Otro</string>
+    <string name="ButtonGrafica">Grafico</string>
+
+    <string name="guardarIcon">Guardar</string>
+    <string name="borrarIcon">Borrar</string>
+
+    <string name="jaen">Jaen</string>
+    <string name="cordoba">Cordoba</string>
+    <string name="sevilla">Sevilla</string>
+    <string name="huelva">Huelva</string>
+    <string name="cadiz">Cadiz</string>
+    <string name="malaga">Malaga</string>
+    <string name="granada">Granada</string>
+    <string name="almeria">Almeria</string>
+    <string name="fragil">Es un producto fragil</string>
+
+    <string name="Juan">CablesJuan</string>
+    <string name="Pedro">MetalurgiasPedro</string>
+    <string name="amazon">Amazon</string>
+    <string name="ali">Aliexpress</string>
+    <string name="pc">PCcomponentes</string>
+
+    <array name="arrayProvincias">
+        <item>@string/jaen</item>
+        <item>@string/cordoba</item>
+        <item>@string/sevilla</item>
+        <item>@string/huelva</item>
+        <item>@string/cadiz</item>
+        <item>@string/malaga</item>
+        <item>@string/granada</item>
+        <item>@string/almeria</item>
+    </array>
+
+    <array name="arrayProveedores">
+        <item>@string/Juan</item>
+        <item>@string/Pedro</item>
+        <item>@string/amazon</item>
+        <item>@string/ali</item>
+        <item>@string/pc</item>
+    </array>
 </resources>
