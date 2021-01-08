@@ -24,15 +24,13 @@
                 android:id="@+id/txtNombreUsuario"
                 style="@style/txtNombre"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/txtNombre" />
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/txtTipoUsuario"
-                style="@style/txtPrecio"
+                style="@style/txtTipo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/txtTipo" />
+                android:layout_height="wrap_content"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,7 +49,8 @@
                 <ImageView
                     android:id="@+id/imgUsuario"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    app:srcCompat="@android:drawable/ic_menu_help" />
 
             </LinearLayout>
 

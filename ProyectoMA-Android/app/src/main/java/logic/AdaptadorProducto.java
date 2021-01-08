@@ -36,7 +36,7 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Ho
     @Override
     public void onBindViewHolder(@NonNull HolderProducto holder, int position) {
         holder.txtNombreProd.setText(Datos.prod.get(position).getsNombre());
-        holder.txtPrecioProd.setText(Datos.prod.get(position).getfPrecio()+" €");
+        holder.txtTipoUsuario.setText(Datos.prod.get(position).getsTipo());
         holder.ratPuntuacion.setRating((Datos.prod.get(position).getEstrellas()));
 
         holder.cardProductos.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +61,7 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Ho
     public class HolderProducto extends RecyclerView.ViewHolder{
         CardView cardProductos;
         TextView txtNombreProd;
-        TextView txtPrecioProd;
+        TextView txtTipoUsuario;
         RatingBar ratPuntuacion;
         ImageView imgFragil;
 
@@ -70,7 +70,7 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Ho
 
             cardProductos = itemView.findViewById(R.id.cardProductos);
             txtNombreProd = itemView.findViewById(R.id.txtNombreUsuario);
-            txtPrecioProd = itemView.findViewById(R.id.txtTipoUsuario);
+            txtTipoUsuario = itemView.findViewById(R.id.txtTipoUsuario);
             ratPuntuacion = itemView.findViewById(R.id.ratPuntuacion);
             imgFragil = itemView.findViewById(R.id.imgUsuario);
         }

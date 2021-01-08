@@ -2,18 +2,17 @@ package model;
 
 public class Productos {
 
-    private String sNombre;
+    private String sNombre,sTipo;
     private int iFormaEnvio,iProvincia,iNomProveedor;
-    private float fPrecio;
     private float estrellas;
     private boolean bFragil;
 
-    public Productos(String sNombre, int iFormaEnvio, int iProvincia, int iNomProveedor, float fPrecio, boolean bFragil, float estrellas) {
+    public Productos(String sNombre,String sTipo, int iFormaEnvio, int iProvincia, int iNomProveedor, boolean bFragil, float estrellas) {
         this.sNombre = sNombre;
         this.iFormaEnvio = iFormaEnvio;
         this.iProvincia = iProvincia;
         this.iNomProveedor = iNomProveedor;
-        this.fPrecio = fPrecio;
+        this.sTipo = sTipo;
         this.bFragil = bFragil;
         this.estrellas = estrellas;
     }
@@ -50,12 +49,12 @@ public class Productos {
         this.iNomProveedor = iNomProveedor;
     }
 
-    public float getfPrecio() {
-        return fPrecio;
+    public String getsTipo() {
+        return sTipo;
     }
 
-    public void setfPrecio(float fPrecio) {
-        this.fPrecio = fPrecio;
+    public void setsTipo(String sTipo) {
+        this.sTipo = sTipo;
     }
 
     public boolean isbFragil() {
@@ -78,12 +77,12 @@ public class Productos {
     public String toString() {
         return "Productos{" +
                 "sNombre='" + sNombre + '\'' +
+                ", sTipo='" + sTipo + '\'' +
                 ", iFormaEnvio=" + iFormaEnvio +
                 ", iProvincia=" + iProvincia +
                 ", iNomProveedor=" + iNomProveedor +
-                ", fPrecio=" + fPrecio +
-                ", bFragil=" + bFragil +
                 ", estrellas=" + estrellas +
+                ", bFragil=" + bFragil +
                 '}';
     }
 }

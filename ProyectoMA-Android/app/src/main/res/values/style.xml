@@ -27,7 +27,7 @@
     </style>
 
     <style name="txtTipo">
-        <item name="android:hint">Precio</item>
+        <item name="android:hint">Tipo</item>
         <item name="android:textSize">18sp</item>
         <item name="android:layout_marginTop">@dimen/distexto</item>
     </style>
