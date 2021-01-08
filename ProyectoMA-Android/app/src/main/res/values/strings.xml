@@ -1,14 +1,13 @@
 <resources>
     <string name="app_name">ProyectoMA</string>
     <string name="txtNombre">Nombre</string>
-    <string name="txtPrecio">Precio</string>
+    <string name="txtTipo">Tipo</string>
     <string name="btnName">Guardar</string>
     <string name="pack">Pack</string>
     <string name="bolsa">Bolsa</string>
     <string name="brick">Brick</string>
     <string name="caja">Caja</string>
     <string name="otro">Otro</string>
-    <string name="ButtonGrafica">Grafico</string>
 
     <string name="guardarIcon">Guardar</string>
     <string name="borrarIcon">Borrar</string>

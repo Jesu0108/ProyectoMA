@@ -69,10 +69,10 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Ho
             super(itemView);
 
             cardProductos = itemView.findViewById(R.id.cardProductos);
-            txtNombreProd = itemView.findViewById(R.id.txtNombreProd);
-            txtPrecioProd = itemView.findViewById(R.id.txtPrecioProd);
+            txtNombreProd = itemView.findViewById(R.id.txtNombreUsuario);
+            txtPrecioProd = itemView.findViewById(R.id.txtTipoUsuario);
             ratPuntuacion = itemView.findViewById(R.id.ratPuntuacion);
-            imgFragil = itemView.findViewById(R.id.imgFragil);
+            imgFragil = itemView.findViewById(R.id.imgUsuario);
         }
     }
 }
