@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProyectoMA</string>
+    <string name="app_name">CookToMe</string>
     <string name="txtNombre">Nombre</string>
     <string name="txtTipo">Tipo</string>
     <string name="btnName">Guardar</string>
