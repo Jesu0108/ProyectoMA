@@ -2,13 +2,24 @@ package model;
 
 public class Perfil {
 
-    private String sNombre, sTipo, sPassword;
+    private String sNombre, sPassword, sPlato;
+    private boolean bTipo;
     private float estrellas;
 
-    public Perfil(String sNombre, String sTipo, String sPassword, float estrellas) {
+    //Constructor sin plato estrella
+    public Perfil(String sNombre, boolean bTipo, String sPassword, float estrellas) {
         this.sNombre = sNombre;
-        this.sTipo = sTipo;
+        this.bTipo = bTipo;
         this.sPassword = sPassword;
+        this.estrellas = estrellas;
+    }
+
+    //Constructor completo
+    public Perfil(String sNombre, boolean bTipo, String sPassword, String sPlato, float estrellas) {
+        this.sNombre = sNombre;
+        this.bTipo = bTipo;
+        this.sPassword = sPassword;
+        this.sPlato = sPlato;
         this.estrellas = estrellas;
     }
 
@@ -20,12 +31,12 @@ public class Perfil {
         this.sNombre = sNombre;
     }
 
-    public String getsTipo() {
-        return sTipo;
+    public boolean isbTipo() {
+        return bTipo;
     }
 
-    public void setsTipo(String sTipo) {
-        this.sTipo = sTipo;
+    public void setbTipo(boolean bTipo) {
+        this.bTipo = bTipo;
     }
 
     public String getsPassword() {
@@ -34,6 +45,14 @@ public class Perfil {
 
     public void setsPassword(String sPassword) {
         this.sPassword = sPassword;
+    }
+
+    public String getsPlato() {
+        return sPlato;
+    }
+
+    public void setsPlato(String sPlato) {
+        this.sPlato = sPlato;
     }
 
     public float getEstrellas() {
@@ -48,8 +67,9 @@ public class Perfil {
     public String toString() {
         return "Perfil{" +
                 "sNombre='" + sNombre + '\'' +
-                ", sTipo='" + sTipo + '\'' +
+                ", bTipo='" + bTipo + '\'' +
                 ", sPassword='" + sPassword + '\'' +
+                ", sPlato='" + sPlato + '\'' +
                 ", estrellas=" + estrellas +
                 '}';
     }

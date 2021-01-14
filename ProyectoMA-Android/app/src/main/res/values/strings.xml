@@ -5,5 +5,6 @@
     <string name="btnRegistro">Resgitrarse</string>
     <string name="btnLogueo">Loguearse</string>
     <string name="lblWelcome">Bienvenido/a</string>
+    <string name="lblRegistro">¿No tienes cuenta?</string>
 
 </resources>

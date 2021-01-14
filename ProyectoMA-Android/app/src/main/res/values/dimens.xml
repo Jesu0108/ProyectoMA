@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="disComponents">16dp</dimen>
-    <dimen name="disWelcome">36dp</dimen>
+    <dimen name="disLabels">36dp</dimen>
+    <dimen name="disLblLogueo">10dp</dimen>
     <dimen name="disGirado">40dp</dimen>
     <dimen name="sizeLblWelcome">24sp</dimen>
+    <dimen name="sizeLblRegistro">15sp</dimen>
 </resources>
