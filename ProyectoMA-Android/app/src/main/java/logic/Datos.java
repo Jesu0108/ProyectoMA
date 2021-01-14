@@ -2,8 +2,8 @@ package logic;
 
 import java.util.ArrayList;
 
-import model.Productos;
+import model.Perfil;
 
 public class Datos {
-    public static ArrayList<Productos> prod;
+    public static ArrayList<Perfil> prod;
 }

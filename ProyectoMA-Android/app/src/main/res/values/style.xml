@@ -41,4 +41,25 @@
         <item name="android:layout_marginBottom">@dimen/disWelcome</item>
     </style>
 
+    <style name="cardPredet">
+        <item name="android:padding">10dp</item>
+        <item name="android:backgroundTint">#709CA4A5</item>
+    </style>
+
+    <style name="txtCardName">
+        <item name="android:hint">Nombre</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="txtCardType">
+        <item name="android:hint">Tipo</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="imgCard">
+        <item name="android:layout_width">132dp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+
 </resources>

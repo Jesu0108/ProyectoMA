@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 import logic.AdaptadorProducto;
 import logic.Datos;
-import model.Productos;
+import model.Perfil;
 
 public class ListaView extends AppCompatActivity {
     private AdaptadorProducto adaptador;
@@ -42,12 +42,12 @@ public class ListaView extends AppCompatActivity {
         adaptador.refrescar();
     }
 
-    public static ArrayList<Productos> getElements() {
-        ArrayList<Productos> elementos = new ArrayList<Productos>();
+    public static ArrayList<Perfil> getElements() {
+        ArrayList<Perfil> elementos = new ArrayList<Perfil>();
 
         for (int i = 0; i < 10; i++) {
 
-            elementos.add(new Productos("Nombre", "cocinero", 1, 1, 0, false, 1));
+            elementos.add(new Perfil("Nombre", "cocinero","123",5));
         }
         return elementos;
     }
