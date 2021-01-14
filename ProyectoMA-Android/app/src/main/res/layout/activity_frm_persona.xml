@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,105 +7,52 @@
     android:orientation="vertical"
     tools:context="view.FrmPersona">
 
-    <EditText
-        android:id="@+id/txtNombreProducto"
-        style="@style/txtNombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName" />
+    <ImageView
+        android:id="@+id/imgPerfilUser"
+        android:layout_width="161dp"
+        android:layout_height="153dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/perropan" />
 
     <EditText
-        android:id="@+id/txtPrecioProducto"
-        style="@style/txtPrecio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number" />
-
-    <Spinner
-        android:id="@+id/spProveed"
-        style="@style/spiner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/arrayProveedores" />
-
-    <Switch
-        android:id="@+id/swFragile"
-        style="@style/swButon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:enabled="true" />
-
-    <LinearLayout
+        android:id="@+id/txtNomUser"
         android:layout_width="wrap_content"
-        android:layout_height="335dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgPerfilUser" />
 
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="169dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/disComponents">
+    <EditText
+        android:id="@+id/txtPassUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNomUser" />
 
-            <RadioButton
-                android:id="@+id/rbPack"
-                style="@style/radButnStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/pack" />
-
-            <RadioButton
-                android:id="@+id/rbCaja"
-                style="@style/radButnStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/caja" />
-
-            <RadioButton
-                android:id="@+id/rbBolsa"
-                style="@style/radButnStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/bolsa" />
-
-            <RadioButton
-                android:id="@+id/rbBrick"
-                style="@style/radButnStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/brick" />
-
-            <RadioButton
-                android:id="@+id/rbOtro"
-                style="@style/radButnStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/otro" />
-        </RadioGroup>
-
-        <ListView
-            android:id="@+id/listProv"
-            android:layout_width="wrap_content"
-            android:layout_height="240dp"
-            android:layout_marginStart="@dimen/disComponents"
-            android:layout_marginTop="@dimen/disComponents"
-            android:layout_marginEnd="@dimen/disComponents"
-            android:entries="@array/arrayProvincias">
-        </ListView>
-    </LinearLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <RatingBar
-            android:id="@+id/ratPuntProducto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</LinearLayout>
+    <EditText
+        android:id="@+id/txtTipoUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPassUser" />
+</androidx.constraintlayout.widget.ConstraintLayout>
