@@ -3,11 +3,11 @@ package model;
 public class Perfil {
 
     private String sNombre, sPassword, sPlato;
-    private boolean bTipo;
+    private byte bTipo;
     private float estrellas;
 
     //Constructor sin plato estrella
-    public Perfil(String sNombre, boolean bTipo, String sPassword, float estrellas) {
+    public Perfil(String sNombre, byte bTipo, String sPassword, float estrellas) {
         this.sNombre = sNombre;
         this.bTipo = bTipo;
         this.sPassword = sPassword;
@@ -15,7 +15,7 @@ public class Perfil {
     }
 
     //Constructor completo
-    public Perfil(String sNombre, boolean bTipo, String sPassword, String sPlato, float estrellas) {
+    public Perfil(String sNombre, byte bTipo, String sPassword, String sPlato, float estrellas) {
         this.sNombre = sNombre;
         this.bTipo = bTipo;
         this.sPassword = sPassword;
@@ -31,11 +31,11 @@ public class Perfil {
         this.sNombre = sNombre;
     }
 
-    public boolean isbTipo() {
+    public byte isbTipo() {
         return bTipo;
     }
 
-    public void setbTipo(boolean bTipo) {
+    public void setbTipo(byte bTipo) {
         this.bTipo = bTipo;
     }
 
