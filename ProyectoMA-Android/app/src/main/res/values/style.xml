@@ -23,6 +23,7 @@
     <style name="btnRegistro">
         <item name="android:text">@string/btnRegistro</item>
         <item name="android:layout_marginStart">68dp</item>
+        <item name="android:layout_marginBottom">56dp</item>
         <item name="android:backgroundTint">#B0B2B3</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
