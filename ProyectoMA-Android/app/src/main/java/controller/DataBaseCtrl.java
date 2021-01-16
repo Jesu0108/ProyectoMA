@@ -18,7 +18,16 @@ import java.util.List;
 import model.Perfil;
 
 public class DataBaseCtrl {
-    private class Load_1Coche_AsyncTask extends AsyncTask<String,Void,Void> {
+
+    private void cargaDatos() {
+        new LoadDataCoches_AsyncTask().execute("http://jesusmedac.tk/getCoches.php");
+    }
+
+    private void get1User(int code) {
+        new Load_1User_AsyncTask().execute("http://192.168.31.224/jesusmedac.tk/get1User.php?user="+code);
+    }
+
+    private class Load_1User_AsyncTask extends AsyncTask<String,Void,Void> {
         String resultado;
         private Perfil user;
         @Override
