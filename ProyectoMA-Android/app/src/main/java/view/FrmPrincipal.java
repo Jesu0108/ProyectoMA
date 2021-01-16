@@ -2,6 +2,7 @@ package view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,7 +29,7 @@ public class FrmPrincipal extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (controller.PrincipalCtrl.userExist()) {
-                    //Lleva al usuario a la pantalla de 'FrmPersona' (pantalla donde se ven todos los usuarios)
+                    Intent ventanaGrafica = new Intent(getApplicationContext(), FrmPersona.class);
                 } else {
                     Toast.makeText(FrmPrincipal.this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
                 }
