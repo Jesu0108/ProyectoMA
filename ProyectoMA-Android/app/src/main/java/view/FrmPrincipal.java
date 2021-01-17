@@ -29,7 +29,7 @@ public class FrmPrincipal extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (controller.PrincipalCtrl.userExist()) {
-                    Intent ventanaGrafica = new Intent(getApplicationContext(), FrmPersona.class);
+                    Intent ventana = new Intent(getApplicationContext(), FrmPersona.class);
                 } else {
                     Toast.makeText(FrmPrincipal.this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
                 }
@@ -40,7 +40,7 @@ public class FrmPrincipal extends AppCompatActivity {
         btnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Lleva al usuario a la pantalla de edicion de datos
+                Intent i = new Intent(getApplicationContext(), FrmRegistro.class);
             }
         });
 

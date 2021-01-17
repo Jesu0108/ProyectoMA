@@ -20,11 +20,16 @@ import model.Perfil;
 public class DataBaseCtrl {
 
     private void cargaDatos() {
-        new LoadDataCoches_AsyncTask().execute("http://jesusmedac.tk/getCoches.php");
+        new LoadDataUsers_AsyncTask().execute("http://jesusmedac.tk/getUsers.php");
     }
 
-    private void get1User(int code) {
-        new Load_1User_AsyncTask().execute("http://192.168.31.224/jesusmedac.tk/get1User.php?user="+code);
+    private void get1User(String user,String pass) {
+        new Load_1User_AsyncTask().execute("http://jesusmedac.tk/get1User.php?usuario="+user+"&contrasenia="+pass);
+    }
+
+    private void insert1User(String correo,String user,String pass,int type,String plato,int stars) {
+        new Load_1User_AsyncTask().execute("http://jesusmedac.tk/insert1User.php?correo="+correo+"&usuario="+user+"&contrasenia="+pass
+                +"&tipo="+type+"&plato="+plato+"&estrellas="+stars);
     }
 
     private class Load_1User_AsyncTask extends AsyncTask<String,Void,Void> {
@@ -67,7 +72,7 @@ public class DataBaseCtrl {
         }
     }
 
-    private class LoadDataCoches_AsyncTask extends AsyncTask<String,Void,Void>{
+    private class LoadDataUsers_AsyncTask extends AsyncTask<String,Void,Void>{
         String resultado;
 
         @Override
@@ -92,6 +97,22 @@ public class DataBaseCtrl {
                 resultado = e.getMessage();
             }
             return null;
+        }
+        @Override
+        public void onPostExecute(Void aVoid){
+            super.onPostExecute(aVoid);
+
+            Gson gson = new Gson();
+            Type type = new TypeToken<List<Perfil>>(){}.getType();
+            List<Perfil> listPerfiles = gson.fromJson(resultado,type);
+
+            List<String> lstNombres = new ArrayList<>();
+
+            //Esta lista debe cambiarse para que sea la que guarda los erfiles que venen de la base de datos
+            for (Perfil c: listPerfiles){
+                lstNombres.add(c.getsNombre());
+            }
+            //spMarcas.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,lsMarcas));
         }
     }
 
