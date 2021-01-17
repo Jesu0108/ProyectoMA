@@ -28,8 +28,8 @@ public class FrmPrincipal extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (controller.PrincipalCtrl.userExist()) {
-                    Intent ventana = new Intent(getApplicationContext(), FrmPersona.class);
+                if (controller.PrincipalCtrl.userExist(txtUsuario,txtContra)) {
+                    Intent ventana = new Intent(getApplicationContext(), ListaView.class);
                 } else {
                     Toast.makeText(FrmPrincipal.this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
                 }
