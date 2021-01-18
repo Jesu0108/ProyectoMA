@@ -6,13 +6,16 @@ import android.widget.Spinner;
 public class PrincipalCtrl {
 
     public static boolean userExist(EditText txtUser, EditText txtPass) {
+        String sUsuario, sPass;
 
+        sUsuario = txtUser.getText().toString();
+        sPass = txtPass.getText().toString();
 
-        return false;
+        return DataBaseCtrl.get1User(sUsuario, sPass);
     }
 
     public static boolean userRegistro(EditText txtCorreo, EditText txtUser, EditText txtPass, Spinner spTipo) {
-        String sCorreo,sUser,sPass,sTipo;
+        String sCorreo, sUser, sPass, sTipo;
 
         sCorreo = txtCorreo.getText().toString();
         sUser = txtUser.getText().toString();

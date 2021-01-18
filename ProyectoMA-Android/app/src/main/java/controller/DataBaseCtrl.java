@@ -19,20 +19,23 @@ import model.Perfil;
 
 public class DataBaseCtrl {
 
-    private void cargaDatos() {
+    private static boolean bGetUser;
+
+    public static void cargaDatos() {
         new LoadDataUsers_AsyncTask().execute("http://jesusmedac.tk/getUsers.php");
     }
 
-    private void get1User(String user,String pass) {
+    public static boolean get1User(String user,String pass) {
         new Load_1User_AsyncTask().execute("http://jesusmedac.tk/get1User.php?usuario="+user+"&contrasenia="+pass);
+        return bGetUser;
     }
 
-    private void insert1User(String correo,String user,String pass,int type,String plato,int stars) {
+    public static void insert1User(String correo,String user,String pass,int type,String plato,int stars) {
         new Load_1User_AsyncTask().execute("http://jesusmedac.tk/insert1User.php?correo="+correo+"&usuario="+user+"&contrasenia="+pass
                 +"&tipo="+type+"&plato="+plato+"&estrellas="+stars);
     }
 
-    private class Load_1User_AsyncTask extends AsyncTask<String,Void,Void> {
+    private static class Load_1User_AsyncTask extends AsyncTask<String,Void,Void> {
         String resultado;
         private Perfil user;
         @Override
@@ -53,6 +56,12 @@ public class DataBaseCtrl {
                 bufferedReader.close();
                 resultado = str;
 
+                if(resultado != null){
+                    bGetUser = true;
+                }else{
+                    bGetUser = false;
+                }
+
             }catch (IOException e){
                 resultado = e.getMessage();
             }
@@ -72,7 +81,7 @@ public class DataBaseCtrl {
         }
     }
 
-    private class LoadDataUsers_AsyncTask extends AsyncTask<String,Void,Void>{
+    private static class LoadDataUsers_AsyncTask extends AsyncTask<String,Void,Void>{
         String resultado;
 
         @Override
