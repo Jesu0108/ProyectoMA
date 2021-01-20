@@ -16,19 +16,17 @@ public class PrincipalCtrl {
 		sUsuario = FrmPrincipal.txtUsuario.getText();
 		sContra = FrmPrincipal.txtContra.getText();
 		try {
-			String url = "http://jesusmedac.tk/get1User.php?usuario=" + sUsuario+"&contrasenia="+sContra;
+			String url = "http://jesusmedac.tk/getUserCorreo.php?correo=" + sUsuario+"&contrasenia="+sContra;
 			String respuesta = ConexionPHP.peticionHttp(url);
 
-			lstPerfiles = ConexionPHP.JsonToPerfiles(respuesta);
+			lstPerfiles = ConexionPHP.JsonToPerfilesLog(respuesta);
 
 			if (lstPerfiles.isEmpty()) {
 				bExito = false;
 			} else {
 				bExito = true;
 			}
-
 		} catch (Exception e) {
-
 			System.out.println(e.getMessage());
 		}
 		return bExito;

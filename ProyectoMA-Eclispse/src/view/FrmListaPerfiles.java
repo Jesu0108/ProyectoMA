@@ -11,25 +11,35 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class FrmListaPerfiles extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	public static JTable tblResult;
+	public static JPanel contentPane;
 
 	public FrmListaPerfiles() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				controller.ListaPerfilesCtrl.confirmExit();
+			}
+		});
+		
 		createForm();
-		controller.CtrlListaPerfiles.loadData();
+		controller.ListaPerfilesCtrl.loadData();
 		setVisible(true);
 	}
 	
 	private void createForm() {
 		setModal(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 200, 300);
 		setTitle("Listado");
 		
-		JPanel contentPane = new JPanel();
+		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
@@ -42,7 +52,7 @@ public class FrmListaPerfiles extends JDialog {
 		tblResult.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controller.CtrlListaPerfiles.tableRowSelected();
+				controller.ListaPerfilesCtrl.tableRowSelected();
 			}
 		});
 		panelDat.setViewportView(tblResult);

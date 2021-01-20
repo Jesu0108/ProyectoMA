@@ -25,12 +25,12 @@ public class DataBase {
 	}
 
 	public static void openConnectionMySQL() throws SQLException {
-		String DB_HOST = "localhost";
+		String DB_HOST = "fdb30.awardspace.net";
 		String DB_PORT = "3306";
-		String DB_SID = "medac";
+		String DB_SID = "3686863_medac";
 
-		String DB_USER = "root";
-		String DB_PASS = "";
+		String DB_USER = "3686863_medac";
+		String DB_PASS = "Medac2020";
 
 		String db_url = "jdbc:mysql://" + DB_HOST + ":" + DB_PORT + "/" + DB_SID + "?user=" + DB_USER + "&password="
 				+ DB_PASS;

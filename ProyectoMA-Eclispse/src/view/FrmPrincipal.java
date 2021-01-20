@@ -43,7 +43,7 @@ public class FrmPrincipal extends JFrame {
 	}
 	
 	public FrmPrincipal() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("img\\chef_color-grande.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("img\\chef_color_fondo.png"));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

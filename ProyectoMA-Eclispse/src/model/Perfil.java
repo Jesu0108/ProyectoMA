@@ -9,6 +9,12 @@ public class Perfil {
 
 	}
 
+	public Perfil(String sCorreo, String sContra) {
+		setsCorreo(sCorreo);
+		setsContra(sContra);
+
+	}
+	
 	public Perfil(String sCorreo, String sUsuario, String sContra, String sTipo, String sPlato, Integer iEstrellas) {
 		setsCorreo(sCorreo);
 		setsUsuario(sUsuario);

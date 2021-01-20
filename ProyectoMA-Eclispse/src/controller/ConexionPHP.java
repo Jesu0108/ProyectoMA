@@ -33,7 +33,36 @@ public class ConexionPHP {
 
 		return lstResultado;
 	}
+	
+	public static List<Perfil> JsonToPerfilesLog(String respuesta) {
 
+		List<Perfil> lstResultado = new ArrayList<>();
+
+		JSONArray jsonA = new JSONArray(respuesta);
+
+		for (int i = 0; i < jsonA.length(); i++) {
+
+			JSONObject jsonO = jsonA.getJSONObject(i);
+
+			Perfil c = JsonToPerfilLog(jsonO);
+
+			lstResultado.add(c);
+
+		}
+
+		return lstResultado;
+	}
+
+	public static Perfil JsonToPerfilLog(JSONObject jsonO) {
+
+		String correo = jsonO.getString("correo");
+		String contrasenia = jsonO.getString("contrasenia");
+
+		Perfil c = new Perfil(correo, contrasenia);
+
+		return c;
+	}
+	
 	public static Perfil JsonToPerfil(JSONObject jsonO) {
 
 		String correo = jsonO.getString("correo");

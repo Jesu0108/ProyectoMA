@@ -2,11 +2,13 @@ package controller;
 
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import model.Perfil;
+import view.FrmListaPerfiles;
 
-public class CtrlListaPerfiles {
+public class ListaPerfilesCtrl {
 
 	public static void tableRowSelected() {
 		new view.FrmListaPerfiles();
@@ -20,6 +22,12 @@ public class CtrlListaPerfiles {
 		} catch (Exception e) {
 			System.err.println("Fallo: " + e.getMessage());
 			e.getStackTrace();
+		}
+	}
+
+	public static void confirmExit() {
+		if(JOptionPane.showConfirmDialog(FrmListaPerfiles.contentPane, "¿Seguro que desea salir?",null, 2) == JOptionPane.YES_OPTION) {
+			System.exit(0);
 		}
 	}
 }
