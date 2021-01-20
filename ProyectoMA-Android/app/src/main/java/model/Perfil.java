@@ -5,6 +5,12 @@ public class Perfil {
     private String sNombre, sPassword, sPlato,sTipo;
     private float estrellas;
 
+    //Constructor logueo
+    public Perfil(String sNombre,String sPassword) {
+        this.sNombre = sNombre;
+        this.sPassword = sPassword;
+    }
+
     //Constructor sin plato estrella
     public Perfil(String sNombre, String sTipo, String sPassword, float estrellas) {
         this.sNombre = sNombre;
