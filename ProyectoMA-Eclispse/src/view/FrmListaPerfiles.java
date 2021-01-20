@@ -28,8 +28,8 @@ public class FrmListaPerfiles extends JDialog {
 			}
 		});
 		
-		createForm();
 		controller.ListaPerfilesCtrl.loadData();
+		createForm();
 		setVisible(true);
 	}
 	

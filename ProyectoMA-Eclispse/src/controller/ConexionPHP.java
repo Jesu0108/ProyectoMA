@@ -26,7 +26,7 @@ public class ConexionPHP {
 			JSONObject jsonO = jsonA.getJSONObject(i);
 
 			Perfil c = JsonToPerfil(jsonO);
-
+			
 			lstResultado.add(c);
 
 		}

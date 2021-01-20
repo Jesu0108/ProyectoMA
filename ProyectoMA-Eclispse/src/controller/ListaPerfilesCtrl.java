@@ -16,9 +16,20 @@ public class ListaPerfilesCtrl {
 
 	public static void loadData() {
 		try {
-			List<Perfil> resultado = logic.LogPerfiles.getPerfiles();
+			String url = "http://jesusmedac.tk/getUsers.php";
+			String respuesta = ConexionPHP.peticionHttp(url);
+			
+			List<Perfil> resultado = controller.ConexionPHP.JsonToPerfiles(respuesta);
+			
+			for (Perfil perfil : resultado) {
+				System.out.println("\n"+perfil);
+			}
+			
 			DefaultTableModel modelo = utils.GUI.generarTablaPerfiles(resultado);
+			
 			view.FrmListaPerfiles.tblResult.setModel(modelo);
+			
+			System.out.println("\n---NO LLEGO AQUI---");
 		} catch (Exception e) {
 			System.err.println("Fallo: " + e.getMessage());
 			e.getStackTrace();

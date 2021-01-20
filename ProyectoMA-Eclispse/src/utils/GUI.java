@@ -30,10 +30,8 @@ public class GUI {
 			for (int col = 1; col <= totalColumnas; col++) {
 				fila[col - 1] = resultado.getString(col);
 			}
-
 			modelo.addRow(fila);
 		}
-
 		return modelo;
 	}
 
@@ -54,5 +52,4 @@ public class GUI {
 		}		
 		return modelo;
 	}
-
 }

@@ -74,7 +74,7 @@ public class Perfil {
 
 	@Override
 	public String toString() {
-		return "Correo= " + sCorreo + "\nUsuario= " + sUsuario + "\n Contraseña= " + sContra + "\nTipo= " + sTipo
+		return "Correo= " + sCorreo + "\nUsuario= " + sUsuario + "\nContraseña= " + sContra + "\nTipo= " + sTipo
 				+ "\nPlato= " + sPlato + "\nEstrellas= " + iEstrellas;
 	}
 
