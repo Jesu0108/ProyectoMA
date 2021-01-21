@@ -36,8 +36,8 @@ public class DataBaseCtrl {
         return bGetUser;
     }
 
-    public static void insert1User(String correo,String user,String pass,int type,String plato,int stars) {
-        new Load_1User_AsyncTask().execute("http://jesusmedac.tk/insert1User.php?correo="+correo+"&usuario="+user+"&contrasenia="+pass
+    public static void insert1User(String correo,String user,String pass,String type,String plato,int stars) {
+        new LoadDataUsers_AsyncTask().execute("http://jesusmedac.tk/insert1User.php?correo="+correo+"&usuario="+user+"&contrasenia="+pass
                 +"&tipo="+type+"&plato="+plato+"&estrellas="+stars);
     }
 

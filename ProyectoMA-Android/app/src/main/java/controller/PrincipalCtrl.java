@@ -14,14 +14,15 @@ public class PrincipalCtrl {
         return DataBaseCtrl.get1User(sUsuario, sPass);
     }
 
-    public static boolean userRegistro(EditText txtCorreo, EditText txtUser, EditText txtPass, Spinner spTipo) {
-        String sCorreo, sUser, sPass, sTipo;
+    public static boolean userRegistro(EditText txtCorreo, EditText txtUser, EditText txtPass, Spinner spTipo,EditText txtPlato) {
+        String sCorreo, sUser, sPass, sTipo,sPlato;
 
         sCorreo = txtCorreo.getText().toString();
         sUser = txtUser.getText().toString();
         sPass = txtPass.getText().toString();
         sTipo = spTipo.getSelectedItem().toString();
+        sPlato = txtPlato.getText().toString();
 
-        return false;
+        return DataBaseCtrl.insert1User(sCorreo,sUser,sPass,sTipo,sPlato);
     }
 }
