@@ -20,19 +20,21 @@ public class FrmEdicionPerfil extends JDialog {
 	public static JTextField txtCorreo;
 	public static JTextField txtContra;
 	private static JTextField txtUsuario;
-	private static JTextField txtEstrellas;
+	private static JTextField txtLocalidad;
+	private static JTextField txtPais;
+	private static JTextField txtTelefono;
 	private static JTextField txtPlato;
 	private static JTextField txtTipo;
 
 	public FrmEdicionPerfil() {
 		setModal(true);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 280, 220);
+		setBounds(100, 100, 280, 252);
 		setTitle("Editar perfil");
 		getContentPane().setLayout(new BorderLayout());
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPane, BorderLayout.CENTER);
-		contentPane.setLayout(new GridLayout(6, 2, 0, 0));
+		contentPane.setLayout(new GridLayout(8, 2, 0, 0));
 
 		contentPane.add(new JLabel("Correo:"));
 		txtCorreo = new JTextField();
@@ -50,13 +52,21 @@ public class FrmEdicionPerfil extends JDialog {
 		txtTipo = new JTextField();
 		contentPane.add(txtTipo);
 		
+		contentPane.add(new JLabel("Telefono:"));
+		txtTelefono = new JTextField();
+		contentPane.add(txtTelefono);
+		
 		contentPane.add(new JLabel("Plato:"));
 		txtPlato = new JTextField();
 		contentPane.add(txtPlato);
 		
-		contentPane.add(new JLabel("Estrellas:"));
-		txtEstrellas = new JTextField();
-		contentPane.add(txtEstrellas);
+		contentPane.add(new JLabel("Localidad:"));
+		txtLocalidad = new JTextField();
+		contentPane.add(txtLocalidad);
+		
+		contentPane.add(new JLabel("Pais:"));
+		txtPais = new JTextField();
+		contentPane.add(txtPais);		
 
 		JPanel buttonPane = new JPanel();
 		buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
