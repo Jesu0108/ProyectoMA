@@ -82,6 +82,7 @@ public class DataBaseCtrl {
                         bGetUser = false;
                     }
                 }else {
+
                     Log.i("COCINA","ES NULO -> " + user);
                     bGetUser = false;
                 }
