@@ -65,6 +65,22 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="txtLocalidad">
+        <item name="android:hint">Localidad</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="txtTelefono">
+        <item name="android:hint">Telefono</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
+    <style name="txtPais">
+        <item name="android:hint">Pais</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <style name="txtCardType">
         <item name="android:hint">Tipo</item>
         <item name="android:textSize">18sp</item>

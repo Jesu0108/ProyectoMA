@@ -1,5 +1,6 @@
 package controller;
 
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -7,11 +8,16 @@ public class PrincipalCtrl {
 
     public static boolean userExist(EditText txtUser, EditText txtPass) {
         String sUsuario, sPass;
+        boolean b;
 
         sUsuario = txtUser.getText().toString();
         sPass = txtPass.getText().toString();
 
-        return DataBaseCtrl.get1User(sUsuario, sPass);
+
+        DataBaseCtrl.get1User(sUsuario, sPass);
+        Log.i("COCINA","BOOLEANO CTRL-->"+DataBaseCtrl.bGetUser);
+
+        return DataBaseCtrl.bGetUser;
     }
 
     public static boolean userRegistro(EditText txtCorreo, EditText txtUser, EditText txtPass, Spinner spTipo,EditText txtPlato) {
@@ -23,6 +29,6 @@ public class PrincipalCtrl {
         sTipo = spTipo.getSelectedItem().toString();
         sPlato = txtPlato.getText().toString();
 
-        return DataBaseCtrl.insert1User(sCorreo,sUser,sPass,sTipo,sPlato);
+        return DataBaseCtrl.insert1User(sCorreo,sUser,sPass,sTipo,sPlato,1);
     }
 }

@@ -2,8 +2,6 @@ package controller;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -15,30 +13,27 @@ import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Semaphore;
 
 import model.Perfil;
 
 public class DataBaseCtrl {
 
-    private static boolean bGetUser = true;
+    public static boolean bGetUser;
     private static Perfil user;
 
     public static void cargaDatos() {
         new LoadDataUsers_AsyncTask().execute("http://jesusmedac.tk/getUsers.php");
     }
 
-    public static boolean get1User(String user,String pass) {
-        System.out.println("usuario:"+user+" -- pass:"+pass);
+    public static void get1User(String user,String pass) {
         new Load_1User_AsyncTask().execute("http://jesusmedac.tk/get1User.php?usuario="+user+"&contrasenia="+pass);
-
-        System.out.print("desde la bd"+bGetUser);
-        return bGetUser;
+        Log.i("COCINA","BOOLEANO DBCTRL: "+bGetUser);
     }
 
-    public static void insert1User(String correo,String user,String pass,String type,String plato,int stars) {
+    public static boolean insert1User(String correo, String user, String pass, String type, String plato, int stars) {
         new LoadDataUsers_AsyncTask().execute("http://jesusmedac.tk/insert1User.php?correo="+correo+"&usuario="+user+"&contrasenia="+pass
                 +"&tipo="+type+"&plato="+plato+"&estrellas="+stars);
+        return false;
     }
 
     private static class Load_1User_AsyncTask extends AsyncTask<String,Void,Void> {
@@ -48,9 +43,6 @@ public class DataBaseCtrl {
         protected Void doInBackground(String... params) {
             try {
                 URL url = new URL(params[0]);
-
-                System.out.println("URL--------> "+url);
-
                 //Abrimos el canal de comunicaciones hacia mi url
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(url.openStream()));
 
@@ -63,15 +55,6 @@ public class DataBaseCtrl {
                 bufferedReader.close();
                 resultado = str;
 
-                System.out.println("resultado:----------------------"+resultado);
-
-                if(resultado != null){
-                    bGetUser = true;
-                    System.out.println("--Aqui entra--");
-                }else{
-                    bGetUser = false;
-                }
-
             }catch (IOException e){
                 resultado = e.getMessage();
             }
@@ -83,10 +66,25 @@ public class DataBaseCtrl {
             super.onPostExecute(aVoid);
             Gson gson = new Gson();
             Type type = new TypeToken<List<Perfil>>(){}.getType();
-            List<Perfil> listCoches = gson.fromJson(resultado,type);
 
-            user = listCoches.get(0);
-            Log.i("ARTIGUEZ","Perfil: "+user);
+                List<Perfil> listPerfiles = gson.fromJson(resultado,type);
+
+                if(listPerfiles!=null){
+                    if(listPerfiles.size()>0){
+                        user = listPerfiles.get(0);
+                        bGetUser = true;
+                        Log.i("COCINA","RESULTADO: "+resultado);
+                        Log.i("COCINA","LISTA: "+listPerfiles.toString());
+                        Log.i("COCINA","Perfil: "+user);
+
+                    } else {
+                        Log.i("COCINA","TIENE 0 ELEMENTOS -> "+user);
+                        bGetUser = false;
+                    }
+                }else {
+                    Log.i("COCINA","ES NULO -> " + user);
+                    bGetUser = false;
+                }
         }
     }
 
@@ -128,11 +126,10 @@ public class DataBaseCtrl {
 
             //Esta lista debe cambiarse para que sea la que guarda los erfiles que venen de la base de datos
             for (Perfil c: listPerfiles){
-                lstNombres.add(c.getsNombre());
+                lstNombres.add(c.getUsuario());
             }
             //spMarcas.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,lsMarcas));
         }
     }
-
 
 }

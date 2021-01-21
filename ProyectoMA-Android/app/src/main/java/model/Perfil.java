@@ -2,80 +2,97 @@ package model;
 
 public class Perfil {
 
-    private String sNombre, sPassword, sPlato,sTipo;
-    private float estrellas;
+    private String usuario;
+    private String contrasenia;
+    private String plato;
+    private String tipo;
+    private String localidad;
+    private String pais;
+    private String telefono;
 
     //Constructor logueo
-    public Perfil(String sNombre,String sPassword) {
-        this.sNombre = sNombre;
-        this.sPassword = sPassword;
-    }
-
-    //Constructor sin plato estrella
-    public Perfil(String sNombre, String sTipo, String sPassword, float estrellas) {
-        this.sNombre = sNombre;
-        this.sTipo = sTipo;
-        this.sPassword = sPassword;
-        this.estrellas = estrellas;
+    public Perfil(String usuario, String contrasenia) {
+        this.usuario = usuario;
+        this.contrasenia = contrasenia;
     }
 
     //Constructor completo
-    public Perfil(String sNombre, String sTipo, String sPassword, String sPlato, float estrellas) {
-        this.sNombre = sNombre;
-        this.sTipo = sTipo;
-        this.sPassword = sPassword;
-        this.sPlato = sPlato;
-        this.estrellas = estrellas;
+    public Perfil(String usuario, String contrasenia, String plato, String tipo, String localidad, String pais, String telefono) {
+        this.usuario = usuario;
+        this.contrasenia = contrasenia;
+        this.plato = plato;
+        this.tipo = tipo;
+        this.localidad = localidad;
+        this.pais = pais;
+        this.telefono = telefono;
     }
 
-    public String getsNombre() {
-        return sNombre;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setsNombre(String sNombre) {
-        this.sNombre = sNombre;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
-    public String getsPassword() {
-        return sPassword;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setsPassword(String sPassword) {
-        this.sPassword = sPassword;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
-    public String getsPlato() {
-        return sPlato;
+    public String getPlato() {
+        return plato;
     }
 
-    public void setsPlato(String sPlato) {
-        this.sPlato = sPlato;
+    public void setPlato(String plato) {
+        this.plato = plato;
     }
 
-    public String getsTipo() {
-        return sTipo;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setsTipo(String sTipo) {
-        this.sTipo = sTipo;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    public float getEstrellas() {
-        return estrellas;
+    public String getLocalidad() {
+        return localidad;
     }
 
-    public void setEstrellas(float estrellas) {
-        this.estrellas = estrellas;
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     @Override
     public String toString() {
         return "Perfil{" +
-                "sNombre='" + sNombre + '\'' +
-                ", sPassword='" + sPassword + '\'' +
-                ", sPlato='" + sPlato + '\'' +
-                ", sTipo='" + sTipo + '\'' +
-                ", estrellas=" + estrellas +
+                "usuario='" + usuario + '\'' +
+                ", contrasenia='" + contrasenia + '\'' +
+                ", plato='" + plato + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", localidad='" + localidad + '\'' +
+                ", pais='" + pais + '\'' +
+                ", telefono='" + telefono + '\'' +
                 '}';
     }
 }

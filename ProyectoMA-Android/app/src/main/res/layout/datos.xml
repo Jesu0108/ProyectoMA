@@ -20,7 +20,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="10dp">
@@ -39,17 +39,23 @@
 
                 <TextView
                     android:id="@+id/txtPais"
-                    android:layout_width="wrap_content"
+                    style="@style/txtPais"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="TextView" />
+                    android:layout_weight="1" />
 
                 <TextView
                     android:id="@+id/txtLocalidad"
-                    android:layout_width="wrap_content"
+                    style="@style/txtLocalidad"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="TextView" />
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/txtTelefono"
+                    style="@style/txtTelefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 

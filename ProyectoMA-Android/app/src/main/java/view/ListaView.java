@@ -47,7 +47,7 @@ public class ListaView extends AppCompatActivity {
 
         for (int i = 0; i < 10; i++) {
 
-            elementos.add(new Perfil("Nombre", "Cocinero","123",5));
+            elementos.add(new Perfil("Nombre", "pass","macarrones","cocinero","sevilla","españa","132456789"));
         }
         return elementos;
     }

@@ -9,10 +9,11 @@
 
     <ImageView
         android:id="@+id/imgReg"
-        android:layout_width="161dp"
-        android:layout_height="153dp"
+        android:layout_width="130dp"
+        android:layout_height="91dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/perropan" />
@@ -54,9 +55,9 @@
 
     <EditText
         android:id="@+id/txtEmailReg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="209dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:inputType="textEmailAddress"
         android:text="Email"
@@ -69,12 +70,11 @@
         android:id="@+id/btnCrear"
         android:layout_width="217dp"
         android:layout_height="47dp"
-        android:layout_marginTop="16dp"
         android:text="Crear"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPlatoReg" />
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txtInfoEmailReg"
