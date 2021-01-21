@@ -72,19 +72,19 @@ public class DataBaseCtrl {
                 if(listPerfiles!=null){
                     if(listPerfiles.size()>0){
                         user = listPerfiles.get(0);
-                        bGetUser = true;
+                        //bGetUser = true;
                         Log.i("COCINA","RESULTADO: "+resultado);
                         Log.i("COCINA","LISTA: "+listPerfiles.toString());
                         Log.i("COCINA","Perfil: "+user);
 
                     } else {
                         Log.i("COCINA","TIENE 0 ELEMENTOS -> "+user);
-                        bGetUser = false;
+                        //bGetUser = false;
                     }
                 }else {
 
                     Log.i("COCINA","ES NULO -> " + user);
-                    bGetUser = false;
+                    //bGetUser = false;
                 }
         }
     }
