@@ -70,9 +70,12 @@ public class ConexionPHP {
 		String contrasenia = jsonO.getString("contrasenia");
 		String tipo = jsonO.getString("tipo");
 		String plato = jsonO.getString("plato");
-		Integer estrellas = jsonO.getInt("estrellas");
+		String telefono = jsonO.getString("telefono");
+		String localidad = jsonO.getString("localidad");
+		String pais = jsonO.getString("pais");
+		
 
-		Perfil c = new Perfil(correo, usuario, contrasenia, tipo, plato, estrellas);
+		Perfil c = new Perfil(correo, usuario, contrasenia, tipo, plato, telefono,localidad,pais);
 
 		return c;
 	}

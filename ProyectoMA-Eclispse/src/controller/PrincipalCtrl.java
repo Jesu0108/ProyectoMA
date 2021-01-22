@@ -11,12 +11,12 @@ public class PrincipalCtrl {
 	public static boolean checkLogin() {
 		boolean bExito = false;
 		List<Perfil> lstPerfiles = new ArrayList<Perfil>();
-		String sUsuario, sContra;
+		String sCorreo, sContra;
 
-		sUsuario = FrmPrincipal.txtUsuario.getText();
+		sCorreo = FrmPrincipal.txtUsuario.getText();
 		sContra = FrmPrincipal.txtContra.getText();
 		try {
-			String url = "http://jesusmedac.tk/getUserCorreo.php?correo=" + sUsuario+"&contrasenia="+sContra;
+			String url = "http://jesusmedac.tk/getUserCorreo.php?correo=" + sCorreo+"&contrasenia="+sContra;
 			String respuesta = ConexionPHP.peticionHttp(url);
 
 			lstPerfiles = ConexionPHP.JsonToPerfilesLog(respuesta);

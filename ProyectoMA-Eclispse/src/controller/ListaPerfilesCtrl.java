@@ -21,15 +21,18 @@ public class ListaPerfilesCtrl {
 			
 			List<Perfil> resultado = controller.ConexionPHP.JsonToPerfiles(respuesta);
 			
-			for (Perfil perfil : resultado) {
-				System.out.println("\n"+perfil);
-			}
-			
 			DefaultTableModel modelo = utils.GUI.generarTablaPerfiles(resultado);
 			
-			view.FrmListaPerfiles.tblResult.setModel(modelo);
+//			for (Perfil perfil : resultado) {
+//				
+//				System.out.println(perfil);
+//			}
 			
-			System.out.println("\n---NO LLEGO AQUI---");
+			System.out.println("--- A ---");
+			System.out.println(modelo.getColumnName(1));
+			view.FrmListaPerfiles.tblResult.setModel(modelo);
+			System.out.println("--- B ---");
+			
 		} catch (Exception e) {
 			System.err.println("Fallo: " + e.getMessage());
 			e.getStackTrace();

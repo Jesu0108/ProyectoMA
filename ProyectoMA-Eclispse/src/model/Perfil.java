@@ -2,8 +2,7 @@ package model;
 
 public class Perfil {
 
-	private String sCorreo, sUsuario, sContra, sTipo, sPlato;
-	private Integer iEstrellas;
+	private String sCorreo, sUsuario, sContra, sTipo, sPlato,sLocalidad,sPais,sTelefono;
 
 	public Perfil() {
 
@@ -15,13 +14,15 @@ public class Perfil {
 
 	}
 	
-	public Perfil(String sCorreo, String sUsuario, String sContra, String sTipo, String sPlato, Integer iEstrellas) {
+	public Perfil(String sCorreo, String sUsuario, String sContra, String sTipo, String sPlato, String sTelefono, String sLocalidad,String sPais) {
 		setsCorreo(sCorreo);
 		setsUsuario(sUsuario);
 		setsContra(sContra);
 		setsTipo(sTipo);
 		setsPlato(sPlato);
-		setiEstrellas(iEstrellas);
+		setsTelefono(sTelefono);
+		setsLocalidad(sLocalidad);
+		setsPais(sPais);
 	}
 
 	public String getsCorreo() {
@@ -64,18 +65,35 @@ public class Perfil {
 		this.sPlato = sPlato;
 	}
 
-	public Integer getiEstrellas() {
-		return iEstrellas;
+	public String getsLocalidad() {
+		return sLocalidad;
 	}
 
-	public void setiEstrellas(Integer iEstrellas) {
-		this.iEstrellas = iEstrellas;
+	public void setsLocalidad(String sLocalidad) {
+		this.sLocalidad = sLocalidad;
+	}
+
+	public String getsPais() {
+		return sPais;
+	}
+
+	public void setsPais(String sPais) {
+		this.sPais = sPais;
+	}
+
+	public String getsTelefono() {
+		return sTelefono;
+	}
+
+	public void setsTelefono(String sTelefono) {
+		this.sTelefono = sTelefono;
 	}
 
 	@Override
 	public String toString() {
-		return "Correo= " + sCorreo + "\nUsuario= " + sUsuario + "\nContraseña= " + sContra + "\nTipo= " + sTipo
-				+ "\nPlato= " + sPlato + "\nEstrellas= " + iEstrellas;
+		return "Perfil [sCorreo=" + sCorreo + ", sUsuario=" + sUsuario + ", sContra=" + sContra + ", sTipo=" + sTipo
+				+ ", sPlato=" + sPlato + ", sLocalidad=" + sLocalidad + ", sPais=" + sPais + ", sTelefono=" + sTelefono
+				+ "]";
 	}
 
 }
