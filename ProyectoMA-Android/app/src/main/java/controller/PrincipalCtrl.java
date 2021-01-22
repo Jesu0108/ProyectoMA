@@ -8,15 +8,11 @@ public class PrincipalCtrl {
 
     public static boolean userExist(EditText txtUser, EditText txtPass) {
         String sUsuario, sPass;
-        boolean b;
 
         sUsuario = txtUser.getText().toString();
         sPass = txtPass.getText().toString();
 
-
         DataBaseCtrl.get1User(sUsuario, sPass);
-        Log.i("COCINA","BOOLEANO CTRL-->"+DataBaseCtrl.bGetUser);
-
         return DataBaseCtrl.bGetUser;
     }
 
