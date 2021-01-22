@@ -144,4 +144,17 @@
         <item name="android:layout_width">209dp</item>
         <item name="android:layout_height">47dp</item>
     </style>
+
+    <style name="spTipoReg">
+        <item name="android:layout_marginTop">@dimen/disComponentsEstandar</item>
+        <item name="android:layout_width">205dp</item>
+        <item name="android:layout_height">19dp</item>
+    </style>
+
+    <style name="imgReg">
+        <item name="android:layout_width">130dp</item>
+        <item name="android:layout_height">91dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <!--app:srcCompat="@drawable/perropan"-->
+    </style>
 </resources>

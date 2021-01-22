@@ -9,9 +9,7 @@
 
     <ImageView
         android:id="@+id/imgReg"
-        android:layout_width="130dp"
-        android:layout_height="91dp"
-        android:layout_marginTop="16dp"
+        style="@style/imgReg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,9 +39,7 @@
 
     <Spinner
         android:id="@+id/spTipoReg"
-        android:layout_width="335dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="16dp"
+        style="@style/spTipoReg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPassReg" />
@@ -58,14 +54,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgReg" />
 
-    <Button
-        android:id="@+id/btnCrear"
-        style="@style/btnCrear"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <EditText
         android:id="@+id/txtPlatoReg"
         style="@style/txtPlatoReg"
@@ -79,7 +67,7 @@
         android:id="@+id/txtTelefonoReg"
         style="@style/txtTelefonoReg"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPlatoReg" />
@@ -101,5 +89,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtLocalidadReg" />
+
+    <Button
+        android:id="@+id/btnCrear"
+        style="@style/btnCrear"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
