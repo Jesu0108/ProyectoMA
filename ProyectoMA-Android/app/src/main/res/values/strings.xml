@@ -7,5 +7,10 @@
     <string name="lblWelcome">Bienvenido/a</string>
     <string name="lblRegistro">¿No tienes cuenta?</string>
     <string name="txtEmailReg">Email</string>
-
+    <string name="txtNameReg">Nombre</string>
+    <string name="txtPlato">Plato estrella</string>
+    <string name="txtTelefono">Telefono</string>
+    <string name="txtLocalidad">Localidad</string>
+    <string name="txtPais">Pais</string>
+    <string name="btnCrear">Crear</string>
 </resources>

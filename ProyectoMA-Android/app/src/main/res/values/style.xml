@@ -9,7 +9,7 @@
 
     <style name="txtPassword">
         <item name="android:hint">@string/txtPassword</item>
-        <item name="android:layout_marginTop">@dimen/disComponents</item>
+        <item name="android:layout_marginTop">@dimen/disComponentsEstandar</item>
         <item name="android:layout_width">230dp</item>
         <item name="android:layout_height">34dp</item>
         <item name="android:background">@color/white</item>
@@ -27,6 +27,12 @@
         <item name="android:backgroundTint">#B0B2B3</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="btnCrear">
+        <item name="android:text">@string/btnCrear</item>
+        <item name="android:layout_width">217dp</item>
+        <item name="android:layout_height">47dp</item>
     </style>
 
     <style name="btnLogeo">
@@ -75,7 +81,6 @@
         <item name="android:textSize">18sp</item>
     </style>
 
-
     <style name="txtPais">
         <item name="android:hint">Pais</item>
         <item name="android:textSize">18sp</item>
@@ -93,8 +98,50 @@
 
     <style name="txtEmailReg">
         <item name="android:hint">@string/txtEmailReg</item>
-        <item name="android:layout_width">230dp</item>
-        <item name="android:layout_height">34dp</item>
+        <item name="android:layout_width">209dp</item>
+        <item name="android:layout_height">47dp</item>
+        <item name="android:layout_marginTop">@dimen/disComponentsEstandar</item>
     </style>
 
+    <style name="txtNameReg">
+        <item name="android:hint">@string/txtNameReg</item>
+        <item name="android:layout_width">209dp</item>
+        <item name="android:layout_height">47dp</item>
+        <item name="android:layout_marginTop">@dimen/disComponentsEstandar</item>
+    </style>
+
+    <style name="txtPasswordReg">
+        <item name="android:hint">@string/txtPassword</item>
+        <item name="android:layout_marginTop">@dimen/disComponentsEstandar</item>
+        <item name="android:layout_width">209dp</item>
+        <item name="android:layout_height">47dp</item>
+    </style>
+
+    <style name="txtPlatoReg">
+        <item name="android:hint">@string/txtPlato</item>
+        <item name="android:layout_marginTop">@dimen/disComponentsEstandar</item>
+        <item name="android:layout_width">209dp</item>
+        <item name="android:layout_height">47dp</item>
+    </style>
+
+    <style name="txtTelefonoReg">
+        <item name="android:hint">@string/txtTelefono</item>
+        <item name="android:layout_marginTop">@dimen/disComponentsEstandar</item>
+        <item name="android:layout_width">209dp</item>
+        <item name="android:layout_height">47dp</item>
+    </style>
+
+    <style name="txtLocalidadReg">
+        <item name="android:hint">@string/txtLocalidad</item>
+        <item name="android:layout_marginTop">@dimen/disComponentsEstandar</item>
+        <item name="android:layout_width">209dp</item>
+        <item name="android:layout_height">47dp</item>
+    </style>
+
+    <style name="txtPaisReg">
+        <item name="android:hint">@string/txtPais</item>
+        <item name="android:layout_marginTop">@dimen/disComponentsEstandar</item>
+        <item name="android:layout_width">209dp</item>
+        <item name="android:layout_height">47dp</item>
+    </style>
 </resources>

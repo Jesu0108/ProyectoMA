@@ -1,19 +1,19 @@
 package controller;
 
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import logic.DataBaseCtrl;
+
 public class PrincipalCtrl {
 
-    public static boolean userExist(EditText txtUser, EditText txtPass) {
+    public static void userExist(EditText txtUser, EditText txtPass) {
         String sUsuario, sPass;
 
         sUsuario = txtUser.getText().toString();
         sPass = txtPass.getText().toString();
 
         DataBaseCtrl.get1User(sUsuario, sPass);
-        return DataBaseCtrl.bGetUser;
     }
 
     public static boolean userRegistro(EditText txtCorreo, EditText txtUser, EditText txtPass, Spinner spTipo,EditText txtPlato) {

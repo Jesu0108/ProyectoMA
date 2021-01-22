@@ -23,7 +23,6 @@ public class FrmRegistro extends AppCompatActivity {
     public static EditText txtCorreo,txtUser, txtPass,txtPlato;
     Button btnCrear;
     public static Spinner spTipo;
-    public static int iEsrellas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +48,7 @@ public class FrmRegistro extends AppCompatActivity {
                 if(PrincipalCtrl.userRegistro(txtCorreo,txtUser,txtPass,spTipo,txtPlato)){
                     Intent i = new Intent(getApplicationContext(), ListaView.class);
                     Toast.makeText(FrmRegistro.this, "Usuario registrado sin problemas", Toast.LENGTH_SHORT).show();
+                    startActivity(i);
                 }else{
                     Toast.makeText(FrmRegistro.this, "Este usuario ya ha sido registrado", Toast.LENGTH_LONG).show();
                 }

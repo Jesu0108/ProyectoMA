@@ -1,7 +1,9 @@
-package controller;
+package logic;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -15,11 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Perfil;
+import view.FrmPrincipal;
+import view.ListaView;
 
 public class DataBaseCtrl {
-
-    public static boolean bGetUser;
-    private static Perfil user;
 
     public static void cargaDatos() {
         new LoadDataUsers_AsyncTask().execute("http://jesusmedac.tk/getUsers.php");
@@ -27,7 +28,6 @@ public class DataBaseCtrl {
 
     public static void get1User(String user, String pass) {
         new Load_1User_AsyncTask().execute("http://jesusmedac.tk/get1User.php?usuario=" + user + "&contrasenia=" + pass);
-        Log.i("COCINA", "BOOLEANO DBCTRL: " + bGetUser);
     }
 
     public static boolean insert1User(String correo, String user, String pass, String type, String plato, int stars) {
@@ -72,20 +72,13 @@ public class DataBaseCtrl {
 
             if (listPerfiles != null) {
                 if (listPerfiles.size() > 0) {
-                    user = listPerfiles.get(0);
-                    //bGetUser = true;
-                    Log.i("COCINA", "RESULTADO: " + resultado);
-                    Log.i("COCINA", "LISTA: " + listPerfiles.toString());
-                    Log.i("COCINA", "Perfil: " + user);
-
+                    Intent ventana = new Intent(FrmPrincipal.context.getApplicationContext(), ListaView.class);
+                    FrmPrincipal.context.startActivity(ventana);
                 } else {
-                    Log.i("COCINA", "TIENE 0 ELEMENTOS -> " + user);
-                    //bGetUser = false;
+                    Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
                 }
             } else {
-
-                Log.i("COCINA", "ES NULO -> " + user);
-                //bGetUser = false;
+                Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
             }
         }
     }
