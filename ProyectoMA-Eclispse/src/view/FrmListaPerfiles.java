@@ -59,7 +59,7 @@ public class FrmListaPerfiles extends JDialog {
 		lstFiltro = new JList();
 		lstFiltro.setVisibleRowCount(1);
 		lstFiltro.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		lstFiltro.setModel();
+		lstFiltro.setModel(new AbstractListModel() {
 			String[] values = new String[] {"Correo", "Usuario", "Contrasenia", "Plato"};
 			public int getSize() {
 				return values.length;
