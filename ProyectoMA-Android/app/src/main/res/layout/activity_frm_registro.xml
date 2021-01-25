@@ -40,9 +40,12 @@
     <Spinner
         android:id="@+id/spTipoReg"
         style="@style/spTipoReg"
+        android:layout_width="174dp"
+        android:layout_height="19dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassReg" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPaisReg" />
 
     <EditText
         android:id="@+id/txtEmailReg"
@@ -60,8 +63,9 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spTipoReg" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPaisReg" />
 
     <EditText
         android:id="@+id/txtTelefonoReg"
@@ -69,8 +73,9 @@
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPlatoReg" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPassReg" />
 
     <EditText
         android:id="@+id/txtLocalidadReg"
@@ -78,6 +83,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTelefonoReg" />
 
@@ -87,6 +93,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtLocalidadReg" />
 

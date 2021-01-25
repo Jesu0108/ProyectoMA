@@ -76,6 +76,11 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="txtPlato">
+        <item name="android:hint">Plato</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <style name="txtTelefono">
         <item name="android:hint">Telefono</item>
         <item name="android:textSize">18sp</item>
@@ -146,7 +151,7 @@
     </style>
 
     <style name="spTipoReg">
-        <item name="android:layout_marginTop">@dimen/disComponentsEstandar</item>
+        <item name="android:layout_marginTop">@dimen/disSpinnerTipo</item>
         <item name="android:layout_width">205dp</item>
         <item name="android:layout_height">19dp</item>
     </style>

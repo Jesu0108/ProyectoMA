@@ -6,4 +6,5 @@
     <dimen name="disGirado">40dp</dimen>
     <dimen name="sizeLblWelcome">24sp</dimen>
     <dimen name="sizeLblRegistro">15sp</dimen>
+    <dimen name="disSpinnerTipo">28sp</dimen>
 </resources>

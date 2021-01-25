@@ -35,11 +35,12 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Ho
 
     @Override
     public void onBindViewHolder(@NonNull HolderProducto holder, int position) {
-        holder.txtNombreProd.setText(Datos.prod.get(position).getUsuario());
+        holder.txtNombreUser.setText(Datos.prod.get(position).getUsuario());
         holder.txtTipoUsuario.setText(Datos.prod.get(position).getTipo());
         holder.txtLocalidad.setText(Datos.prod.get(position).getLocalidad());
         holder.txtPais.setText(Datos.prod.get(position).getPais());
         holder.txtTelefono.setText(Datos.prod.get(position).getTelefono());
+        holder.txtPlato.setText(Datos.prod.get(position).getTelefono());
 
         holder.cardProductos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,8 +63,10 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Ho
 
     public class HolderProducto extends RecyclerView.ViewHolder{
         CardView cardProductos;
-        TextView txtNombreProd;
+
+        TextView txtNombreUser;
         TextView txtTipoUsuario;
+        TextView txtPlato;
         TextView txtLocalidad;
         TextView txtPais;
         TextView txtTelefono;
@@ -71,12 +74,14 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Ho
 
         public HolderProducto(@NonNull View itemView) {
             super(itemView);
-
             cardProductos = itemView.findViewById(R.id.cardProductos);
-            txtNombreProd = itemView.findViewById(R.id.txtNombreUsuario);
+
+            txtNombreUser = itemView.findViewById(R.id.txtNombreUsuario);
             txtTipoUsuario = itemView.findViewById(R.id.txtTipoUsuario);
+            txtPlato = itemView.findViewById(R.id.txtPlato);
             txtLocalidad = itemView.findViewById(R.id.txtLocalidad);
             txtPais = itemView.findViewById(R.id.txtPais);
+            txtTelefono = itemView.findViewById(R.id.txtTelefono);
             imgPerfil = itemView.findViewById(R.id.imgUsuario);
         }
     }

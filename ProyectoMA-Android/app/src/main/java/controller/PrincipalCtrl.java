@@ -2,29 +2,44 @@ package controller;
 
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import logic.DataBaseCtrl;
+import view.FrmPrincipal;
 
 public class PrincipalCtrl {
 
-    public static void userExist(EditText txtUser, EditText txtPass) {
+    public static void userLogueo(EditText txtUser, EditText txtPass) {
         String sUsuario, sPass;
 
         sUsuario = txtUser.getText().toString();
         sPass = txtPass.getText().toString();
 
-        DataBaseCtrl.get1User(sUsuario, sPass);
+        if(sUsuario.equals("") || sPass.equals("")){
+            Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Por favor, rellene todos los campos para continuar", Toast.LENGTH_LONG).show();
+        }else{
+            DataBaseCtrl.get1User(sUsuario, sPass);
+        }
     }
 
-    public static boolean userRegistro(EditText txtCorreo, EditText txtUser, EditText txtPass, Spinner spTipo,EditText txtPlato) {
-        String sCorreo, sUser, sPass, sTipo,sPlato;
+    public static void userRegistro(EditText txtCorreo, EditText txtUser, EditText txtPass, Spinner spTipo, EditText txtPlato, EditText txtLocalidad, EditText txtPais, EditText txtTelefono) {
+        String sCorreo, sUser, sPass, sTipo, sPlato,sLocalidad,sPais,sTelefono;
 
         sCorreo = txtCorreo.getText().toString();
         sUser = txtUser.getText().toString();
         sPass = txtPass.getText().toString();
         sTipo = spTipo.getSelectedItem().toString();
         sPlato = txtPlato.getText().toString();
+        sLocalidad = txtLocalidad.getText().toString();
+        sPais = txtPais.getText().toString();
+        sTelefono = txtTelefono.getText().toString();
 
-        return DataBaseCtrl.insert1User(sCorreo,sUser,sPass,sTipo,sPlato,1);
+        if(sCorreo.equals("") || sUser.equals("") || sPass.equals("") || sTipo.equals("") || sPlato.equals("") || sLocalidad.equals("") || sPais.equals("") || sTelefono.equals("")){
+            Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Por favor, rellene todos los campos para continuar", Toast.LENGTH_LONG).show();
+        }else{
+            DataBaseCtrl.insert1User(sCorreo, sUser, sPass, sTipo, sPlato, sLocalidad,sPais,sTelefono);
+        }
+
     }
+
 }

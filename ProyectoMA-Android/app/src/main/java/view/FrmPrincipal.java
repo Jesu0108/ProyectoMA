@@ -31,8 +31,7 @@ public class FrmPrincipal extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                controller.PrincipalCtrl.userExist(txtUsuario, txtContra);
+                controller.PrincipalCtrl.userLogueo(txtUsuario, txtContra);
             }
         });
 
@@ -40,8 +39,7 @@ public class FrmPrincipal extends AppCompatActivity {
         btnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), FrmRegistro.class);
-                startActivity(i);
+                startActivity(new Intent(getApplicationContext(), FrmRegistro.class));
             }
         });
 
