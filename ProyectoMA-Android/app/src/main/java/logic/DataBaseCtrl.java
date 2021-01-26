@@ -35,9 +35,36 @@ public class DataBaseCtrl {
 
     public static void insert1User(String correo, String user, String pass, String type, String plato, String localidad, String pais, String telefono) {
         bInsertar = true;
-        new Load_1User_AsyncTask().execute("http://jesusmedac.tk/insert1User.php?correo=" + correo + "&usuario=" + user + "&contrasenia=" + pass
-                + "&tipo=" + type + "&plato=" + plato + "&localidad=" + localidad + "&pais=" + pais + "&telefono=" + telefono);
+        new Insert_User_AsyncTask().execute("http://jesusmedac.tk/insert1User.php?correo=" + correo + "&usuario=" + user + "&contrasenia=" + pass
+                + "&tipo=" + type + "&plato=" + plato  + "&pais=" + pais + "&localidad=" + localidad + "&telefono=" + telefono);
     }
+
+
+    private static class Insert_User_AsyncTask extends AsyncTask<String, Void, Void> {
+
+        @Override
+        protected Void doInBackground(String... params) {
+            try {
+                URL url = new URL(params[0]);
+                //Abrimos el canal de comunicaciones hacia mi url
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(url.openStream()));
+
+            } catch (IOException e) {
+               e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        public void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+            Toast.makeText(FrmRegistro.context.getApplicationContext(), "Registrado con éxito", Toast.LENGTH_SHORT).show();
+            //Llevamos al usuario dentro de la app
+            FrmPrincipal.context.startActivity(new Intent(FrmPrincipal.context.getApplicationContext(), ListaView.class));
+        }
+    }
+
 
     private static class Load_1User_AsyncTask extends AsyncTask<String, Void, Void> {
         String resultado;
@@ -69,17 +96,18 @@ public class DataBaseCtrl {
         public void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             Gson gson = new Gson();
-            Type type = new TypeToken<List<Perfil>>() {
-            }.getType();
+            Type type = new TypeToken<List<Perfil>>() {}.getType();
 
             List<Perfil> listPerfiles = gson.fromJson(resultado, type);
 
             if (listPerfiles != null) {
-
-                opcionUsuario(listPerfiles);
-
+                if (listPerfiles.size() > 0) {
+                    FrmPrincipal.context.startActivity(new Intent(FrmPrincipal.context.getApplicationContext(), ListaView.class));
+                } else {
+                    Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
+                }
             } else {
-                Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
+                Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Ha ocurrido un error, por favor revise los campos", Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -118,40 +146,13 @@ public class DataBaseCtrl {
             super.onPostExecute(aVoid);
 
             Gson gson = new Gson();
-            Type type = new TypeToken<List<Perfil>>() {
-            }.getType();
-            List<Perfil> listPerfiles = gson.fromJson(resultado, type);
+            Type type = new TypeToken<List<Perfil>>() {}.getType();
+            ArrayList<Perfil> listPerfiles = gson.fromJson(resultado, type);
 
-            List<String> lstNombres = new ArrayList<>();
-
-            //Esta lista debe cambiarse para que sea la que guarda los erfiles que venen de la base de datos
             for (Perfil c : listPerfiles) {
-                lstNombres.add(c.getUsuario());
-            }
-
-            //spMarcas.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,lsMarcas));
-        }
-    }
-
-    private static void opcionUsuario(List<Perfil> listPerfiles) {
-
-        //Un usuario se esta registrando
-        if (bInsertar) {
-            if (listPerfiles.size() > 0) {
-                Toast.makeText(FrmRegistro.context.getApplicationContext(), "Este correo electronico ya ha sido registrado!", Toast.LENGTH_LONG).show();
-            } else {
-                bInsertar = false;
-                FrmRegistro.context.startActivity(new Intent(FrmRegistro.context.getApplicationContext(), ListaView.class));
-            }
-        //Un usuario se esta logueando
-        }else{
-            if (listPerfiles.size() > 0) {
-                FrmPrincipal.context.startActivity(new Intent(FrmPrincipal.context.getApplicationContext(), ListaView.class));
-            } else {
-                Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
+                AdaptadorProducto.prod.add(c);
             }
         }
-
     }
 
 }

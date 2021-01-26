@@ -15,12 +15,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.artiguez.proyectoma.R;
 
+import java.util.ArrayList;
+
+import model.Perfil;
 import view.FrmPersona;
 
 public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.HolderProducto> {
 
     private Context c;
     public static int cardPosition;
+    public static ArrayList<Perfil> prod;
+
 
     public AdaptadorProducto(Context c) {
         this.c = c;
@@ -35,12 +40,12 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Ho
 
     @Override
     public void onBindViewHolder(@NonNull HolderProducto holder, int position) {
-        holder.txtNombreUser.setText(Datos.prod.get(position).getUsuario());
-        holder.txtTipoUsuario.setText(Datos.prod.get(position).getTipo());
-        holder.txtLocalidad.setText(Datos.prod.get(position).getLocalidad());
-        holder.txtPais.setText(Datos.prod.get(position).getPais());
-        holder.txtTelefono.setText(Datos.prod.get(position).getTelefono());
-        holder.txtPlato.setText(Datos.prod.get(position).getTelefono());
+        holder.txtNombreUser.setText(prod.get(position).getUsuario());
+        holder.txtTipoUsuario.setText(prod.get(position).getTipo());
+        holder.txtLocalidad.setText(prod.get(position).getLocalidad());
+        holder.txtPais.setText(prod.get(position).getPais());
+        holder.txtTelefono.setText(prod.get(position).getTelefono());
+        holder.txtPlato.setText(prod.get(position).getPlato());
 
         holder.cardProductos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +59,7 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Ho
 
     @Override
     public int getItemCount() {
-        return Datos.prod.size();
+        return prod.size();
     }
 
     public void refrescar(){

@@ -58,17 +58,6 @@ public class FrmRegistro extends AppCompatActivity {
 
         spTipo.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, lstTipo));
 
-        spTipo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(spTipo.getSelectedItem().toString().equals("Cocinero")){
-                    txtPlato.setEnabled(true);
-                }else{
-                    txtPlato.setEnabled(false);
-                }
-            }
-        });
-
         btnCrear = findViewById(R.id.btnCrear);
         btnCrear.setOnClickListener(new View.OnClickListener() {
             @Override
