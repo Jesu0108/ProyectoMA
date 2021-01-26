@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -59,6 +60,12 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Ho
 
     @Override
     public int getItemCount() {
+
+        if(prod!=null){
+
+        }else{
+            //prod = ListView.get
+        }
         return prod.size();
     }
 

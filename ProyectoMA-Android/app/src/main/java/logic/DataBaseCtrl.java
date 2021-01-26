@@ -151,6 +151,7 @@ public class DataBaseCtrl {
 
             for (Perfil c : listPerfiles) {
                 AdaptadorProducto.prod.add(c);
+                Log.i("MACARRONES",c.toString());
             }
         }
     }

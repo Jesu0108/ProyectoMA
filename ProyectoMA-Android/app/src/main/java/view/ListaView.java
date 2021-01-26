@@ -27,6 +27,7 @@ public class ListaView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_view);
 
+        //Cargamos los datos de los usuarios
         DataBaseCtrl.cargaDatos();
 
         // Vinculamos el objeto del controlador con el de la vista
