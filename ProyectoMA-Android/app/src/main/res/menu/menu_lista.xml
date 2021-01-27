@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/mnuFiltro"
+        android:title="Filtrar">
+        <menu >
+            <item
+                android:id="@+id/mnuFiltroCocinero"
+                android:title="Cocineros" />
+            <item
+                android:id="@+id/mnuFiltroCatadores"
+                android:title="Catadores" />
+            <item
+                android:id="@+id/mnuFiltroEmpresa"
+                android:title="Empresas" />
+        </menu>
+    </item>
+
+    <item
         android:id="@+id/mnuPerfil"
         android:title="Perfil">
     </item>

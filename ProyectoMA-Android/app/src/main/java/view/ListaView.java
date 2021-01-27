@@ -64,6 +64,9 @@ public class ListaView extends AppCompatActivity {
             case R.id.mnuSalir:
                 //startActivity(new Intent(getApplicationContext(), AcercaDe.class));
                 break;
+            case R.id.mnuFiltroCocinero:
+
+                break;
         }
 
         return true;
