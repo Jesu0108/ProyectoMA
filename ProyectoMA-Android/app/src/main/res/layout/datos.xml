@@ -12,6 +12,8 @@
         style="@style/cardPredet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorCardListView"
+        app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="10dp">
 
         <LinearLayout
@@ -38,30 +40,11 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
-                    android:id="@+id/txtPais"
-                    style="@style/txtPais"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <TextView
                     android:id="@+id/txtLocalidad"
                     style="@style/txtLocalidad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/txtTelefono"
-                    style="@style/txtTelefono"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/txtPlato"
-                    style="@style/txtPlato"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
 
             </LinearLayout>
 

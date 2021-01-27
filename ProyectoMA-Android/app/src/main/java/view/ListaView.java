@@ -28,7 +28,7 @@ public class ListaView extends AppCompatActivity {
         setContentView(R.layout.activity_lista_view);
 
         //Cargamos los datos de los usuarios
-        DataBaseCtrl.cargaDatos();
+        AdaptadorProducto.prod = DataBaseCtrl.listPerfiles;
 
         // Vinculamos el objeto del controlador con el de la vista
         RecyclerView listaMain = findViewById(R.id.listaMain);
@@ -46,16 +46,16 @@ public class ListaView extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_lista,menu);
+        inflater.inflate(R.menu.menu_lista, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.mnuPerfil:
-                startActivity(new Intent(getApplicationContext(), FrmPersona.class));
+                //startActivity(new Intent(getApplicationContext(), FrmPerfil.class));
                 break;
             case R.id.mnuOpciones:
                 //startActivity(new Intent(getApplicationContext(), AcercaDe.class));
@@ -72,15 +72,5 @@ public class ListaView extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         adaptador.refrescar();
-    }
-
-    public static ArrayList<Perfil> getElements() {
-        ArrayList<Perfil> elementos = new ArrayList<Perfil>();
-
-        for (int i = 0; i < 10; i++) {
-
-            elementos.add(new Perfil("Nombre", "pass","macarrones","cocinero","sevilla","españa","132456789"));
-        }
-        return elementos;
     }
 }

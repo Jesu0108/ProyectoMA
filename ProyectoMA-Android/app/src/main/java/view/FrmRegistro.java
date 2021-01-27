@@ -3,14 +3,12 @@ package view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.artiguez.proyectoma.R;
 
@@ -18,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import controller.PrincipalCtrl;
-import model.Perfil;
 
 public class FrmRegistro extends AppCompatActivity {
     public static EditText txtCorreo;
@@ -43,7 +40,7 @@ public class FrmRegistro extends AppCompatActivity {
         context = getApplicationContext();
 
         txtCorreo = findViewById(R.id.txtEmailReg);
-        txtUser = findViewById(R.id.txtNomReg);
+        txtUser = findViewById(R.id.txtUsuarioPersona);
         txtPass = findViewById(R.id.txtPassReg);
         txtPlato = findViewById(R.id.txtPlatoReg);
         txtLocalidad = findViewById(R.id.txtLocalidadReg);

@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/perropan" />
 
     <EditText
-        android:id="@+id/txtNomReg"
+        android:id="@+id/txtUsuarioPersona"
         style="@style/txtNameReg"
 
         android:ems="10"
@@ -35,7 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNomReg" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUsuarioPersona" />
 
     <Spinner
         android:id="@+id/spTipoReg"

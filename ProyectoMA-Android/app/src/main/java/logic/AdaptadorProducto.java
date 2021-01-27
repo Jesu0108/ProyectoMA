@@ -44,9 +44,6 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Ho
         holder.txtNombreUser.setText(prod.get(position).getUsuario());
         holder.txtTipoUsuario.setText(prod.get(position).getTipo());
         holder.txtLocalidad.setText(prod.get(position).getLocalidad());
-        holder.txtPais.setText(prod.get(position).getPais());
-        holder.txtTelefono.setText(prod.get(position).getTelefono());
-        holder.txtPlato.setText(prod.get(position).getPlato());
 
         holder.cardProductos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,12 +57,6 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Ho
 
     @Override
     public int getItemCount() {
-
-        if(prod!=null){
-
-        }else{
-            //prod = ListView.get
-        }
         return prod.size();
     }
 
@@ -78,10 +69,7 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Ho
 
         TextView txtNombreUser;
         TextView txtTipoUsuario;
-        TextView txtPlato;
         TextView txtLocalidad;
-        TextView txtPais;
-        TextView txtTelefono;
         ImageView imgPerfil;
 
         public HolderProducto(@NonNull View itemView) {
@@ -90,10 +78,7 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Ho
 
             txtNombreUser = itemView.findViewById(R.id.txtNombreUsuario);
             txtTipoUsuario = itemView.findViewById(R.id.txtTipoUsuario);
-            txtPlato = itemView.findViewById(R.id.txtPlato);
             txtLocalidad = itemView.findViewById(R.id.txtLocalidad);
-            txtPais = itemView.findViewById(R.id.txtPais);
-            txtTelefono = itemView.findViewById(R.id.txtTelefono);
             imgPerfil = itemView.findViewById(R.id.imgUsuario);
         }
     }

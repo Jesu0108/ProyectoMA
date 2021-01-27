@@ -23,22 +23,16 @@ import view.ListaView;
 
 public class DataBaseCtrl {
 
-    private static boolean bInsertar = false;
-
-    public static void cargaDatos() {
-        new LoadDataUsers_AsyncTask().execute("http://jesusmedac.tk/getUsers.php");
-    }
+    public static ArrayList<Perfil> listPerfiles;
 
     public static void get1User(String user, String pass) {
         new Load_1User_AsyncTask().execute("http://jesusmedac.tk/get1User.php?usuario=" + user + "&contrasenia=" + pass);
     }
 
     public static void insert1User(String correo, String user, String pass, String type, String plato, String localidad, String pais, String telefono) {
-        bInsertar = true;
         new Insert_User_AsyncTask().execute("http://jesusmedac.tk/insert1User.php?correo=" + correo + "&usuario=" + user + "&contrasenia=" + pass
                 + "&tipo=" + type + "&plato=" + plato  + "&pais=" + pais + "&localidad=" + localidad + "&telefono=" + telefono);
     }
-
 
     private static class Insert_User_AsyncTask extends AsyncTask<String, Void, Void> {
 
@@ -59,12 +53,14 @@ public class DataBaseCtrl {
         public void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
+            //Mandamos al usuario
             Toast.makeText(FrmRegistro.context.getApplicationContext(), "Registrado con éxito", Toast.LENGTH_SHORT).show();
-            //Llevamos al usuario dentro de la app
-            FrmPrincipal.context.startActivity(new Intent(FrmPrincipal.context.getApplicationContext(), ListaView.class));
+
+            //Cargamos los datos
+            new LoadDataUsers_AsyncTask().execute("http://jesusmedac.tk/getUsers.php");
+
         }
     }
-
 
     private static class Load_1User_AsyncTask extends AsyncTask<String, Void, Void> {
         String resultado;
@@ -102,7 +98,8 @@ public class DataBaseCtrl {
 
             if (listPerfiles != null) {
                 if (listPerfiles.size() > 0) {
-                    FrmPrincipal.context.startActivity(new Intent(FrmPrincipal.context.getApplicationContext(), ListaView.class));
+                    //Cargamos los datos
+                    new LoadDataUsers_AsyncTask().execute("http://jesusmedac.tk/getUsers.php");
                 } else {
                     Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
                 }
@@ -129,11 +126,10 @@ public class DataBaseCtrl {
 
                 while ((stringBuffer = bufferedReader.readLine()) != null) {
                     str = String.format("%s%s", str, stringBuffer);
-                }
-                ;
+                };
+
                 bufferedReader.close();
                 resultado = str;
-
 
             } catch (IOException e) {
                 resultado = e.getMessage();
@@ -147,12 +143,10 @@ public class DataBaseCtrl {
 
             Gson gson = new Gson();
             Type type = new TypeToken<List<Perfil>>() {}.getType();
-            ArrayList<Perfil> listPerfiles = gson.fromJson(resultado, type);
+            listPerfiles = gson.fromJson(resultado, type);
 
-            for (Perfil c : listPerfiles) {
-                AdaptadorProducto.prod.add(c);
-                Log.i("MACARRONES",c.toString());
-            }
+            //Llamamos a la ListView
+            FrmPrincipal.context.startActivity(new Intent(FrmPrincipal.context.getApplicationContext(), ListaView.class));
         }
     }
 
