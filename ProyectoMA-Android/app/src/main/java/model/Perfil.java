@@ -2,6 +2,7 @@ package model;
 
 public class Perfil {
 
+    private String correo;
     private String usuario;
     private String contrasenia;
     private String plato;
@@ -16,8 +17,20 @@ public class Perfil {
         this.contrasenia = contrasenia;
     }
 
+    //Constructor sin contrasenia
+    public Perfil(String correo,String usuario, String plato, String tipo, String localidad, String pais, String telefono) {
+        this.correo = correo;
+        this.usuario = usuario;
+        this.plato = plato;
+        this.tipo = tipo;
+        this.localidad = localidad;
+        this.pais = pais;
+        this.telefono = telefono;
+    }
+
     //Constructor completo
-    public Perfil(String usuario, String contrasenia, String plato, String tipo, String localidad, String pais, String telefono) {
+    public Perfil(String correo,String usuario, String contrasenia, String plato, String tipo, String localidad, String pais, String telefono) {
+        this.correo = correo;
         this.usuario = usuario;
         this.contrasenia = contrasenia;
         this.plato = plato;
@@ -25,6 +38,14 @@ public class Perfil {
         this.localidad = localidad;
         this.pais = pais;
         this.telefono = telefono;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public String getUsuario() {
@@ -86,7 +107,8 @@ public class Perfil {
     @Override
     public String toString() {
         return "Perfil{" +
-                "usuario='" + usuario + '\'' +
+                "correo='" + correo + '\'' +
+                ", usuario='" + usuario + '\'' +
                 ", contrasenia='" + contrasenia + '\'' +
                 ", plato='" + plato + '\'' +
                 ", tipo='" + tipo + '\'' +

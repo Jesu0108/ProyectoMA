@@ -17,67 +17,55 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/perropan" />
 
-    <EditText
-        android:id="@+id/txtUsuarioPersona"
-        style="@style/txtUserPersona"
-        android:ems="10"
-        android:inputType="textPersonName"
+    <TextView
+        android:id="@+id/lblCorreoPersona"
+        style="@style/lblCorreoPersona"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCorreoPersona" />
-
-    <Spinner
-        android:id="@+id/spTipoPersona"
-        style="@style/spTipoPersona"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPaisPersona" />
-
-    <EditText
-        android:id="@+id/txtCorreoPersona"
-        style="@style/txtCorreoPersona"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgPerfilUser" />
 
-    <EditText
-        android:id="@+id/txtTelefonoPersona"
-        style="@style/txtTelefonoPersona"
-        android:ems="10"
-        android:inputType="phone"
+    <TextView
+        android:id="@+id/lblUserPersona"
+        style="@style/lblUserPersona"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPlatoPersona" />
+        app:layout_constraintTop_toBottomOf="@+id/lblCorreoPersona" />
 
-    <EditText
-        android:id="@+id/txtLocalidadPersona"
-        style="@style/txtLocPersona"
-        android:ems="10"
-        android:inputType="textPersonName"
+    <TextView
+        android:id="@+id/lblTelefonoPersona"
+        style="@style/lblTelefonoPersona"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTelefonoPersona" />
+        app:layout_constraintTop_toBottomOf="@+id/lblUserPersona" />
 
-    <EditText
-        android:id="@+id/txtPaisPersona"
-        style="@style/txtPaisPersona"
-        android:ems="10"
-        android:inputType="textPersonName"
+    <TextView
+        android:id="@+id/lblTipoPersona"
+        style="@style/lblTipoPersona"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLocalidadPersona" />
+        app:layout_constraintTop_toBottomOf="@+id/lblTelefonoPersona" />
 
-    <EditText
-        android:id="@+id/txtPlatoPersona"
-        style="@style/txtPlatoPersona"
-        android:ems="10"
-        android:inputType="textPersonName"
+    <TextView
+        android:id="@+id/lblPaisPersona"
+        style="@style/lblPaisPersona"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsuarioPersona" />
+        app:layout_constraintTop_toBottomOf="@+id/lblPlatoPersona" />
+
+    <TextView
+        android:id="@+id/lblLocalidadPersona"
+        style="@style/lblLocPersona"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblPaisPersona" />
+
+    <TextView
+        android:id="@+id/lblPlatoPersona"
+        style="@style/lblPlatoPersona"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblTipoPersona" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

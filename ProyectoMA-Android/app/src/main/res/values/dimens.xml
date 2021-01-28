@@ -7,5 +7,6 @@
     <dimen name="sizeLblWelcome">24sp</dimen>
     <dimen name="sizeLblRegistro">15sp</dimen>
     <dimen name="disSpinnerTipo">28sp</dimen>
-    <dimen name="disFrmPersona">32dp</dimen>
+    <dimen name="disFrmPersona">24dp</dimen>
+    <dimen name="sizeLblPersona">16sp</dimen>
 </resources>

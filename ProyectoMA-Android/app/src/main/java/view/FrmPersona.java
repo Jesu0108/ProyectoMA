@@ -1,35 +1,39 @@
 package view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.artiguez.proyectoma.R;
 
+import controller.PersonaCtrl;
+import logic.AdaptadorLista;
+
 public class FrmPersona extends AppCompatActivity {
-    public static TextView txtCorreoPersona;
-    public static TextView txtUsuarioPersona;
-    public static TextView txtPlatoPersona;
-    public static TextView txtLocalidadPersona;
-    public static TextView txtPaisPersona;
-    public static TextView txtTelefonoPersona;
-    public static Spinner spTipoPersona;
+    public static TextView lblCorreoPersona;
+    public static TextView lblUsuarioPersona;
+    public static TextView lblPlatoPersona;
+    public static TextView lblLocalidadPersona;
+    public static TextView lblPaisPersona;
+    public static TextView lblTelefonoPersona;
+    public static TextView lblTipoPersona;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_frm_persona);
 
-        txtCorreoPersona = findViewById(R.id.txtCorreoPersona);
-        txtUsuarioPersona = findViewById(R.id.txtUsuarioPersona);
-        txtPlatoPersona = findViewById(R.id.txtPlatoPersona);
-        txtLocalidadPersona = findViewById(R.id.txtLocalidadPersona);
-        txtPaisPersona = findViewById(R.id.txtPaisPersona);
-        txtTelefonoPersona = findViewById(R.id.txtTelefonoPersona);
-        spTipoPersona = findViewById(R.id.spTipoPersona);
+        lblCorreoPersona = findViewById(R.id.lblCorreoPersona);
+        lblUsuarioPersona = findViewById(R.id.lblUserPersona);
+        lblPlatoPersona = findViewById(R.id.lblPlatoPersona);
+        lblLocalidadPersona = findViewById(R.id.lblLocalidadPersona);
+        lblPaisPersona = findViewById(R.id.lblPaisPersona);
+        lblTelefonoPersona = findViewById(R.id.lblTelefonoPersona);
+        lblTipoPersona = findViewById(R.id.lblTipoPersona);
+
+        PersonaCtrl.getDatosPersona(lblCorreoPersona, lblUsuarioPersona, lblPlatoPersona, lblLocalidadPersona, lblPaisPersona, lblTelefonoPersona, lblTipoPersona);
     }
 }

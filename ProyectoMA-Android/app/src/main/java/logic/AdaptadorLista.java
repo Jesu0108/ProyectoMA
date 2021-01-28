@@ -6,8 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,21 +19,21 @@ import java.util.ArrayList;
 import model.Perfil;
 import view.FrmPersona;
 
-public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.HolderProducto> {
+public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.HolderProducto> {
 
     private Context c;
     public static int cardPosition;
     public static ArrayList<Perfil> prod;
 
 
-    public AdaptadorProducto(Context c) {
+    public AdaptadorLista(Context c) {
         this.c = c;
     }
 
     @NonNull
     @Override
     public HolderProducto onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.datos,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.datos_cardview,parent,false);
         return new HolderProducto(v);
     }
 
@@ -49,8 +47,7 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Ho
             @Override
             public void onClick(View v) {
                 cardPosition = position;
-                Intent ventanaEdicion = new Intent(c, FrmPersona.class);
-                c.startActivity(ventanaEdicion);
+                c.startActivity(new Intent(c, FrmPersona.class));
             }
         });
     }

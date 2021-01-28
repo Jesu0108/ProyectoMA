@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,14 +12,11 @@ import android.view.MenuItem;
 
 import com.artiguez.proyectoma.R;
 
-import java.util.ArrayList;
-
-import logic.AdaptadorProducto;
+import logic.AdaptadorLista;
 import logic.DataBaseCtrl;
-import model.Perfil;
 
 public class ListaView extends AppCompatActivity {
-    private AdaptadorProducto adaptador;
+    private AdaptadorLista adaptador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +24,7 @@ public class ListaView extends AppCompatActivity {
         setContentView(R.layout.activity_lista_view);
 
         //Cargamos los datos de los usuarios
-        AdaptadorProducto.prod = DataBaseCtrl.listPerfiles;
+        AdaptadorLista.prod = DataBaseCtrl.listPerfiles;
 
         // Vinculamos el objeto del controlador con el de la vista
         RecyclerView listaMain = findViewById(R.id.listaMain);
@@ -39,7 +35,7 @@ public class ListaView extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         listaMain.setLayoutManager(llm);
 
-        adaptador = new AdaptadorProducto(this);
+        adaptador = new AdaptadorLista(this);
         listaMain.setAdapter(adaptador);
     }
 

@@ -18,7 +18,7 @@ public class PrincipalCtrl {
         if(sUsuario.equals("") || sPass.equals("")){
             Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Por favor, rellene todos los campos para continuar", Toast.LENGTH_LONG).show();
         }else{
-            DataBaseCtrl.get1User(sUsuario, sPass);
+            DataBaseCtrl.registerUser(sUsuario, sPass);
         }
     }
 
