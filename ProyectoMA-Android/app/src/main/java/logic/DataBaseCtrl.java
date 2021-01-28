@@ -38,7 +38,7 @@ public class DataBaseCtrl {
     }
 
     public static void get1User() {
-        new Load_1User_AsyncTask().execute("http://jesusmedac.tk/get1UserPk.php?id_Usuario=" + AdaptadorLista.cardPosition);
+        new Load_1User_AsyncTask().execute("http://jesusmedac.tk/get1UserPk.php?id_Usuario=" + (AdaptadorLista.cardPosition+1));
     }
 
     private static class Insert_User_AsyncTask extends AsyncTask<String, Void, Void> {

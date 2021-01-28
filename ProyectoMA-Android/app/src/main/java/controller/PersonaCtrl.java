@@ -14,12 +14,8 @@ public class PersonaCtrl {
     public static TextView pais;
     public static TextView telefono;
     public static TextView tipo;
-    public static int posicion;
 
     public static void getDatosPersona(TextView lblCorreoPersona, TextView lblUsuarioPersona, TextView lblPlatoPersona, TextView lblLocalidadPersona, TextView lblPaisPersona, TextView lblTelefonoPersona, TextView lblTipoPersona) {
-
-        posicion = AdaptadorLista.cardPosition;
-
         correo = lblCorreoPersona;
         usuario = lblUsuarioPersona;
         plato = lblPlatoPersona;
@@ -27,7 +23,6 @@ public class PersonaCtrl {
         pais = lblPaisPersona;
         telefono = lblTelefonoPersona;
         tipo = lblTipoPersona;
-
 
         DataBaseCtrl.get1User();
     }

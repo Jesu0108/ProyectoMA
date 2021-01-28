@@ -13,4 +13,5 @@
     <string name="txtLocalidad">Localidad</string>
     <string name="txtPais">Pais</string>
     <string name="btnCrear">Crear</string>
+    <string name="btnPerfil">Editar</string>
 </resources>

@@ -9,4 +9,8 @@
     <dimen name="disSpinnerTipo">28sp</dimen>
     <dimen name="disFrmPersona">24dp</dimen>
     <dimen name="sizeLblPersona">16sp</dimen>
+    <dimen name="alturaGenerales">40dp</dimen>
+    <dimen name="anchoGenerales">230dp</dimen>
+    <dimen name="btnPerfilAncho">196dp</dimen>
+    <dimen name="btnPerfilLargo">44dp</dimen>
 </resources>

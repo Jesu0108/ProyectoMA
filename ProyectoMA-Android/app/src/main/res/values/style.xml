@@ -163,59 +163,73 @@
         <!--app:srcCompat="@drawable/perropan"-->
     </style>
 
-    <style name="lblCorreoPersona">
+    <style name="generalCorreoPersona">
         <item name="android:hint">Correo</item>
         <item name="android:textSize">@dimen/sizeLblPersona</item>
-        <item name="android:layout_width">230dp</item>
-        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
     </style>
 
-    <style name="lblUserPersona">
+    <style name="generalUserPersona">
         <item name="android:hint">Usuario</item>
         <item name="android:textSize">@dimen/sizeLblPersona</item>
-        <item name="android:layout_width">230dp</item>
-        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
     </style>
 
-    <style name="lblTelefonoPersona">
+    <style name="generalPassPersona">
+        <item name="android:hint">Contraseña</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
+        <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+    </style>
+
+    <style name="generalTelefonoPersona">
         <item name="android:hint">Telefono</item>
         <item name="android:textSize">@dimen/sizeLblPersona</item>
-        <item name="android:layout_width">230dp</item>
-        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
     </style>
 
-    <style name="lblPaisPersona">
+    <style name="generalPaisPersona">
         <item name="android:hint">Pais</item>
         <item name="android:textSize">@dimen/sizeLblPersona</item>
-        <item name="android:layout_width">230dp</item>
-        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
     </style>
 
-    <style name="lblLocPersona">
+    <style name="generalLocPersona">
         <item name="android:hint">Localidad</item>
         <item name="android:textSize">@dimen/sizeLblPersona</item>
-        <item name="android:layout_width">230dp</item>
-        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
     </style>
 
-    <style name="lblTipoPersona">
+    <style name="generalTipoPersona">
         <item name="android:hint">Tipo</item>
         <item name="android:textSize">@dimen/sizeLblPersona</item>
-        <item name="android:layout_width">230dp</item>
-        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
     </style>
 
-    <style name="lblPlatoPersona">
+    <style name="generalPlatoPersona">
         <item name="android:hint">Plato</item>
         <item name="android:textSize">@dimen/sizeLblPersona</item>
-        <item name="android:layout_width">230dp</item>
-        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+    </style>
+
+    <style name="btnPerfil">
+        <item name="android:layout_width">@dimen/btnPerfilAncho</item>
+        <item name="android:layout_height">@dimen/btnPerfilLargo</item>
+        <item name="android:text">@string/btnPerfil</item>
     </style>
 </resources>
