@@ -1,8 +1,11 @@
 package controller;
 
+import android.content.SharedPreferences;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.preference.PreferenceManager;
 
 import logic.DataBaseCtrl;
 import view.FrmPrincipal;
@@ -18,7 +21,10 @@ public class PrincipalCtrl {
         if(sUsuario.equals("") || sPass.equals("")){
             Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Por favor, rellene todos los campos para continuar", Toast.LENGTH_LONG).show();
         }else{
-            DataBaseCtrl.registerUser(sUsuario, sPass);
+            //Comprobamos el login
+            DataBaseCtrl.logeoUser(sUsuario, sPass);
+            //Guardamos sus preferencias
+            PreferenciasCtrl.insertPreferencias(sUsuario,sPass);
         }
     }
 
@@ -37,9 +43,13 @@ public class PrincipalCtrl {
         if(sCorreo.equals("") || sUser.equals("") || sPass.equals("") || sTipo.equals("") || sPlato.equals("") || sLocalidad.equals("") || sPais.equals("") || sTelefono.equals("")){
             Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Por favor, rellene todos los campos para continuar", Toast.LENGTH_LONG).show();
         }else{
+            //Lo registramos en la DB
             DataBaseCtrl.insert1User(sCorreo, sUser, sPass, sTipo, sPlato, sLocalidad,sPais,sTelefono);
+            //Guardamos sus preferencias
+            PreferenciasCtrl.insertPreferencias(sUser,sPass);
         }
-
     }
+
+
 
 }

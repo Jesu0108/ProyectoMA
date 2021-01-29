@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,16 +14,20 @@ import android.view.MenuItem;
 
 import com.artiguez.proyectoma.R;
 
+import controller.PreferenciasCtrl;
 import logic.AdaptadorLista;
 import logic.DataBaseCtrl;
 
 public class ListaView extends AppCompatActivity {
     private AdaptadorLista adaptador;
+    public static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_view);
+
+        context = getApplicationContext();
 
         //Cargamos los datos de los usuarios
         AdaptadorLista.prod = DataBaseCtrl.listPerfiles;
@@ -54,12 +59,13 @@ public class ListaView extends AppCompatActivity {
             case R.id.mnuPerfil:
                 startActivity(new Intent(getApplicationContext(), FrmPerfil.class));
                 break;
-            case R.id.mnuOpciones:
-                //startActivity(new Intent(getApplicationContext(), AcercaDe.class));
+            case R.id.mnuMusica:
+                //startActivity(new Intent(getApplicationContext(), Opciones.class));
                 break;
 
             case R.id.mnuSalir:
-                //startActivity(new Intent(getApplicationContext(), AcercaDe.class));
+                PreferenciasCtrl.salirLogueo();
+                startActivity(new Intent(getApplicationContext(), FrmPrincipal.class));
                 break;
             case R.id.mnuFiltroCocinero:
 

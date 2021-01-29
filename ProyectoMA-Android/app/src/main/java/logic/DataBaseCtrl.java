@@ -28,8 +28,8 @@ public class DataBaseCtrl {
 
     public static ArrayList<Perfil> listPerfiles;
 
-    public static void registerUser(String user, String pass) {
-        new Register_User_AsyncTask().execute("http://jesusmedac.tk/get1User.php?usuario=" + user + "&contrasenia=" + pass);
+    public static void logeoUser(String user, String pass) {
+        new Logueo_User_AsyncTask().execute("http://jesusmedac.tk/get1User.php?usuario=" + user + "&contrasenia=" + pass);
     }
 
     public static void insert1User(String correo, String user, String pass, String type, String plato, String localidad, String pais, String telefono) {
@@ -69,7 +69,7 @@ public class DataBaseCtrl {
         }
     }
 
-    private static class Register_User_AsyncTask extends AsyncTask<String, Void, Void> {
+    private static class Logueo_User_AsyncTask extends AsyncTask<String, Void, Void> {
         String resultado;
 
         @Override
