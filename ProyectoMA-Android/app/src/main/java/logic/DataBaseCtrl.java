@@ -41,6 +41,10 @@ public class DataBaseCtrl {
         new Load_1User_AsyncTask().execute("http://jesusmedac.tk/get1UserPk.php?id_Usuario=" + (AdaptadorLista.cardPosition+1));
     }
 
+    public static void getCocineros(String cocinero) {
+        new LoadDataUsers_AsyncTask().execute("http://jesusmedac.tk/get1UserPk.php?id_Usuario=" + cocinero);
+    }
+
     private static class Insert_User_AsyncTask extends AsyncTask<String, Void, Void> {
 
         @Override
