@@ -30,7 +30,7 @@ public class PrincipalCtrl {
 				bExito = true;
 			}
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			JOptionPane.showMessageDialog(null, "Ha ocurrido un error: "+e.getMessage(), "Error de login", JOptionPane.ERROR_MESSAGE);
 		}
 		return bExito;
 	}

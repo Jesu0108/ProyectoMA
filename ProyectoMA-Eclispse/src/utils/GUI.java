@@ -48,12 +48,18 @@ public class GUI {
 		modelo.addColumn("Localidad");
 		modelo.addColumn("Pais");
 
+		
+		
 		// Añadir cada fila de valores
 		for (Perfil p : resultado) {
 
 			modelo.addRow(new Object[] { p.getsCorreo(), p.getsUsuario(), p.getsContra(), p.getsTipo(), p.getsPlato(),
 					p.getsTelefono(), p.getsLocalidad(), p.getsPais() });
-
+			
+			//####################################
+			System.out.println(p.toString());
+			//####################################
+			
 		}
 		return modelo;
 	}

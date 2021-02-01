@@ -19,6 +19,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 import view.FrmEdicionPerfil;
+import view.FrmPrincipal;
 
 public class ImagenesCtrl {
 
@@ -33,7 +34,7 @@ public class ImagenesCtrl {
 			Image image = ImageIO.read(archivo);
 			FrmEdicionPerfil.imgUsuario.setIcon(new ImageIcon(image));
 		} catch (Exception e) {
-			System.err.println(e.getMessage());
+			JOptionPane.showMessageDialog(null, "Ha ocurrido un error: "+e.getMessage(), "Error seleccionando archivo", JOptionPane.ERROR_MESSAGE);
 		}
 
 	}
@@ -49,7 +50,7 @@ public class ImagenesCtrl {
 			FrmEdicionPerfil.imgUsuario.setIcon(new ImageIcon(image));
 
 		} catch (Exception e) {
-			System.err.println(e.getMessage());
+			JOptionPane.showMessageDialog(null, "Ha ocurrido un error: "+e.getMessage(), "Error de DOWNLOAD", JOptionPane.ERROR_MESSAGE);
 		}
 
 	}
@@ -91,7 +92,7 @@ public class ImagenesCtrl {
 					JOptionPane.INFORMATION_MESSAGE);
 
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, e.getMessage(), "UPLOAD", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Ha ocurrido un error: "+e.getMessage(), "Error de UPLOAD", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
@@ -103,7 +104,7 @@ public class ImagenesCtrl {
 			imageInFile.read(imageData);
 			base64Image = Base64.getEncoder().encodeToString(imageData);		
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, e.getMessage(), "FALLO", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Ha ocurrido un error: "+e.getMessage(), "Error de ENCODE TO BASE64", JOptionPane.ERROR_MESSAGE);
 		}
 
 		return base64Image;

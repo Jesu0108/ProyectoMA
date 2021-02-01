@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import model.Perfil;
+import utils.GUI;
 import view.FrmListaPerfiles;
 
 public class ListaPerfilesCtrl {
@@ -14,22 +15,24 @@ public class ListaPerfilesCtrl {
 		new view.FrmListaPerfiles();
 	}
 
-	public static void loadData() {
+	public static void loadData() {		
 		try {
 			String url = "https://preyectoma.000webhostapp.com/getUsers.php";
 			String respuesta = ConexionPHP.peticionHttp(url);
 
-			List<Perfil> resultado = controller.ConexionPHP.JsonToPerfiles(respuesta);
+			List<Perfil> resultado = ConexionPHP.JsonToPerfiles(respuesta);
 
-			DefaultTableModel modelo = utils.GUI.generarTablaPerfiles(resultado);
+			DefaultTableModel modelo = GUI.generarTablaPerfiles(resultado);
 
 			System.out.println("--- A ---");
 			FrmListaPerfiles.tblResult.setModel(modelo);
 			System.out.println("--- B ---");
 
 		} catch (Exception e) {
-			System.err.println("Fallo: " + e.getMessage());
-			e.getStackTrace();
+			JOptionPane.showMessageDialog(null, "Ha ocurrido un error: "+e.getMessage(), "Error cargando los datos", JOptionPane.ERROR_MESSAGE);
+			
+			//Eliminar al arreglar el error
+			System.err.println("Fallo: "+e.getMessage());
 		}
 	}
 

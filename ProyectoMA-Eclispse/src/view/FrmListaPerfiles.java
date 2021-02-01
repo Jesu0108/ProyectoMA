@@ -83,7 +83,7 @@ public class FrmListaPerfiles extends JDialog {
 		tblResult.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				controller.ListaPerfilesCtrl.tableRowSelected();
+				ListaPerfilesCtrl.tableRowSelected();
 			}
 		});
 		panelDat.setViewportView(tblResult);
