@@ -12,6 +12,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
+
+import controller.ListaPerfilesCtrl;
+
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JLabel;
@@ -30,24 +33,24 @@ public class FrmListaPerfiles extends JDialog {
 	private Color colorFondo;
 	
 	public FrmListaPerfiles() {
-		setResizable(false);
+		
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
-				controller.ListaPerfilesCtrl.confirmExit();
+				ListaPerfilesCtrl.confirmExit();
 			}
 		});
-		
-		controller.ListaPerfilesCtrl.loadData();
+		ListaPerfilesCtrl.loadData();
 		createForm();
-		setVisible(true);
 	}
 	
 	private void createForm() {
+		setVisible(true);
 		setModal(true);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 310, 300);
 		setTitle("Listado");
+		setResizable(false);
 		
 		colorFondo = new Color(250, 200, 107);
 		

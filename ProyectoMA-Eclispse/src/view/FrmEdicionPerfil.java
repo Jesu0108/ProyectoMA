@@ -12,6 +12,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import controller.EdicionPerfilCtrl;
+import controller.ImagenesCtrl;
+
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
@@ -20,7 +24,7 @@ import java.awt.event.WindowEvent;
 public class FrmEdicionPerfil extends JDialog {
 
 	private static final long serialVersionUID = 1L;
-	private final JPanel contentPane = new JPanel();
+	public static JPanel contentPane;
 	public static JTextField txtCorreo;
 	public static JTextField txtContra;
 	
@@ -32,7 +36,7 @@ public class FrmEdicionPerfil extends JDialog {
 	private static JTextField txtTipo;
 	
 	private JPanel imgPanel;
-	private JLabel imgUsuario;
+	public static JLabel imgUsuario;
 	private JButton btnBorrar;
 	
 	private Font lblFont;
@@ -41,19 +45,29 @@ public class FrmEdicionPerfil extends JDialog {
 	private Color colorFondo;
 
 	public FrmEdicionPerfil() {
+		
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
-				
+				EdicionPerfilCtrl.confirmExit();
 			}
 		});
-		getContentPane().setBackground(colorFondo);
-		setResizable(false);
+		ImagenesCtrl.download();
+		createForm();
+	}
+	
+	public void createForm() {
+		
 		setModal(true);
 		setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 339, 252);
 		setTitle("Editar perfil");
-		getContentPane().setLayout(new BorderLayout());
+		setVisible(true);
+		setResizable(false);
+		
+		contentPane = new JPanel();
+		contentPane.setLayout(new BorderLayout());
+		contentPane.setBackground(colorFondo);
 		
 		//Definimos las fuentes 
 		lblFont = new Font("Script MT Bold", Font.PLAIN, 16);
@@ -65,7 +79,7 @@ public class FrmEdicionPerfil extends JDialog {
 		imgPanel.setBackground(colorFondo);
 		getContentPane().add(imgPanel, BorderLayout.NORTH);
 		
-		imgUsuario = new JLabel("New label");
+		imgUsuario = new JLabel("");
 		imgPanel.add(imgUsuario);
 		contentPane.setBackground(colorFondo);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -24,7 +24,7 @@ public class ListaPerfilesCtrl {
 			DefaultTableModel modelo = utils.GUI.generarTablaPerfiles(resultado);
 
 			System.out.println("--- A ---");
-			view.FrmListaPerfiles.tblResult.setModel(modelo);
+			FrmListaPerfiles.tblResult.setModel(modelo);
 			System.out.println("--- B ---");
 
 		} catch (Exception e) {

@@ -38,18 +38,23 @@ public class FrmPrincipal extends JFrame {
 	
 	public static JPanel contentPane;
 
-	public FrmPrincipal() {
+	public FrmPrincipal(){
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				PrincipalCtrl.confirmExit();
 			}
 		});
-		setIconImage(Toolkit.getDefaultToolkit().getImage("img\\chef_color_fondo.png"));
-		setResizable(false);
+		createForm();
+	}
+	
+	public void createForm() {
+		setVisible(true);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		setTitle("Inicio");
+		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage("img\\chef_color_fondo.png"));
 		
 		colorFondo = new Color(250, 200, 107);
 		
