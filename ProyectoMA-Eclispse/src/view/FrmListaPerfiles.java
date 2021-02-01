@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -14,8 +15,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.AbstractListModel;
+import javax.swing.JComboBox;
+import java.awt.Font;
 
 public class FrmListaPerfiles extends JDialog {
 
@@ -24,9 +25,12 @@ public class FrmListaPerfiles extends JDialog {
 	public static JPanel contentPane;
 	private JLabel lblInfoEleccion;
 	private JPanel panel;
-	private JList lstFiltro;
+	private JComboBox lstFiltros;
 
+	private Color colorFondo;
+	
 	public FrmListaPerfiles() {
+		setResizable(false);
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -45,35 +49,33 @@ public class FrmListaPerfiles extends JDialog {
 		setBounds(100, 100, 310, 300);
 		setTitle("Listado");
 		
+		colorFondo = new Color(250, 200, 107);
+		
 		contentPane = new JPanel();
+		contentPane.setBackground(colorFondo);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
 		panel = new JPanel();
+		panel.setBackground(colorFondo);
 		contentPane.add(panel, BorderLayout.NORTH);
 		
 		lblInfoEleccion = new JLabel("Seleccione el filtro:");
+		lblInfoEleccion.setFont(new Font("Script MT Bold", Font.PLAIN, 14));
 		panel.add(lblInfoEleccion);
 		
-		lstFiltro = new JList();
-		lstFiltro.setVisibleRowCount(1);
-		lstFiltro.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		lstFiltro.setModel(new AbstractListModel() {
-			String[] values = new String[] {"Correo", "Usuario", "Contrasenia", "Plato"};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
-		panel.add(lstFiltro);
+		String[] filtros = {"Ninguno","Cocinero", "Catador", "Empresa"};
+		lstFiltros = new JComboBox(filtros);
+		lstFiltros.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		panel.add(lstFiltros);
 		
 		JScrollPane panelDat = new JScrollPane();
+		panelDat.setBackground(colorFondo);
 		contentPane.add(panelDat, BorderLayout.CENTER);
 
 		tblResult = new JTable();
+		tblResult.setBackground(colorFondo);
 		tblResult.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tblResult.addMouseListener(new MouseAdapter() {
 			@Override

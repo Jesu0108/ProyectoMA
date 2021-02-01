@@ -16,23 +16,17 @@ public class ListaPerfilesCtrl {
 
 	public static void loadData() {
 		try {
-			String url = "http://jesusmedac.tk/getUsers.php";
+			String url = "https://preyectoma.000webhostapp.com/getUsers.php";
 			String respuesta = ConexionPHP.peticionHttp(url);
-			
+
 			List<Perfil> resultado = controller.ConexionPHP.JsonToPerfiles(respuesta);
-			
+
 			DefaultTableModel modelo = utils.GUI.generarTablaPerfiles(resultado);
-			
-//			for (Perfil perfil : resultado) {
-//				
-//				System.out.println(perfil);
-//			}
-			
+
 			System.out.println("--- A ---");
-			System.out.println(modelo.getColumnName(1));
 			view.FrmListaPerfiles.tblResult.setModel(modelo);
 			System.out.println("--- B ---");
-			
+
 		} catch (Exception e) {
 			System.err.println("Fallo: " + e.getMessage());
 			e.getStackTrace();
@@ -40,7 +34,8 @@ public class ListaPerfilesCtrl {
 	}
 
 	public static void confirmExit() {
-		if(JOptionPane.showConfirmDialog(FrmListaPerfiles.contentPane, "¿Seguro que desea salir?",null, 2) == JOptionPane.YES_OPTION) {
+		if (JOptionPane.showConfirmDialog(FrmListaPerfiles.contentPane, "¿Seguro que desea salir?", "Confirmar salida",
+				JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
 			System.exit(0);
 		}
 	}

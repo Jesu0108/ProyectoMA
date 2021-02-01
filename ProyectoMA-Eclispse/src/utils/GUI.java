@@ -37,7 +37,7 @@ public class GUI {
 
 	public static DefaultTableModel generarTablaPerfiles(List<Perfil> resultado) {
 		DefaultTableModel modelo = new DefaultTableModel();
-		
+
 		// Añadir la cabecera de las columnas
 		modelo.addColumn("Correo");
 		modelo.addColumn("Usuario");
@@ -47,12 +47,14 @@ public class GUI {
 		modelo.addColumn("Telefono");
 		modelo.addColumn("Localidad");
 		modelo.addColumn("Pais");
-		
+
 		// Añadir cada fila de valores
 		for (Perfil p : resultado) {
-			modelo.addRow(new Object[] {p.getsCorreo(),p.getsUsuario(),p.getsContra(),p.getsTipo(),p.getsPlato(),p.getsTelefono(),p.getsLocalidad(),p.getsPais()});
-			System.out.println(p);
-		}		
+
+			modelo.addRow(new Object[] { p.getsCorreo(), p.getsUsuario(), p.getsContra(), p.getsTipo(), p.getsPlato(),
+					p.getsTelefono(), p.getsLocalidad(), p.getsPais() });
+
+		}
 		return modelo;
 	}
 }
