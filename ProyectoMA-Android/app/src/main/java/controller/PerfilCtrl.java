@@ -15,7 +15,7 @@ public class PerfilCtrl {
     private static String tipo;
 
     public static void getDatosUser() {
-        DataBaseCtrl.getPerfil();
+        DataBaseCtrl.get1User();
     }
 
     public static void updateUser(TextView txtCorreoUser, TextView txtUsuarioUser, TextView txtPassUser, TextView txtPlatoUser, TextView txtLocalidadUser, TextView txtPaisUser, TextView txtTelefonoUser, TextView txtTipoUser) {

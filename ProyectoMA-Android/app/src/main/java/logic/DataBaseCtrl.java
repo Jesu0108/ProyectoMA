@@ -43,7 +43,7 @@ public class DataBaseCtrl {
     }
 
     public static void getPerfil() {
-        new Load_Perfil_AsyncTask().execute("https://preyectoma.000webhostapp.com/get1UserPk.php?usuario=" + FrmPrincipal.userPref);
+        new Load_Perfil_AsyncTask().execute("https://preyectoma.000webhostapp.com/get1UserPk.php?id_usuario=" + FrmPrincipal.userPref);
     }
 
     public static void filtroCocineros(String tipo) {
