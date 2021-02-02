@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -59,8 +60,18 @@ public class ListaView extends AppCompatActivity {
             case R.id.mnuPerfil:
                 startActivity(new Intent(getApplicationContext(), FrmPerfil.class));
                 break;
-            case R.id.mnuMusica:
-                //startActivity(new Intent(getApplicationContext(), Opciones.class));
+            case R.id.mnuFiltroNinguno:
+                DataBaseCtrl.getAllPerfiles();
+                break;
+
+            case R.id.mnuFiltroCatadores:
+                DataBaseCtrl.filtroCocineros("Catador");
+                break;
+            case R.id.mnuFiltroCocinero:
+                DataBaseCtrl.filtroCocineros("Cocinero");
+                break;
+            case R.id.mnuFiltroEmpresa:
+                DataBaseCtrl.filtroCocineros("Empresa");
                 break;
 
             case R.id.mnuSalir:
@@ -68,10 +79,12 @@ public class ListaView extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), FrmPrincipal.class));
                 break;
             case R.id.mnuOn:
-
+                    FrmPrincipal.musica = MediaPlayer.create(this,R.raw.musica_fondo);
+                    FrmPrincipal.musica.start();
+                    FrmPrincipal.musica.setLooping(true);
                 break;
             case R.id.mnuOff:
-
+                    FrmPrincipal.musica.stop();
                 break;
         }
 

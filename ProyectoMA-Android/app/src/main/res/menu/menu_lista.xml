@@ -5,6 +5,9 @@
         android:title="Filtrar por">
         <menu >
             <item
+                android:id="@+id/mnuFiltroNinguno"
+                android:title="Ninguno" />
+            <item
                 android:id="@+id/mnuFiltroCocinero"
                 android:title="Cocineros" />
             <item

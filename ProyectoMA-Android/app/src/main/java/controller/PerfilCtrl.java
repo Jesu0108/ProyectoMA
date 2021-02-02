@@ -5,26 +5,29 @@ import android.widget.TextView;
 import logic.DataBaseCtrl;
 
 public class PerfilCtrl {
-    public static TextView correo;
-    public static TextView usuario;
-    public static TextView pass;
-    public static TextView plato;
-    public static TextView localidad;
-    public static TextView pais;
-    public static TextView telefono;
-    public static TextView tipo;
-    
-    public static void getDatosUser(TextView txtCorreoUser, TextView txtUsuarioUser, TextView txtPassUser, TextView txtPlatoUser, TextView txtLocalidadUser, TextView txtPaisUser, TextView txtTelefonoUser, TextView txtTipoUser) {
+    private static String correo;
+    private static String usuario;
+    private static String pass;
+    private static String plato;
+    private static String localidad;
+    private static String pais;
+    private static String telefono;
+    private static String tipo;
 
-        correo = txtCorreoUser;
-        usuario = txtUsuarioUser;
-        pass = txtPassUser;
-        plato = txtPlatoUser;
-        localidad = txtLocalidadUser;
-        pais = txtPaisUser;
-        telefono = txtTelefonoUser;
-        tipo = txtTipoUser;
+    public static void getDatosUser() {
+        DataBaseCtrl.getPerfil();
+    }
 
-        DataBaseCtrl.get1User();
+    public static void updateUser(TextView txtCorreoUser, TextView txtUsuarioUser, TextView txtPassUser, TextView txtPlatoUser, TextView txtLocalidadUser, TextView txtPaisUser, TextView txtTelefonoUser, TextView txtTipoUser) {
+        correo = txtCorreoUser.getText().toString();
+        usuario = txtUsuarioUser.getText().toString();
+        pass = txtPassUser.getText().toString();
+        plato = txtPlatoUser.getText().toString();
+        localidad = txtLocalidadUser.getText().toString();
+        pais = txtPaisUser.getText().toString();
+        telefono = txtTelefonoUser.getText().toString();
+        tipo = txtTipoUser.getText().toString();
+
+        DataBaseCtrl.updateUser(correo, usuario, pass, tipo, plato, localidad, pais, telefono);
     }
 }

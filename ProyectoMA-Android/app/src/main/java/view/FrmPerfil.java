@@ -3,6 +3,7 @@ package view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.artiguez.proyectoma.R;
@@ -19,6 +20,8 @@ public class FrmPerfil extends AppCompatActivity {
     public static TextView txtTelefonoUser;
     public static TextView txtTipoUser;
 
+    public static Button btnPerfil;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,13 @@ public class FrmPerfil extends AppCompatActivity {
         txtTelefonoUser = findViewById(R.id.txtTelefonoUser);
         txtTipoUser = findViewById(R.id.txtTipoUser);
 
-        PerfilCtrl.getDatosUser(txtCorreoUser, txtUsuarioUser, txtPassUser,txtPlatoUser, txtLocalidadUser, txtPaisUser, txtTelefonoUser, txtTipoUser);
+        PerfilCtrl.getDatosUser();
+
+        btnPerfil = findViewById(R.id.btnPerfil);
+        btnPerfil.setOnClickListener(v -> {
+            PerfilCtrl.updateUser(txtCorreoUser, txtUsuarioUser, txtPassUser,txtPlatoUser, txtLocalidadUser, txtPaisUser, txtTelefonoUser, txtTipoUser);
+        });
     }
+
+
 }
