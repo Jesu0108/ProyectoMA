@@ -95,6 +95,9 @@ public class FrmPrincipal extends AppCompatActivity {
         if(!musica.isPlaying()){
             musica.start();
             musica.setLooping(true);
+        }else{
+            musica.reset();
+            musica.setLooping(true);
         }
     }
 }

@@ -79,12 +79,12 @@ public class ListaView extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), FrmPrincipal.class));
                 break;
             case R.id.mnuOn:
-                    FrmPrincipal.musica = MediaPlayer.create(this,R.raw.musica_fondo);
                     FrmPrincipal.musica.start();
                     FrmPrincipal.musica.setLooping(true);
                 break;
             case R.id.mnuOff:
                     FrmPrincipal.musica.stop();
+                    FrmPrincipal.musica.setLooping(false);
                 break;
         }
 
