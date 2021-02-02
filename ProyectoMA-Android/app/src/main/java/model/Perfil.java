@@ -18,9 +18,8 @@ public class Perfil {
         this.contrasenia = contrasenia;
     }
 
-    //Constructor sin contrasenia
-    public Perfil(int id_Usuario,String correo,String usuario, String plato, String tipo, String localidad, String pais, String telefono) {
-        this.id_Usuario = id_Usuario;
+    //Constructor sin contrasenia ni id
+    public Perfil(String correo,String usuario, String plato, String tipo, String localidad, String pais, String telefono) {
         this.correo = correo;
         this.usuario = usuario;
         this.plato = plato;
@@ -41,6 +40,10 @@ public class Perfil {
         this.localidad = localidad;
         this.pais = pais;
         this.telefono = telefono;
+    }
+
+    public int getId_Usuario() {
+        return id_Usuario;
     }
 
     public String getCorreo() {
