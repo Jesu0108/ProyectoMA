@@ -23,7 +23,16 @@
 
     <item
         android:id="@+id/mnuMusica"
-        android:title="Musica (ON/OFF)"></item>
+        android:title="Musica">
+        <menu>
+            <item
+                android:id="@+id/mnuOn"
+                android:title="ON" />
+            <item
+                android:id="@+id/mnuOff"
+                android:title="OFF" />
+        </menu>
+    </item>
 
     <item
         android:id="@+id/mnuSalir"

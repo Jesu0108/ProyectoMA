@@ -6,6 +6,7 @@ import androidx.preference.PreferenceManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,7 @@ public class FrmPrincipal extends AppCompatActivity {
     public static EditText txtUsuario, txtContra;
     Button btnLogin, btnRegistro;
     public static Context context;
+    public static MediaPlayer musica;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,10 @@ public class FrmPrincipal extends AppCompatActivity {
         setContentView(R.layout.activity_frm_principal);
 
         context = getApplicationContext();
+
+        musica = MediaPlayer.create(this,R.raw.musica_fondo);
+
+        compruebaMusica();
 
         if(!userLogueado()){
             txtUsuario = findViewById(R.id.txtUsuario);
@@ -79,5 +85,12 @@ public class FrmPrincipal extends AppCompatActivity {
         String sPass = prefs.getString("pass",null);
 
         PreferenciasCtrl.logueoPreferencias(sUsuario,sPass);
+    }
+
+    private void compruebaMusica(){
+        if(!musica.isPlaying()){
+            musica.start();
+            musica.setLooping(true);
+        }
     }
 }

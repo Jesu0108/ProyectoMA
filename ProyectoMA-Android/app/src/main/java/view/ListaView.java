@@ -67,7 +67,10 @@ public class ListaView extends AppCompatActivity {
                 PreferenciasCtrl.salirLogueo();
                 startActivity(new Intent(getApplicationContext(), FrmPrincipal.class));
                 break;
-            case R.id.mnuFiltroCocinero:
+            case R.id.mnuOn:
+
+                break;
+            case R.id.mnuOff:
 
                 break;
         }
