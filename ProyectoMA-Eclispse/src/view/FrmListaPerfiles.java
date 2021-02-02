@@ -24,7 +24,7 @@ import java.awt.Font;
 public class FrmListaPerfiles extends JDialog {
 
 	private static final long serialVersionUID = 1L;
-	public static JTable tblResult;
+	public static JTable tblResult = new JTable();
 	public static JPanel contentPane;
 	private JLabel lblInfoEleccion;
 	private JPanel panel;
@@ -40,6 +40,7 @@ public class FrmListaPerfiles extends JDialog {
 				ListaPerfilesCtrl.confirmExit();
 			}
 		});
+		
 		ListaPerfilesCtrl.loadData();
 		createForm();
 	}
@@ -77,7 +78,6 @@ public class FrmListaPerfiles extends JDialog {
 		panelDat.setBackground(colorFondo);
 		contentPane.add(panelDat, BorderLayout.CENTER);
 
-		tblResult = new JTable();
 		tblResult.setBackground(colorFondo);
 		tblResult.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tblResult.addMouseListener(new MouseAdapter() {

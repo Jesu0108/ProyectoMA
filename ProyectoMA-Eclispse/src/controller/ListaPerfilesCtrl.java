@@ -15,7 +15,7 @@ public class ListaPerfilesCtrl {
 		new view.FrmListaPerfiles();
 	}
 
-	public static void loadData() {		
+	public static void loadData() {
 		try {
 			String url = "https://preyectoma.000webhostapp.com/getUsers.php";
 			String respuesta = ConexionPHP.peticionHttp(url);
@@ -24,15 +24,12 @@ public class ListaPerfilesCtrl {
 
 			DefaultTableModel modelo = GUI.generarTablaPerfiles(resultado);
 
-			System.out.println("--- A ---");
 			FrmListaPerfiles.tblResult.setModel(modelo);
-			System.out.println("--- B ---");
 
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Ha ocurrido un error: "+e.getMessage(), "Error cargando los datos", JOptionPane.ERROR_MESSAGE);
-			
-			//Eliminar al arreglar el error
-			System.err.println("Fallo: "+e.getMessage());
+
+			JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + e.getMessage(), "Error cargando los datos",
+					JOptionPane.ERROR_MESSAGE);
 		}
 	}
 

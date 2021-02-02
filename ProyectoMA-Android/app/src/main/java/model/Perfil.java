@@ -2,6 +2,7 @@ package model;
 
 public class Perfil {
 
+    private int id_Usuario;
     private String correo;
     private String usuario;
     private String contrasenia;
@@ -18,7 +19,8 @@ public class Perfil {
     }
 
     //Constructor sin contrasenia
-    public Perfil(String correo,String usuario, String plato, String tipo, String localidad, String pais, String telefono) {
+    public Perfil(int id_Usuario,String correo,String usuario, String plato, String tipo, String localidad, String pais, String telefono) {
+        this.id_Usuario = id_Usuario;
         this.correo = correo;
         this.usuario = usuario;
         this.plato = plato;
@@ -29,7 +31,8 @@ public class Perfil {
     }
 
     //Constructor completo
-    public Perfil(String correo,String usuario, String contrasenia, String plato, String tipo, String localidad, String pais, String telefono) {
+    public Perfil(int id_Usuario,String correo,String usuario, String contrasenia, String plato, String tipo, String localidad, String pais, String telefono) {
+        this.id_Usuario = id_Usuario;
         this.correo = correo;
         this.usuario = usuario;
         this.contrasenia = contrasenia;
