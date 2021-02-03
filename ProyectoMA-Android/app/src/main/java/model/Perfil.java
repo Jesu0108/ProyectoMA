@@ -12,6 +12,11 @@ public class Perfil {
     private String pais;
     private String telefono;
 
+    //Constructor id (pk)
+    public Perfil(int id_Usuario) {
+        this.id_Usuario = id_Usuario;
+    }
+
     //Constructor logueo
     public Perfil(String usuario, String contrasenia) {
         this.usuario = usuario;
@@ -19,7 +24,7 @@ public class Perfil {
     }
 
     //Constructor sin contrasenia ni id
-    public Perfil(String correo,String usuario, String plato, String tipo, String localidad, String pais, String telefono) {
+    public Perfil(String correo, String usuario, String plato, String tipo, String localidad, String pais, String telefono) {
         this.correo = correo;
         this.usuario = usuario;
         this.plato = plato;
@@ -30,7 +35,7 @@ public class Perfil {
     }
 
     //Constructor completo
-    public Perfil(int id_Usuario,String correo,String usuario, String contrasenia, String plato, String tipo, String localidad, String pais, String telefono) {
+    public Perfil(int id_Usuario, String correo, String usuario, String contrasenia, String plato, String tipo, String localidad, String pais, String telefono) {
         this.id_Usuario = id_Usuario;
         this.correo = correo;
         this.usuario = usuario;

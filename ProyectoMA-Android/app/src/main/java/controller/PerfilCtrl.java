@@ -15,10 +15,10 @@ public class PerfilCtrl {
     private static String tipo;
 
     public static void getDatosUser() {
-        DataBaseCtrl.get1User();
+        DataBaseCtrl.getPerfil();
     }
 
-    public static void updateUser(TextView txtCorreoUser, TextView txtUsuarioUser, TextView txtPassUser, TextView txtPlatoUser, TextView txtLocalidadUser, TextView txtPaisUser, TextView txtTelefonoUser, TextView txtTipoUser) {
+    public static void  updateUser(TextView txtCorreoUser, TextView txtUsuarioUser, TextView txtPassUser, TextView txtPlatoUser, TextView txtLocalidadUser, TextView txtPaisUser, TextView txtTelefonoUser, TextView txtTipoUser) {
         correo = txtCorreoUser.getText().toString();
         usuario = txtUsuarioUser.getText().toString();
         pass = txtPassUser.getText().toString();

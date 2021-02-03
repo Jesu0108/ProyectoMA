@@ -25,6 +25,7 @@ public class FrmPrincipal extends AppCompatActivity {
     public static Context context;
     public static MediaPlayer musica;
     public static String userPref;
+    public static String userPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,14 +82,11 @@ public class FrmPrincipal extends AppCompatActivity {
     private void logueoDirecto(){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        //Lo guardamos en una variable
+        //Leemos las preferencias y lo guardamos en variables
         userPref = prefs.getString("user",null);
+        userPass = prefs.getString("pass",null);
 
-        //Leemos de las preferencias
-        String sUsuario = prefs.getString("user",null);
-        String sPass = prefs.getString("pass",null);
-
-        PreferenciasCtrl.logueoPreferencias(sUsuario,sPass);
+        PreferenciasCtrl.logueoPreferencias(userPref,userPass);
     }
 
     private void compruebaMusica(){

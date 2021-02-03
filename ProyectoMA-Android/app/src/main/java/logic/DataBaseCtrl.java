@@ -43,7 +43,7 @@ public class DataBaseCtrl {
     }
 
     public static void getPerfil() {
-        new Load_Perfil_AsyncTask().execute("https://preyectoma.000webhostapp.com/get1UserPk.php?id_usuario=" + FrmPrincipal.userPref);
+        new Load_Perfil_AsyncTask().execute("https://preyectoma.000webhostapp.com/get_Datos_1_User.php?usuario=" + FrmPrincipal.userPref + "&contrasenia="+FrmPrincipal.userPass);
     }
 
     public static void filtroCocineros(String tipo) {
@@ -56,7 +56,7 @@ public class DataBaseCtrl {
 
     public static void updateUser(String correo, String user, String contrasenia, String type, String plato, String localidad, String pais, String telefono) {
         new Update_User_AsyncTask().execute("https://preyectoma.000webhostapp.com/updateUser.php?correo=" + correo + "&user=" + user + "&contrasenia=" + contrasenia
-                + "&tipo=" + type + "&plato=" + plato  + "&pais=" + pais + "&localidad=" + localidad + "&telefono=" + telefono);
+                + "&tipo=" + type + "&plato=" + plato  + "&pais=" + pais + "&localidad=" + localidad + "&telefono=" + telefono + "&usuario="+ FrmPrincipal.userPref);
     }
 
     private static class Insert_User_AsyncTask extends AsyncTask<String, Void, Void> {
@@ -109,8 +109,8 @@ public class DataBaseCtrl {
             //Mandamos un mensaje al usuario
             Toast.makeText(FrmRegistro.context.getApplicationContext(), "Usuario Editado", Toast.LENGTH_SHORT).show();
 
-            //Cargamos los datos
-            new LoadDataUsers_AsyncTask().execute("https://preyectoma.000webhostapp.com/getUsers.php");
+            //Cargamos los datos de nuevo
+            getPerfil();
 
         }
     }
@@ -315,4 +315,5 @@ public class DataBaseCtrl {
             }
         }
     }
+
 }
