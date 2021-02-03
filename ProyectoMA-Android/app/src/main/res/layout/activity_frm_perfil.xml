@@ -7,14 +7,14 @@
     android:orientation="vertical"
     tools:context="view.FrmPersona">
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imgPerfilUser"
         android:layout_width="105dp"
         android:layout_height="102dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/perropan" />
+        app:srcCompat="@drawable/perropan_peque" />
 
     <EditText
         android:id="@+id/txtCorreoUser"
@@ -38,8 +38,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPlatoUser" />
 
-    <EditText
-        android:id="@+id/txtTipoUser"
+    <Spinner
+        android:id="@+id/spTipoUser"
         style="@style/generalTipoPersona"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -65,7 +65,7 @@
         style="@style/generalPlatoPersona"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTipoUser" />
+        app:layout_constraintTop_toBottomOf="@+id/spTipoUser" />
 
     <EditText
         android:id="@+id/txtPassUser"

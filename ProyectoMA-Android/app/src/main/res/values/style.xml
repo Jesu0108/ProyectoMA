@@ -231,4 +231,60 @@
         <item name="android:layout_height">@dimen/btnPerfilLargo</item>
         <item name="android:text">@string/btnPerfil</item>
     </style>
+
+    <style name="infoCorreo">
+        <item name="android:text">@string/infoCorreo</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/lblInfoAncho</item>
+        <item name="android:layout_height">@dimen/lblInfoLargo</item>
+        <item name="android:layout_marginTop">@dimen/dislblInfo</item>
+    </style>
+
+    <style name="infoUsuario">
+        <item name="android:text">@string/infoUsuario</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/lblInfoAncho</item>
+        <item name="android:layout_height">@dimen/lblInfoLargo</item>
+        <item name="android:layout_marginTop">@dimen/dislblInfo</item>
+    </style>
+
+    <style name="infoTelefono">
+        <item name="android:text">@string/infoTelefono</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/lblInfoAncho</item>
+        <item name="android:layout_height">@dimen/lblInfoLargo</item>
+        <item name="android:layout_marginTop">@dimen/dislblInfo</item>
+    </style>
+
+    <style name="infoTipo">
+        <item name="android:text">@string/infoTipo</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/lblInfoAncho</item>
+        <item name="android:layout_height">@dimen/lblInfoLargo</item>
+        <item name="android:layout_marginTop">@dimen/dislblInfo</item>
+    </style>
+
+    <style name="infoPlato">
+        <item name="android:text">@string/infoPlato</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/lblInfoAncho</item>
+        <item name="android:layout_height">@dimen/lblInfoLargo</item>
+        <item name="android:layout_marginTop">@dimen/dislblInfo</item>
+    </style>
+
+    <style name="infoPais">
+        <item name="android:text">@string/infoPais</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/lblInfoAncho</item>
+        <item name="android:layout_height">@dimen/lblInfoLargo</item>
+        <item name="android:layout_marginTop">@dimen/dislblInfo</item>
+    </style>
+
+    <style name="infoLocalidad">
+        <item name="android:text">@string/infoLocalidad</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/lblInfoAncho</item>
+        <item name="android:layout_height">@dimen/lblInfoLargo</item>
+        <item name="android:layout_marginTop">@dimen/dislblInfo</item>
+    </style>
 </resources>

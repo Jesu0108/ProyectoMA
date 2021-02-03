@@ -2,8 +2,7 @@ package controller;
 
 import android.widget.TextView;
 
-import logic.AdaptadorLista;
-import logic.DataBaseCtrl;
+import logic.Dbm;
 
 public class PersonaCtrl {
 
@@ -24,6 +23,6 @@ public class PersonaCtrl {
         telefono = lblTelefonoPersona;
         tipo = lblTipoPersona;
 
-        DataBaseCtrl.get1User();
+        Dbm.get1User();
     }
 }

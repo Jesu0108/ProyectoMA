@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,7 +16,7 @@ import com.artiguez.proyectoma.R;
 
 import controller.PreferenciasCtrl;
 import logic.AdaptadorLista;
-import logic.DataBaseCtrl;
+import logic.Dbm;
 
 public class ListaView extends AppCompatActivity {
     private AdaptadorLista adaptador;
@@ -31,7 +30,7 @@ public class ListaView extends AppCompatActivity {
         context = getApplicationContext();
 
         //Cargamos los datos de los usuarios
-        AdaptadorLista.prod = DataBaseCtrl.listPerfiles;
+        AdaptadorLista.prod = Dbm.listPerfiles;
 
         // Vinculamos el objeto del controlador con el de la vista
         RecyclerView listaMain = findViewById(R.id.listaMain);
@@ -61,17 +60,17 @@ public class ListaView extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), FrmPerfil.class));
                 break;
             case R.id.mnuFiltroNinguno:
-                DataBaseCtrl.getAllPerfiles();
+                Dbm.getAllPerfiles();
                 break;
 
             case R.id.mnuFiltroCatadores:
-                DataBaseCtrl.filtroCocineros("Catador");
+                Dbm.filtroCocineros("Catador");
                 break;
             case R.id.mnuFiltroCocinero:
-                DataBaseCtrl.filtroCocineros("Cocinero");
+                Dbm.filtroCocineros("Cocinero");
                 break;
             case R.id.mnuFiltroEmpresa:
-                DataBaseCtrl.filtroCocineros("Empresa");
+                Dbm.filtroCocineros("Empresa");
                 break;
 
             case R.id.mnuSalir:

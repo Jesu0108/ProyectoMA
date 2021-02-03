@@ -14,4 +14,12 @@
     <string name="txtPais">Pais</string>
     <string name="btnCrear">Crear</string>
     <string name="btnPerfil">Editar</string>
+
+    <string name="infoCorreo">Correo:</string>
+    <string name="infoUsuario">Usuario:</string>
+    <string name="infoTipo">Tipo:</string>
+    <string name="infoPlato">Plato:</string>
+    <string name="infoPais">Pais:</string>
+    <string name="infoLocalidad">Localidad:</string>
+    <string name="infoTelefono">Telefono:</string>
 </resources>

@@ -2,7 +2,7 @@ package controller;
 
 import android.widget.TextView;
 
-import logic.DataBaseCtrl;
+import logic.Dbm;
 
 public class PerfilCtrl {
     private static String correo;
@@ -15,7 +15,7 @@ public class PerfilCtrl {
     private static String tipo;
 
     public static void getDatosUser() {
-        DataBaseCtrl.getPerfil();
+        Dbm.getPerfil();
     }
 
     public static void  updateUser(TextView txtCorreoUser, TextView txtUsuarioUser, TextView txtPassUser, TextView txtPlatoUser, TextView txtLocalidadUser, TextView txtPaisUser, TextView txtTelefonoUser, TextView txtTipoUser) {
@@ -28,6 +28,6 @@ public class PerfilCtrl {
         telefono = txtTelefonoUser.getText().toString();
         tipo = txtTipoUser.getText().toString();
 
-        DataBaseCtrl.updateUser(correo, usuario, pass, tipo, plato, localidad, pais, telefono);
+        Dbm.updateUser(correo, usuario, pass, tipo, plato, localidad, pais, telefono);
     }
 }

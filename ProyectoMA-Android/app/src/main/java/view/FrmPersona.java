@@ -1,16 +1,14 @@
 package view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.artiguez.proyectoma.R;
 
 import controller.PersonaCtrl;
-import logic.AdaptadorLista;
 
 public class FrmPersona extends AppCompatActivity {
     public static TextView lblCorreoPersona;
@@ -21,6 +19,7 @@ public class FrmPersona extends AppCompatActivity {
     public static TextView lblTelefonoPersona;
     public static TextView lblTipoPersona;
 
+    public static ImageButton imgPerfilPersona;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,5 +34,10 @@ public class FrmPersona extends AppCompatActivity {
         lblTipoPersona = findViewById(R.id.lblTipoPersona);
 
         PersonaCtrl.getDatosPersona(lblCorreoPersona, lblUsuarioPersona, lblPlatoPersona, lblLocalidadPersona, lblPaisPersona, lblTelefonoPersona, lblTipoPersona);
+
+        imgPerfilPersona = findViewById(R.id.imgPerfilPersona);
+        imgPerfilPersona.setOnClickListener(v -> {
+
+        });
     }
 }

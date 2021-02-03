@@ -1,11 +1,10 @@
 package controller;
 
 import android.content.SharedPreferences;
-import android.widget.ListView;
 
 import androidx.preference.PreferenceManager;
 
-import logic.DataBaseCtrl;
+import logic.Dbm;
 import view.FrmPrincipal;
 import view.ListaView;
 
@@ -27,7 +26,7 @@ public class PreferenciasCtrl {
     }
 
     public static void logueoPreferencias(String sUsuario, String sPass) {
-        DataBaseCtrl.logeoUser(sUsuario, sPass);
+        Dbm.logeoUser(sUsuario, sPass);
     }
 
     public static void salirLogueo(){

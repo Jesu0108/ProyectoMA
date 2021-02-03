@@ -17,6 +17,8 @@ import java.util.List;
 
 import controller.PrincipalCtrl;
 
+import static logic.Dbm.lstTipo;
+
 public class FrmRegistro extends AppCompatActivity {
     public static EditText txtCorreo;
     public static EditText txtUser;
@@ -48,12 +50,6 @@ public class FrmRegistro extends AppCompatActivity {
         txtTelefono = findViewById(R.id.txtTelefonoReg);
 
         spTipo = findViewById(R.id.spTipoReg);
-        List<String> lstTipo = new ArrayList<>();
-        lstTipo.add("Cocinero");
-        lstTipo.add("Empresa");
-        lstTipo.add("Catador");
-
-        spTipo.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, lstTipo));
 
         btnCrear = findViewById(R.id.btnCrear);
         btnCrear.setOnClickListener(new View.OnClickListener() {

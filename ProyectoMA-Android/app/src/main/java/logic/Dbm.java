@@ -3,6 +3,7 @@ package logic;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,9 +26,10 @@ import view.FrmPrincipal;
 import view.FrmRegistro;
 import view.ListaView;
 
-public class DataBaseCtrl {
+public class Dbm {
 
     public static ArrayList<Perfil> listPerfiles;
+    public static List<String> lstTipo;
 
     public static void logeoUser(String user, String pass) {
         new Logueo_User_AsyncTask().execute("https://preyectoma.000webhostapp.com/get1User.php?usuario=" + user + "&contrasenia=" + pass);
@@ -35,15 +37,19 @@ public class DataBaseCtrl {
 
     public static void insert1User(String correo, String user, String pass, String type, String plato, String localidad, String pais, String telefono) {
         new Insert_User_AsyncTask().execute("https://preyectoma.000webhostapp.com/insert1User.php?correo=" + correo + "&usuario=" + user + "&contrasenia=" + pass
-                + "&tipo=" + type + "&plato=" + plato  + "&pais=" + pais + "&localidad=" + localidad + "&telefono=" + telefono);
+                + "&tipo=" + type + "&plato=" + plato + "&pais=" + pais + "&localidad=" + localidad + "&telefono=" + telefono);
     }
 
     public static void get1User() {
-        new Load_1User_AsyncTask().execute("https://preyectoma.000webhostapp.com/get1UserPk.php?id_Usuario=" + (AdaptadorLista.cardPosition+1));
+        new Load_1User_AsyncTask().execute("https://preyectoma.000webhostapp.com/get1UserPk.php?id_Usuario=" + (AdaptadorLista.cardPosition + 1));
+    }
+
+    public static void getTipos() {
+        new Get_Tipo_AsyncTask().execute("https://preyectoma.000webhostapp.com/getTipo.php");
     }
 
     public static void getPerfil() {
-        new Load_Perfil_AsyncTask().execute("https://preyectoma.000webhostapp.com/get_Datos_1_User.php?usuario=" + FrmPrincipal.userPref + "&contrasenia="+FrmPrincipal.userPass);
+        new Load_Perfil_AsyncTask().execute("https://preyectoma.000webhostapp.com/get_Datos_1_User.php?usuario=" + FrmPrincipal.userPref + "&contrasenia=" + FrmPrincipal.userPass);
     }
 
     public static void filtroCocineros(String tipo) {
@@ -56,7 +62,7 @@ public class DataBaseCtrl {
 
     public static void updateUser(String correo, String user, String contrasenia, String type, String plato, String localidad, String pais, String telefono) {
         new Update_User_AsyncTask().execute("https://preyectoma.000webhostapp.com/updateUser.php?correo=" + correo + "&user=" + user + "&contrasenia=" + contrasenia
-                + "&tipo=" + type + "&plato=" + plato  + "&pais=" + pais + "&localidad=" + localidad + "&telefono=" + telefono + "&usuario="+ FrmPrincipal.userPref);
+                + "&tipo=" + type + "&plato=" + plato + "&pais=" + pais + "&localidad=" + localidad + "&telefono=" + telefono + "&usuario=" + FrmPrincipal.userPref);
     }
 
     private static class Insert_User_AsyncTask extends AsyncTask<String, Void, Void> {
@@ -69,7 +75,7 @@ public class DataBaseCtrl {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(url.openStream()));
 
             } catch (IOException e) {
-               e.printStackTrace();
+                e.printStackTrace();
             }
             return null;
         }
@@ -84,6 +90,39 @@ public class DataBaseCtrl {
             //Cargamos los datos
             new LoadDataUsers_AsyncTask().execute("https://preyectoma.000webhostapp.com/getUsers.php");
 
+        }
+    }
+
+    private static class Get_Tipo_AsyncTask extends AsyncTask<String, Void, Void> {
+        String resultado;
+        @Override
+        protected Void doInBackground(String... params) {
+            try {
+                URL url = new URL(params[0]);
+                //Abrimos el canal de comunicaciones hacia mi url
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(url.openStream()));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        public void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+            Gson gson = new Gson();
+            Type type = new TypeToken<List<Perfil>>() {
+            }.getType();
+            List<Perfil> listCoches = gson.fromJson(resultado, type);
+
+            lstTipo = new ArrayList<>();
+
+            for (Perfil p : listCoches) {
+                lstTipo.add(p.getTipo());
+            }
+            FrmRegistro.spTipo.setAdapter(new ArrayAdapter<String>(FrmRegistro.context.getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, lstTipo));
         }
     }
 
@@ -107,11 +146,7 @@ public class DataBaseCtrl {
             super.onPostExecute(aVoid);
 
             //Mandamos un mensaje al usuario
-            Toast.makeText(FrmRegistro.context.getApplicationContext(), "Usuario Editado", Toast.LENGTH_SHORT).show();
-
-            //Cargamos los datos de nuevo
-            getPerfil();
-
+            Toast.makeText(FrmRegistro.context.getApplicationContext(), "Usuario Editado!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -145,7 +180,8 @@ public class DataBaseCtrl {
         public void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             Gson gson = new Gson();
-            Type type = new TypeToken<List<Perfil>>() {}.getType();
+            Type type = new TypeToken<List<Perfil>>() {
+            }.getType();
 
             List<Perfil> listPerfiles = gson.fromJson(resultado, type);
 
@@ -179,7 +215,8 @@ public class DataBaseCtrl {
 
                 while ((stringBuffer = bufferedReader.readLine()) != null) {
                     str = String.format("%s%s", str, stringBuffer);
-                };
+                }
+                ;
 
                 bufferedReader.close();
                 resultado = str;
@@ -195,7 +232,8 @@ public class DataBaseCtrl {
             super.onPostExecute(aVoid);
 
             Gson gson = new Gson();
-            Type type = new TypeToken<List<Perfil>>() {}.getType();
+            Type type = new TypeToken<List<Perfil>>() {
+            }.getType();
             listPerfiles = gson.fromJson(resultado, type);
 
             //Llamamos a la ListView
@@ -203,7 +241,7 @@ public class DataBaseCtrl {
         }
     }
 
-    private static class Load_1User_AsyncTask extends AsyncTask<String,Void,Void>{
+    private static class Load_1User_AsyncTask extends AsyncTask<String, Void, Void> {
         String resultado;
         Perfil perfil;
 
@@ -218,25 +256,27 @@ public class DataBaseCtrl {
                 String stringBuffer;
                 String str = "";
 
-                while((stringBuffer = bufferedReader.readLine())!=null){
-                    str = String.format("%s%s",str,stringBuffer);
-                };
+                while ((stringBuffer = bufferedReader.readLine()) != null) {
+                    str = String.format("%s%s", str, stringBuffer);
+                }
+                ;
                 bufferedReader.close();
                 resultado = str;
 
-            }catch (IOException e){
+            } catch (IOException e) {
                 resultado = e.getMessage();
             }
             return null;
         }
 
         @Override
-        public void onPostExecute(Void aVoid){
+        public void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
             Gson gson = new Gson();
-            Type type = new TypeToken<List<Perfil>>(){}.getType();
-            List<Perfil> listPerfiles = gson.fromJson(resultado,type);
+            Type type = new TypeToken<List<Perfil>>() {
+            }.getType();
+            List<Perfil> listPerfiles = gson.fromJson(resultado, type);
 
             if (listPerfiles != null) {
                 if (listPerfiles.size() > 0) {
@@ -259,7 +299,7 @@ public class DataBaseCtrl {
         }
     }
 
-    private static class Load_Perfil_AsyncTask extends AsyncTask<String,Void,Void>{
+    private static class Load_Perfil_AsyncTask extends AsyncTask<String, Void, Void> {
         String resultado;
         Perfil perfil;
 
@@ -274,25 +314,27 @@ public class DataBaseCtrl {
                 String stringBuffer;
                 String str = "";
 
-                while((stringBuffer = bufferedReader.readLine())!=null){
-                    str = String.format("%s%s",str,stringBuffer);
-                };
+                while ((stringBuffer = bufferedReader.readLine()) != null) {
+                    str = String.format("%s%s", str, stringBuffer);
+                }
+                ;
                 bufferedReader.close();
                 resultado = str;
 
-            }catch (IOException e){
+            } catch (IOException e) {
                 resultado = e.getMessage();
             }
             return null;
         }
 
         @Override
-        public void onPostExecute(Void aVoid){
+        public void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
             Gson gson = new Gson();
-            Type type = new TypeToken<List<Perfil>>(){}.getType();
-            List<Perfil> listPerfiles = gson.fromJson(resultado,type);
+            Type type = new TypeToken<List<Perfil>>() {
+            }.getType();
+            List<Perfil> listPerfiles = gson.fromJson(resultado, type);
 
             if (listPerfiles != null) {
                 if (listPerfiles.size() > 0) {

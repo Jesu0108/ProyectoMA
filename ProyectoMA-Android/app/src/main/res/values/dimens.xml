@@ -11,6 +11,11 @@
     <dimen name="sizeLblPersona">16sp</dimen>
     <dimen name="alturaGenerales">40dp</dimen>
     <dimen name="anchoGenerales">230dp</dimen>
+
     <dimen name="btnPerfilAncho">196dp</dimen>
     <dimen name="btnPerfilLargo">44dp</dimen>
+
+    <dimen name="lblInfoAncho">81dp</dimen>
+    <dimen name="lblInfoLargo">27dp</dimen>
+    <dimen name="dislblInfo">36dp</dimen>
 </resources>
