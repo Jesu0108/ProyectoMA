@@ -2,27 +2,42 @@ package model;
 
 public class Perfil {
 
-	private String sCorreo, sUsuario, sContra, sTipo, sPlato,sLocalidad,sPais,sTelefono;
+	private String sCorreo, sUsuario, sContra, sTipo, sPlato, sLocalidad, sPais, sTelefono;
+	private int id_Usuario; //PK
 
+	// Contructor vacio
 	public Perfil() {
 
 	}
 
-	public Perfil(String sCorreo, String sContra) {
-		setsCorreo(sCorreo);
-		setsContra(sContra);
-
+	// Contructor con la PK
+	public Perfil(int id_Usuario) {
+		this.id_Usuario = id_Usuario;
 	}
-	
-	public Perfil(String sCorreo, String sUsuario, String sContra, String sTipo, String sPlato, String sTelefono, String sLocalidad,String sPais) {
-		setsCorreo(sCorreo);
-		setsUsuario(sUsuario);
-		setsContra(sContra);
-		setsTipo(sTipo);
-		setsPlato(sPlato);
-		setsTelefono(sTelefono);
-		setsLocalidad(sLocalidad);
-		setsPais(sPais);
+
+	// Constructor con lo datos de logueo
+	public Perfil(String sCorreo, String sContra) {
+		this.sCorreo = sCorreo;
+		this.sContra = sContra;
+	}
+
+	// Constructor completo
+	public Perfil(int id_Usuario, String sCorreo, String sUsuario, String sContra, String sTipo, String sPlato,
+			String sTelefono, String sLocalidad, String sPais) {
+		
+		this.id_Usuario = id_Usuario;
+		this.sCorreo = sCorreo;
+		this.sUsuario = sUsuario;
+		this.sContra = sContra;
+		this.sTipo = sTipo;
+		this.sPlato = sPlato;
+		this.sTelefono = sTelefono;
+		this.sLocalidad = sLocalidad;
+		this.sPais = sPais;
+	}
+
+	public int getId_Usuario() {
+		return id_Usuario;
 	}
 
 	public String getsCorreo() {

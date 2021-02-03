@@ -26,6 +26,7 @@ public class FrmListaPerfiles extends JDialog {
 	private static final long serialVersionUID = 1L;
 	public static JTable tblResult = new JTable();
 	public static JPanel contentPane;
+	
 	private JLabel lblInfoEleccion;
 	private JPanel panel;
 	private JComboBox lstFiltros;
@@ -49,7 +50,7 @@ public class FrmListaPerfiles extends JDialog {
 		setVisible(true);
 		setModal(true);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 310, 300);
+		setBounds(100, 100, 639, 300);
 		setTitle("Listado");
 		setResizable(false);
 		
@@ -83,7 +84,7 @@ public class FrmListaPerfiles extends JDialog {
 		tblResult.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ListaPerfilesCtrl.tableRowSelected();
+				new FrmEdicionPerfil();;
 			}
 		});
 		panelDat.setViewportView(tblResult);

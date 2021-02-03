@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import logic.ConexionPHP;
 import model.Perfil;
 import view.FrmListaPerfiles;
 import view.FrmPrincipal;

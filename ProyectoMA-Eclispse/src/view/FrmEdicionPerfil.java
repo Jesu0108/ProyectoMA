@@ -24,16 +24,16 @@ import java.awt.event.WindowEvent;
 public class FrmEdicionPerfil extends JDialog {
 
 	private static final long serialVersionUID = 1L;
-	public static JPanel contentPane;
+	public static JPanel contentPane = new JPanel();;
+	
 	public static JTextField txtCorreo;
 	public static JTextField txtContra;
-	
-	private static JTextField txtUsuario;
-	private static JTextField txtLocalidad;
-	private static JTextField txtPais;
-	private static JTextField txtTelefono;
-	private static JTextField txtPlato;
-	private static JTextField txtTipo;
+	public static JTextField txtUsuario;
+	public static JTextField txtLocalidad;
+	public static JTextField txtPais;
+	public static JTextField txtTelefono;
+	public static JTextField txtPlato;
+	public static JTextField txtTipo;
 	
 	private JPanel imgPanel;
 	public static JLabel imgUsuario;
@@ -52,8 +52,11 @@ public class FrmEdicionPerfil extends JDialog {
 				EdicionPerfilCtrl.confirmExit();
 			}
 		});
-		ImagenesCtrl.download();
+		
 		createForm();
+		EdicionPerfilCtrl.loadData();
+		
+		//ImagenesCtrl.download();
 	}
 	
 	public void createForm() {
@@ -65,7 +68,6 @@ public class FrmEdicionPerfil extends JDialog {
 		setVisible(true);
 		setResizable(false);
 		
-		contentPane = new JPanel();
 		contentPane.setLayout(new BorderLayout());
 		contentPane.setBackground(colorFondo);
 		

@@ -5,15 +5,13 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+import logic.ConexionPHP;
 import model.Perfil;
 import utils.GUI;
+import view.FrmEdicionPerfil;
 import view.FrmListaPerfiles;
 
 public class ListaPerfilesCtrl {
-
-	public static void tableRowSelected() {
-		new view.FrmListaPerfiles();
-	}
 
 	public static void loadData() {
 		try {
@@ -25,6 +23,11 @@ public class ListaPerfilesCtrl {
 			DefaultTableModel modelo = GUI.generarTablaPerfiles(resultado);
 
 			FrmListaPerfiles.tblResult.setModel(modelo);
+			
+			// Ocultar la columna 0 que contiene la pk
+			FrmListaPerfiles.tblResult.getColumnModel().getColumn(0).setMinWidth(0);
+			FrmListaPerfiles.tblResult.getColumnModel().getColumn(0).setMaxWidth(0);
+			FrmListaPerfiles.tblResult.getColumnModel().getColumn(0).setWidth(0);
 
 		} catch (Exception e) {
 

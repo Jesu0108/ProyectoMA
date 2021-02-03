@@ -1,4 +1,4 @@
-package controller;
+package logic;
 
 
 import java.io.BufferedReader;
@@ -26,7 +26,7 @@ public class ConexionPHP {
 			JSONObject jsonO = jsonA.getJSONObject(i);
 
 			Perfil c = JsonToPerfil(jsonO);
-			
+						
 			lstResultado.add(c);
 
 		}
@@ -65,6 +65,7 @@ public class ConexionPHP {
 	
 	public static Perfil JsonToPerfil(JSONObject jsonO) {
 
+		int id_Usuario = jsonO.getInt("id_Usuario");
 		String correo = jsonO.getString("correo");
 		String usuario = jsonO.getString("usuario");
 		String contrasenia = jsonO.getString("contrasenia");
@@ -75,7 +76,7 @@ public class ConexionPHP {
 		String pais = jsonO.getString("pais");
 		
 
-		Perfil c = new Perfil(correo, usuario, contrasenia, tipo, plato, telefono,localidad,pais);
+		Perfil c = new Perfil(id_Usuario,correo, usuario, contrasenia, tipo, plato, telefono,localidad,pais);
 
 		return c;
 	}

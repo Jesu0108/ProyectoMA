@@ -39,6 +39,7 @@ public class GUI {
 		DefaultTableModel modelo = new DefaultTableModel();
 
 		// Añadir la cabecera de las columnas
+		modelo.addColumn("id_Usuario");
 		modelo.addColumn("Correo");
 		modelo.addColumn("Usuario");
 		modelo.addColumn("Contraseña");
@@ -51,7 +52,7 @@ public class GUI {
 
 		// Añadir cada fila de valores
 		for (Perfil p : resultado) {
-			modelo.addRow(new Object[] { p.getsCorreo(), p.getsUsuario(), p.getsContra(), p.getsTipo(), p.getsPlato(), p.getsTelefono(), p.getsLocalidad(), p.getsPais() });
+			modelo.addRow(new Object[] { p.getId_Usuario(),p.getsCorreo(), p.getsUsuario(), p.getsContra(), p.getsTipo(), p.getsPlato(), p.getsTelefono(), p.getsLocalidad(), p.getsPais() });
 
 		}
 		
