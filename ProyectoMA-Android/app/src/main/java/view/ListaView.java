@@ -16,7 +16,7 @@ import com.artiguez.proyectoma.R;
 
 import controller.PreferenciasCtrl;
 import logic.AdaptadorLista;
-import logic.Dbm;
+import logic.DatosFromDB;
 
 public class ListaView extends AppCompatActivity {
     private AdaptadorLista adaptador;
@@ -30,7 +30,7 @@ public class ListaView extends AppCompatActivity {
         context = getApplicationContext();
 
         //Cargamos los datos de los usuarios
-        AdaptadorLista.prod = Dbm.listPerfiles;
+        AdaptadorLista.prod = DatosFromDB.listPerfiles;
 
         // Vinculamos el objeto del controlador con el de la vista
         RecyclerView listaMain = findViewById(R.id.listaMain);
@@ -60,17 +60,17 @@ public class ListaView extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), FrmPerfil.class));
                 break;
             case R.id.mnuFiltroNinguno:
-                Dbm.getAllPerfiles();
+                DatosFromDB.getAllPerfiles();
                 break;
 
             case R.id.mnuFiltroCatadores:
-                Dbm.filtroCocineros("Catador");
+                DatosFromDB.filtroCocineros("Catador");
                 break;
             case R.id.mnuFiltroCocinero:
-                Dbm.filtroCocineros("Cocinero");
+                DatosFromDB.filtroCocineros("Cocinero");
                 break;
             case R.id.mnuFiltroEmpresa:
-                Dbm.filtroCocineros("Empresa");
+                DatosFromDB.filtroCocineros("Empresa");
                 break;
 
             case R.id.mnuSalir:

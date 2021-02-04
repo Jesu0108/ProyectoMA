@@ -40,10 +40,7 @@
     <Spinner
         android:id="@+id/spTipoReg"
         style="@style/spTipoReg"
-        android:layout_width="174dp"
-        android:layout_height="19dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintEnd_toStartOf="@+id/txtPlatoReg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPaisReg" />
 

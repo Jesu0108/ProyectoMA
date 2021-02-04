@@ -1,8 +1,9 @@
 package controller;
 
+import android.widget.Spinner;
 import android.widget.TextView;
 
-import logic.Dbm;
+import logic.DatosFromDB;
 
 public class PerfilCtrl {
     private static String correo;
@@ -15,10 +16,10 @@ public class PerfilCtrl {
     private static String tipo;
 
     public static void getDatosUser() {
-        Dbm.getPerfil();
+        DatosFromDB.getPerfil();
     }
 
-    public static void  updateUser(TextView txtCorreoUser, TextView txtUsuarioUser, TextView txtPassUser, TextView txtPlatoUser, TextView txtLocalidadUser, TextView txtPaisUser, TextView txtTelefonoUser, TextView txtTipoUser) {
+    public static void  updateUser(TextView txtCorreoUser, TextView txtUsuarioUser, TextView txtPassUser, TextView txtPlatoUser, TextView txtLocalidadUser, TextView txtPaisUser, TextView txtTelefonoUser, Spinner spTipoUser) {
         correo = txtCorreoUser.getText().toString();
         usuario = txtUsuarioUser.getText().toString();
         pass = txtPassUser.getText().toString();
@@ -26,8 +27,8 @@ public class PerfilCtrl {
         localidad = txtLocalidadUser.getText().toString();
         pais = txtPaisUser.getText().toString();
         telefono = txtTelefonoUser.getText().toString();
-        tipo = txtTipoUser.getText().toString();
+        tipo = spTipoUser.getSelectedItem().toString();
 
-        Dbm.updateUser(correo, usuario, pass, tipo, plato, localidad, pais, telefono);
+        DatosFromDB.updateUser(correo, usuario, pass, tipo, plato, localidad, pais, telefono);
     }
 }

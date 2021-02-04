@@ -59,6 +59,7 @@ public class FrmPrincipal extends AppCompatActivity {
             });
         }else{
             logueoDirecto();
+
         }
     }
 

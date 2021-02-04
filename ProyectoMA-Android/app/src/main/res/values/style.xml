@@ -62,7 +62,6 @@
 
     <style name="cardPredet">
         <item name="android:padding">10dp</item>
-        <item name="android:backgroundTint">#709CA4A5</item>
     </style>
 
     <style name="txtCardName">
@@ -151,8 +150,8 @@
 
     <style name="spTipoReg">
         <item name="android:layout_marginTop">@dimen/disSpinnerTipo</item>
-        <item name="android:layout_width">205dp</item>
-        <item name="android:layout_height">19dp</item>
+        <item name="android:layout_width">110dp</item>
+        <item name="android:layout_height">26dp</item>
     </style>
 
     <style name="imgReg">

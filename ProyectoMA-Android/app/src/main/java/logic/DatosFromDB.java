@@ -1,16 +1,21 @@
 package logic;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
-import android.util.Log;
+import android.util.Base64;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
@@ -21,15 +26,16 @@ import java.util.List;
 import controller.PersonaCtrl;
 import model.Perfil;
 import view.FrmPerfil;
-import view.FrmPersona;
 import view.FrmPrincipal;
 import view.FrmRegistro;
 import view.ListaView;
 
-public class Dbm {
+public class DatosFromDB {
 
     public static ArrayList<Perfil> listPerfiles;
+    public static List<Perfil> listPerfilLog;
     public static List<String> lstTipo;
+    public static String nameIntent;
 
     public static void logeoUser(String user, String pass) {
         new Logueo_User_AsyncTask().execute("https://preyectoma.000webhostapp.com/get1User.php?usuario=" + user + "&contrasenia=" + pass);
@@ -44,7 +50,8 @@ public class Dbm {
         new Load_1User_AsyncTask().execute("https://preyectoma.000webhostapp.com/get1UserPk.php?id_Usuario=" + (AdaptadorLista.cardPosition + 1));
     }
 
-    public static void getTipos() {
+    public static void getTipos(String nombreIntent) {
+        nameIntent = nombreIntent;
         new Get_Tipo_AsyncTask().execute("https://preyectoma.000webhostapp.com/getTipo.php");
     }
 
@@ -58,6 +65,41 @@ public class Dbm {
 
     public static void getAllPerfiles() {
         new LoadDataUsers_AsyncTask().execute("https://preyectoma.000webhostapp.com/getUsers.php");
+    }
+
+    public static String getStringImage(Bitmap bmp) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        return Base64.encodeToString(imageBytes, Base64.DEFAULT);
+    }
+
+    public static void downloadImagenPerfil() {
+        String url = "https://preyectoma.000webhostapp.com/imagen/"+ DatosFromDB.listPerfilLog.get(0).getId_Usuario()+".jpg";
+
+        FrmPerfil.imgPersona.setImageDrawable(null);
+
+        Glide
+                .with(FrmPerfil.context.getApplicationContext())
+                .load(url)
+                .apply(RequestOptions.centerCropTransform())
+                .into(FrmPerfil.imgPersona);
+
+        Toast.makeText(FrmPerfil.context.getApplicationContext(), "Imagen descargada", Toast.LENGTH_SHORT).show();
+    }
+
+    public static void downloadImagenUsers(int idImg, ImageView imgPersona) {
+        String url = "https://preyectoma.000webhostapp.com/imagen/"+idImg+".jpg";
+
+        imgPersona.setImageDrawable(null);
+
+        Glide
+                .with(ListaView.context.getApplicationContext())
+                .load(url)
+                .apply(RequestOptions.centerCropTransform())
+                .into(imgPersona);
+
+        Toast.makeText(FrmPerfil.context.getApplicationContext(), "Imagen descargada", Toast.LENGTH_SHORT).show();
     }
 
     public static void updateUser(String correo, String user, String contrasenia, String type, String plato, String localidad, String pais, String telefono) {
@@ -102,6 +144,16 @@ public class Dbm {
                 //Abrimos el canal de comunicaciones hacia mi url
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(url.openStream()));
 
+                //recuperamos lo que hay en la url
+                String stringBuffer;
+                String str = "";
+
+                while ((stringBuffer = bufferedReader.readLine()) != null) {
+                    str = String.format("%s%s", str, stringBuffer);
+                }
+                ;
+                bufferedReader.close();
+                resultado = str;
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -113,16 +165,28 @@ public class Dbm {
             super.onPostExecute(aVoid);
 
             Gson gson = new Gson();
-            Type type = new TypeToken<List<Perfil>>() {
-            }.getType();
-            List<Perfil> listCoches = gson.fromJson(resultado, type);
+            Type type = new TypeToken<List<Perfil>>() {}.getType();
+            List<Perfil> listTipos = gson.fromJson(resultado, type);
 
             lstTipo = new ArrayList<>();
 
-            for (Perfil p : listCoches) {
-                lstTipo.add(p.getTipo());
+            if (listTipos != null) {
+                for (Perfil p : listTipos) {
+                    lstTipo.add(p.getTipo());
+                }
+                spinnerElegido();
+            }else{
+                Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Ha ocurrido un error cargando los datos", Toast.LENGTH_LONG).show();
             }
-            FrmRegistro.spTipo.setAdapter(new ArrayAdapter<String>(FrmRegistro.context.getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, lstTipo));
+        }
+
+        private void spinnerElegido(){
+
+            if(nameIntent.equals("Perfil")){
+                FrmPerfil.spTipoUser.setAdapter(new ArrayAdapter<String>(FrmPerfil.context.getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, lstTipo));
+            }else{
+                FrmRegistro.spTipo.setAdapter(new ArrayAdapter<String>(FrmRegistro.context.getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, lstTipo));
+            }
         }
     }
 
@@ -146,7 +210,7 @@ public class Dbm {
             super.onPostExecute(aVoid);
 
             //Mandamos un mensaje al usuario
-            Toast.makeText(FrmRegistro.context.getApplicationContext(), "Usuario Editado!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(FrmPerfil.context.getApplicationContext(), "Usuario Editado!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -183,12 +247,13 @@ public class Dbm {
             Type type = new TypeToken<List<Perfil>>() {
             }.getType();
 
-            List<Perfil> listPerfiles = gson.fromJson(resultado, type);
+            listPerfilLog = gson.fromJson(resultado, type);
 
-            if (listPerfiles != null) {
-                if (listPerfiles.size() > 0) {
+            if (listPerfilLog != null) {
+                if (listPerfilLog.size() > 0) {
                     //Cargamos los datos
                     new LoadDataUsers_AsyncTask().execute("https://preyectoma.000webhostapp.com/getUsers.php");
+
                 } else {
                     Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
                 }
@@ -237,7 +302,8 @@ public class Dbm {
             listPerfiles = gson.fromJson(resultado, type);
 
             //Llamamos a la ListView
-            FrmPrincipal.context.startActivity(new Intent(FrmPrincipal.context.getApplicationContext(), ListaView.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            FrmPrincipal.context.startActivity(new Intent(FrmPrincipal.context.getApplicationContext(), ListaView.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+
         }
     }
 
@@ -343,7 +409,7 @@ public class Dbm {
                     FrmPerfil.txtCorreoUser.setText(perfil.getCorreo());
                     FrmPerfil.txtUsuarioUser.setText(perfil.getUsuario());
                     FrmPerfil.txtPassUser.setText(perfil.getContrasenia());
-                    FrmPerfil.txtTipoUser.setText(perfil.getTipo());
+                    FrmPerfil.spTipoUser.setSelection(tipoUser());
                     FrmPerfil.txtPlatoUser.setText(perfil.getPlato());
                     FrmPerfil.txtTelefonoUser.setText(perfil.getTelefono());
                     FrmPerfil.txtPaisUser.setText(perfil.getPais());
@@ -356,6 +422,20 @@ public class Dbm {
                 Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Ha ocurrido un error, por favor reinicie la app", Toast.LENGTH_LONG).show();
             }
         }
+
+        private int tipoUser(){
+            int iNumero;
+
+            if(perfil.getTipo().equals("Catador")){
+                iNumero=0;
+            }else if (perfil.getTipo().equals("Cocinero")){
+                iNumero=1;
+            }else{
+                iNumero=2;
+            }
+            return iNumero;
+        }
+
     }
 
 }

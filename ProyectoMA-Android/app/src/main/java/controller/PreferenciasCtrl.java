@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 
 import androidx.preference.PreferenceManager;
 
-import logic.Dbm;
+import logic.DatosFromDB;
 import view.FrmPrincipal;
 import view.ListaView;
 
@@ -26,7 +26,7 @@ public class PreferenciasCtrl {
     }
 
     public static void logueoPreferencias(String sUsuario, String sPass) {
-        Dbm.logeoUser(sUsuario, sPass);
+        DatosFromDB.logeoUser(sUsuario, sPass);
     }
 
     public static void salirLogueo(){

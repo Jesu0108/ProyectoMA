@@ -5,19 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.artiguez.proyectoma.R;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import controller.PrincipalCtrl;
-
-import static logic.Dbm.lstTipo;
+import logic.DatosFromDB;
 
 public class FrmRegistro extends AppCompatActivity {
     public static EditText txtCorreo;
@@ -50,6 +45,7 @@ public class FrmRegistro extends AppCompatActivity {
         txtTelefono = findViewById(R.id.txtTelefonoReg);
 
         spTipo = findViewById(R.id.spTipoReg);
+        DatosFromDB.getTipos("Registro");
 
         btnCrear = findViewById(R.id.btnCrear);
         btnCrear.setOnClickListener(new View.OnClickListener() {
