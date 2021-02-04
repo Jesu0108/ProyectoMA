@@ -23,6 +23,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import controller.Data;
 import controller.PersonaCtrl;
 import model.Perfil;
 import view.FrmPerfil;
@@ -38,33 +39,33 @@ public class DatosFromDB {
     public static String nameIntent;
 
     public static void logeoUser(String user, String pass) {
-        new Logueo_User_AsyncTask().execute("https://preyectoma.000webhostapp.com/get1User.php?usuario=" + user + "&contrasenia=" + pass);
+        new Logueo_User_AsyncTask().execute(Data.HOSTING +"/get1User.php?usuario=" + user + "&contrasenia=" + pass);
     }
 
     public static void insert1User(String correo, String user, String pass, String type, String plato, String localidad, String pais, String telefono) {
-        new Insert_User_AsyncTask().execute("https://preyectoma.000webhostapp.com/insert1User.php?correo=" + correo + "&usuario=" + user + "&contrasenia=" + pass
+        new Insert_User_AsyncTask().execute(Data.HOSTING +"/insert1User.php?correo=" + correo + "&usuario=" + user + "&contrasenia=" + pass
                 + "&tipo=" + type + "&plato=" + plato + "&pais=" + pais + "&localidad=" + localidad + "&telefono=" + telefono);
     }
 
     public static void get1User() {
-        new Load_1User_AsyncTask().execute("https://preyectoma.000webhostapp.com/get1UserPk.php?id_Usuario=" + (AdaptadorLista.cardPosition + 1));
+        new Load_1User_AsyncTask().execute(Data.HOSTING +"/get1UserPk.php?id_Usuario=" + (AdaptadorLista.cardPosition + 1));
     }
 
     public static void getTipos(String nombreIntent) {
         nameIntent = nombreIntent;
-        new Get_Tipo_AsyncTask().execute("https://preyectoma.000webhostapp.com/getTipo.php");
+        new Get_Tipo_AsyncTask().execute(Data.HOSTING +"/getTipo.php");
     }
 
     public static void getPerfil() {
-        new Load_Perfil_AsyncTask().execute("https://preyectoma.000webhostapp.com/get_Datos_1_User.php?usuario=" + FrmPrincipal.userPref + "&contrasenia=" + FrmPrincipal.userPass);
+        new Load_Perfil_AsyncTask().execute(Data.HOSTING +"/get_Datos_1_User.php?usuario=" + FrmPrincipal.userPref + "&contrasenia=" + FrmPrincipal.userPass);
     }
 
     public static void filtroCocineros(String tipo) {
-        new LoadDataUsers_AsyncTask().execute("https://preyectoma.000webhostapp.com/filtroUsers.php?tipo=" + tipo);
+        new LoadDataUsers_AsyncTask().execute(Data.HOSTING +"/filtroUsers.php?tipo=" + tipo);
     }
 
     public static void getAllPerfiles() {
-        new LoadDataUsers_AsyncTask().execute("https://preyectoma.000webhostapp.com/getUsers.php");
+        new LoadDataUsers_AsyncTask().execute(Data.HOSTING +"/getUsers.php");
     }
 
     public static String getStringImage(Bitmap bmp) {
@@ -75,7 +76,7 @@ public class DatosFromDB {
     }
 
     public static void downloadImagenPerfil() {
-        String url = "https://preyectoma.000webhostapp.com/imagen/"+ DatosFromDB.listPerfilLog.get(0).getId_Usuario()+".jpg";
+        String url = Data.HOSTING + "/imagen/"+ DatosFromDB.listPerfilLog.get(0).getId_Usuario()+".jpg";
 
         FrmPerfil.imgPersona.setImageDrawable(null);
 
@@ -84,26 +85,26 @@ public class DatosFromDB {
                 .load(url)
                 .apply(RequestOptions.centerCropTransform())
                 .into(FrmPerfil.imgPersona);
-
-        Toast.makeText(FrmPerfil.context.getApplicationContext(), "Imagen descargada", Toast.LENGTH_SHORT).show();
     }
 
-    public static void downloadImagenUsers(int idImg, ImageView imgPersona) {
-        String url = "https://preyectoma.000webhostapp.com/imagen/"+idImg+".jpg";
+    public static void downloadImagenUsers() {
+        int idImgUser = AdaptadorLista.prod.get(AdaptadorLista.cardPosition).getId_Usuario();
+        
+        String url = Data.HOSTING +"/imagen/"+idImgUser+".jpg";
 
-        imgPersona.setImageDrawable(null);
+        FrmPerfil.imgPersona.setImageDrawable(null);
 
         Glide
                 .with(ListaView.context.getApplicationContext())
                 .load(url)
                 .apply(RequestOptions.centerCropTransform())
-                .into(imgPersona);
+                .into(FrmPerfil.imgPersona);
 
         Toast.makeText(FrmPerfil.context.getApplicationContext(), "Imagen descargada", Toast.LENGTH_SHORT).show();
     }
 
     public static void updateUser(String correo, String user, String contrasenia, String type, String plato, String localidad, String pais, String telefono) {
-        new Update_User_AsyncTask().execute("https://preyectoma.000webhostapp.com/updateUser.php?correo=" + correo + "&user=" + user + "&contrasenia=" + contrasenia
+        new Update_User_AsyncTask().execute(Data.HOSTING +"/updateUser.php?correo=" + correo + "&user=" + user + "&contrasenia=" + contrasenia
                 + "&tipo=" + type + "&plato=" + plato + "&pais=" + pais + "&localidad=" + localidad + "&telefono=" + telefono + "&usuario=" + FrmPrincipal.userPref);
     }
 
@@ -130,7 +131,7 @@ public class DatosFromDB {
             Toast.makeText(FrmRegistro.context.getApplicationContext(), "Registrado con éxito", Toast.LENGTH_SHORT).show();
 
             //Cargamos los datos
-            new LoadDataUsers_AsyncTask().execute("https://preyectoma.000webhostapp.com/getUsers.php");
+            new LoadDataUsers_AsyncTask().execute(Data.HOSTING +"/getUsers.php");
 
         }
     }
@@ -252,7 +253,7 @@ public class DatosFromDB {
             if (listPerfilLog != null) {
                 if (listPerfilLog.size() > 0) {
                     //Cargamos los datos
-                    new LoadDataUsers_AsyncTask().execute("https://preyectoma.000webhostapp.com/getUsers.php");
+                    new LoadDataUsers_AsyncTask().execute(Data.HOSTING +"/getUsers.php");
 
                 } else {
                     Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();

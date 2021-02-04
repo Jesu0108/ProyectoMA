@@ -13,11 +13,16 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.artiguez.proyectoma.R;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 
+import controller.Data;
 import model.Perfil;
+import view.FrmPerfil;
 import view.FrmPersona;
+import view.ListaView;
 
 public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.HolderProducto> {
 
@@ -42,6 +47,12 @@ public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.HolderPr
         holder.txtNombreUser.setText(prod.get(position).getUsuario());
         holder.txtTipoUsuario.setText(prod.get(position).getTipo());
         holder.txtLocalidad.setText(prod.get(position).getLocalidad());
+
+        Glide
+            .with(ListaView.context.getApplicationContext())
+            .load(Data.HOSTING + "/imagen/" + prod.get(position).getId_Usuario() + ".jpg")
+            .apply(RequestOptions.centerCropTransform())
+            .into(holder.imgPerfil);
 
         holder.cardProductos.setOnClickListener(new View.OnClickListener() {
             @Override

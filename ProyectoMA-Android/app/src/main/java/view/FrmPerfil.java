@@ -27,6 +27,7 @@ import java.io.FileNotFoundException;
 import java.util.Hashtable;
 import java.util.Map;
 
+import controller.Data;
 import controller.PerfilCtrl;
 import logic.DatosFromDB;
 
@@ -102,7 +103,7 @@ public class FrmPerfil extends AppCompatActivity {
 
     private void upload() {
 
-        String strURL = "https://preyectoma.000webhostapp.com/imagen.php";
+        String strURL = Data.HOSTING +"/imagen.php";
 
         final ProgressDialog loading = ProgressDialog.show(FrmPerfil.context, "Subiendo...", "Espere por favor", false, false);
 

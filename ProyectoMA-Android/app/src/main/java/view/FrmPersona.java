@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.artiguez.proyectoma.R;
 
 import controller.PersonaCtrl;
+import logic.DatosFromDB;
 
 public class FrmPersona extends AppCompatActivity {
     public static TextView lblCorreoPersona;
@@ -19,7 +21,7 @@ public class FrmPersona extends AppCompatActivity {
     public static TextView lblTelefonoPersona;
     public static TextView lblTipoPersona;
 
-    public static ImageButton imgPerfilPersona;
+    public static ImageView imgPerfilPersona;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +38,6 @@ public class FrmPersona extends AppCompatActivity {
         PersonaCtrl.getDatosPersona(lblCorreoPersona, lblUsuarioPersona, lblPlatoPersona, lblLocalidadPersona, lblPaisPersona, lblTelefonoPersona, lblTipoPersona);
 
         imgPerfilPersona = findViewById(R.id.imgPerfilPersona);
-        imgPerfilPersona.setOnClickListener(v -> {
-
-        });
+        DatosFromDB.downloadImagenUsers();
     }
 }
