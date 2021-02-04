@@ -89,7 +89,7 @@ public class DatosFromDB {
 
     public static void downloadImagenUsers() {
         int idImgUser = AdaptadorLista.prod.get(AdaptadorLista.cardPosition).getId_Usuario();
-        
+
         String url = Data.HOSTING +"/imagen/"+idImgUser+".jpg";
 
         FrmPerfil.imgPersona.setImageDrawable(null);

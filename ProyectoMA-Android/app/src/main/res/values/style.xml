@@ -23,13 +23,14 @@
     <style name="btnRegistro">
         <item name="android:text">@string/btnRegistro</item>
         <item name="android:layout_marginBottom">56dp</item>
-        <item name="android:backgroundTint">#B0B2B3</item>
+        <item name="android:backgroundTint">@color/colorBotones</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="btnCrear">
         <item name="android:text">@string/btnCrear</item>
+        <item name="android:backgroundTint">@color/colorBotones</item>
         <item name="android:layout_width">217dp</item>
         <item name="android:layout_height">47dp</item>
     </style>
@@ -38,7 +39,7 @@
         <item name="android:text">@string/btnLogueo</item>
         <item name="android:layout_marginStart">10dp</item>
         <item name="android:layout_marginEnd">68dp</item>
-        <item name="android:backgroundTint">#B0B2B3</item>
+        <item name="android:backgroundTint">@color/colorBotones</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
@@ -101,63 +102,87 @@
 
     <style name="txtEmailReg">
         <item name="android:hint">@string/txtEmailReg</item>
-        <item name="android:layout_width">209dp</item>
-        <item name="android:layout_height">47dp</item>
+        <item name="android:layout_width">@dimen/txtRegAncho</item>
+        <item name="android:layout_height">@dimen/txtRegAlto</item>
         <item name="android:layout_marginTop">@dimen/disComponentsEstandar</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="txtEmailRegLand">
+        <item name="android:hint">@string/txtEmailReg</item>
+        <item name="android:layout_width">@dimen/txtRegAncho</item>
+        <item name="android:layout_height">@dimen/txtRegAlto</item>
+        <item name="android:layout_marginTop">@dimen/disComponentsEstandar</item>
+        <item name="android:layout_marginEnd">50dp</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="txtNameReg">
         <item name="android:hint">@string/txtNameReg</item>
-        <item name="android:layout_width">209dp</item>
-        <item name="android:layout_height">47dp</item>
+        <item name="android:layout_width">@dimen/txtRegAncho</item>
+        <item name="android:layout_height">@dimen/txtRegAlto</item>
         <item name="android:layout_marginTop">@dimen/disComponentsEstandar</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="txtPasswordReg">
         <item name="android:hint">@string/txtPassword</item>
         <item name="android:layout_marginTop">@dimen/disComponentsEstandar</item>
-        <item name="android:layout_width">209dp</item>
-        <item name="android:layout_height">47dp</item>
+        <item name="android:layout_width">@dimen/txtRegAncho</item>
+        <item name="android:layout_height">@dimen/txtRegAlto</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="txtPlatoReg">
         <item name="android:hint">@string/txtPlato</item>
         <item name="android:layout_marginTop">@dimen/disComponentsEstandar</item>
-        <item name="android:layout_width">209dp</item>
-        <item name="android:layout_height">47dp</item>
+        <item name="android:layout_width">@dimen/txtRegAncho</item>
+        <item name="android:layout_height">@dimen/txtRegAlto</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="txtTelefonoReg">
         <item name="android:hint">@string/txtTelefono</item>
         <item name="android:layout_marginTop">@dimen/disComponentsEstandar</item>
-        <item name="android:layout_width">209dp</item>
-        <item name="android:layout_height">47dp</item>
+        <item name="android:layout_width">@dimen/txtRegAncho</item>
+        <item name="android:layout_height">@dimen/txtRegAlto</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="txtLocalidadReg">
         <item name="android:hint">@string/txtLocalidad</item>
         <item name="android:layout_marginTop">@dimen/disComponentsEstandar</item>
-        <item name="android:layout_width">209dp</item>
-        <item name="android:layout_height">47dp</item>
+        <item name="android:layout_width">@dimen/txtRegAncho</item>
+        <item name="android:layout_height">@dimen/txtRegAlto</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="txtPaisReg">
         <item name="android:hint">@string/txtPais</item>
         <item name="android:layout_marginTop">@dimen/disComponentsEstandar</item>
-        <item name="android:layout_width">209dp</item>
-        <item name="android:layout_height">47dp</item>
+        <item name="android:layout_width">@dimen/txtRegAncho</item>
+        <item name="android:layout_height">@dimen/txtRegAlto</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="spTipoReg">
         <item name="android:layout_marginTop">@dimen/disSpinnerTipo</item>
-        <item name="android:layout_width">110dp</item>
-        <item name="android:layout_height">26dp</item>
+        <item name="android:layout_width">@dimen/spRegAncho</item>
+        <item name="android:layout_height">@dimen/spRegAlto</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="imgReg">
-        <item name="android:layout_width">130dp</item>
-        <item name="android:layout_height">91dp</item>
-        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_width">@dimen/imgRegAncho</item>
+        <item name="android:layout_height">@dimen/imgRegAlto</item>
+        <item name="android:layout_marginTop">@dimen/imgmarginReg</item>
+        <!--app:srcCompat="@drawable/perropan"-->
+    </style>
+
+    <style name="imgRegLand">
+        <item name="android:layout_width">@dimen/imgRegAnchoLand</item>
+        <item name="android:layout_height">@dimen/imgRegAltoLand</item>
+        <item name="android:layout_marginTop">@dimen/imgmarginReg</item>
         <!--app:srcCompat="@drawable/perropan"-->
     </style>
 
@@ -167,6 +192,7 @@
         <item name="android:layout_width">@dimen/anchoGenerales</item>
         <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="generalUserPersona">
@@ -175,6 +201,7 @@
         <item name="android:layout_width">@dimen/anchoGenerales</item>
         <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="generalPassPersona">
@@ -183,6 +210,7 @@
         <item name="android:layout_width">@dimen/anchoGenerales</item>
         <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="generalTelefonoPersona">
@@ -191,6 +219,7 @@
         <item name="android:layout_width">@dimen/anchoGenerales</item>
         <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="generalPaisPersona">
@@ -199,6 +228,7 @@
         <item name="android:layout_width">@dimen/anchoGenerales</item>
         <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="generalLocPersona">
@@ -207,6 +237,7 @@
         <item name="android:layout_width">@dimen/anchoGenerales</item>
         <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="generalTipoPersona">
@@ -215,6 +246,7 @@
         <item name="android:layout_width">@dimen/anchoGenerales</item>
         <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="generalPlatoPersona">
@@ -223,12 +255,22 @@
         <item name="android:layout_width">@dimen/anchoGenerales</item>
         <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="imgPersona">
+        <item name="android:layout_width">@dimen/imgPersonaAncho</item>
+        <item name="android:layout_height">@dimen/imgPersonaAlto</item>
+        <item name="android:layout_marginTop">@dimen/imgmarginReg</item>
+        <!--app:srcCompat="@drawable/perropan"-->
     </style>
 
     <style name="btnPerfil">
         <item name="android:layout_width">@dimen/btnPerfilAncho</item>
         <item name="android:layout_height">@dimen/btnPerfilLargo</item>
         <item name="android:text">@string/btnPerfil</item>
+        <item name="android:backgroundTint">@color/colorBotones</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="infoCorreo">

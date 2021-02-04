@@ -18,4 +18,20 @@
     <dimen name="lblInfoAncho">81dp</dimen>
     <dimen name="lblInfoLargo">27dp</dimen>
     <dimen name="dislblInfo">36dp</dimen>
+
+    <dimen name="txtRegAncho">209dp</dimen>
+    <dimen name="txtRegAlto">47dp</dimen>
+
+    <dimen name="spRegAncho">110dp</dimen>
+    <dimen name="spRegAlto">26dp</dimen>
+
+    <dimen name="imgRegAncho">130dp</dimen>
+    <dimen name="imgRegAlto">168dp</dimen>
+    <dimen name="imgmarginReg">16dp</dimen>
+
+    <dimen name="imgRegAnchoLand">179dp</dimen>
+    <dimen name="imgRegAltoLand">91dp</dimen>
+
+    <dimen name="imgPersonaAncho">108dp</dimen>
+    <dimen name="imgPersonaAlto">88dp</dimen>
 </resources>

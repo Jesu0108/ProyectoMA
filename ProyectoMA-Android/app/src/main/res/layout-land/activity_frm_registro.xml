@@ -11,8 +11,9 @@
     <ImageView
         android:id="@+id/imgReg"
         style="@style/imgReg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtEmailReg"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/perropan" />
@@ -20,48 +21,45 @@
     <EditText
         android:id="@+id/txtUsuarioPersona"
         style="@style/txtNameReg"
-
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtLocalidadReg"
+        app:layout_constraintStart_toEndOf="@+id/imgReg"
         app:layout_constraintTop_toBottomOf="@+id/txtEmailReg" />
 
     <EditText
         android:id="@+id/txtPassReg"
         style="@style/txtPasswordReg"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtPaisReg"
+        app:layout_constraintStart_toEndOf="@+id/imgReg"
         app:layout_constraintTop_toBottomOf="@+id/txtUsuarioPersona" />
 
     <Spinner
         android:id="@+id/spTipoReg"
         style="@style/spTipoReg"
         app:layout_constraintEnd_toStartOf="@+id/txtPlatoReg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPaisReg" />
+        app:layout_constraintStart_toEndOf="@+id/imgReg"
+        app:layout_constraintTop_toBottomOf="@+id/txtPassReg" />
 
     <EditText
         android:id="@+id/txtEmailReg"
-        style="@style/txtEmailReg"
+        style="@style/txtEmailRegLand"
         android:ems="10"
         android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgReg" />
+        app:layout_constraintEnd_toStartOf="@+id/txtTelefonoReg"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtPlatoReg"
         style="@style/txtPlatoReg"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.931"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPaisReg" />
 
@@ -71,27 +69,29 @@
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.931"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassReg" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtLocalidadReg"
         style="@style/txtLocalidadReg"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.931"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTelefonoReg" />
 
     <EditText
         android:id="@+id/txtPaisReg"
         style="@style/txtPaisReg"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.931"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtLocalidadReg" />
 
