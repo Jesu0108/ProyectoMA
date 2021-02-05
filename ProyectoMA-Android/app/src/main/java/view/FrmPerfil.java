@@ -105,16 +105,16 @@ public class FrmPerfil extends AppCompatActivity {
 
         String strURL = Data.HOSTING +"/imagen.php";
 
-        final ProgressDialog loading = ProgressDialog.show(FrmPerfil.context, "Subiendo...", "Espere por favor", false, false);
+        final ProgressDialog loading = ProgressDialog.show(context, "Subiendo...", "Espere por favor", false, false);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, strURL,
                 s -> {
                     loading.dismiss();
-                    Toast.makeText(FrmPerfil.context, "Foto subida con exito", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Foto subida con exito", Toast.LENGTH_SHORT).show();
                 },
                 volleyError -> {
                     loading.dismiss();
-                    Toast.makeText(FrmPerfil.context, volleyError.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, volleyError.getMessage(), Toast.LENGTH_SHORT).show();
                 }
         ) {
             @Override
@@ -126,7 +126,7 @@ public class FrmPerfil extends AppCompatActivity {
                 return params;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(FrmPerfil.context);
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
     }
 }

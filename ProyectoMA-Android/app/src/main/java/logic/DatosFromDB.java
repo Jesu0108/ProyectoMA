@@ -87,22 +87,6 @@ public class DatosFromDB {
                 .into(FrmPerfil.imgPersona);
     }
 
-    public static void downloadImagenUsers() {
-        int idImgUser = AdaptadorLista.prod.get(AdaptadorLista.cardPosition).getId_Usuario();
-
-        String url = Data.HOSTING +"/imagen/"+idImgUser+".jpg";
-
-        FrmPerfil.imgPersona.setImageDrawable(null);
-
-        Glide
-                .with(ListaView.context.getApplicationContext())
-                .load(url)
-                .apply(RequestOptions.centerCropTransform())
-                .into(FrmPerfil.imgPersona);
-
-        Toast.makeText(FrmPerfil.context.getApplicationContext(), "Imagen descargada", Toast.LENGTH_SHORT).show();
-    }
-
     public static void updateUser(String correo, String user, String contrasenia, String type, String plato, String localidad, String pais, String telefono) {
         new Update_User_AsyncTask().execute(Data.HOSTING +"/updateUser.php?correo=" + correo + "&user=" + user + "&contrasenia=" + contrasenia
                 + "&tipo=" + type + "&plato=" + plato + "&pais=" + pais + "&localidad=" + localidad + "&telefono=" + telefono + "&usuario=" + FrmPrincipal.userPref);

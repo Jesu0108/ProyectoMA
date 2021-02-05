@@ -186,75 +186,53 @@
         <!--app:srcCompat="@drawable/perropan"-->
     </style>
 
-    <style name="generalCorreoPersona">
+    <style name="CorreoPersonaLand">
         <item name="android:hint">Correo</item>
         <item name="android:textSize">@dimen/sizeLblPersona</item>
         <item name="android:layout_width">@dimen/anchoGenerales</item>
         <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:layout_marginEnd">@dimen/disDerechaPersonLand</item>
         <item name="android:background">@color/white</item>
     </style>
 
-    <style name="generalUserPersona">
+    <style name="UserPersonaLand">
         <item name="android:hint">Usuario</item>
         <item name="android:textSize">@dimen/sizeLblPersona</item>
         <item name="android:layout_width">@dimen/anchoGenerales</item>
         <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:layout_marginEnd">@dimen/disDerechaPersonLand</item>
         <item name="android:background">@color/white</item>
     </style>
 
-    <style name="generalPassPersona">
+    <style name="PassPersonaLand">
         <item name="android:hint">Contraseña</item>
         <item name="android:textSize">@dimen/sizeLblPersona</item>
         <item name="android:layout_width">@dimen/anchoGenerales</item>
         <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:layout_marginEnd">@dimen/disDerechaPersonLand</item>
         <item name="android:background">@color/white</item>
     </style>
 
-    <style name="generalTelefonoPersona">
+    <style name="TelefonoPersonaLand">
         <item name="android:hint">Telefono</item>
         <item name="android:textSize">@dimen/sizeLblPersona</item>
         <item name="android:layout_width">@dimen/anchoGenerales</item>
         <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:layout_marginEnd">@dimen/disDerechaPersonLand</item>
         <item name="android:background">@color/white</item>
     </style>
 
-    <style name="generalPaisPersona">
-        <item name="android:hint">Pais</item>
-        <item name="android:textSize">@dimen/sizeLblPersona</item>
-        <item name="android:layout_width">@dimen/anchoGenerales</item>
-        <item name="android:layout_height">@dimen/alturaGenerales</item>
-        <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
-        <item name="android:background">@color/white</item>
-    </style>
-
-    <style name="generalLocPersona">
-        <item name="android:hint">Localidad</item>
-        <item name="android:textSize">@dimen/sizeLblPersona</item>
-        <item name="android:layout_width">@dimen/anchoGenerales</item>
-        <item name="android:layout_height">@dimen/alturaGenerales</item>
-        <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
-        <item name="android:background">@color/white</item>
-    </style>
-
-    <style name="generalTipoPersona">
+    <style name="TipoPersonaLand">
         <item name="android:hint">Tipo</item>
         <item name="android:textSize">@dimen/sizeLblPersona</item>
         <item name="android:layout_width">@dimen/anchoGenerales</item>
         <item name="android:layout_height">@dimen/alturaGenerales</item>
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
-        <item name="android:background">@color/white</item>
-    </style>
-
-    <style name="generalPlatoPersona">
-        <item name="android:hint">Plato</item>
-        <item name="android:textSize">@dimen/sizeLblPersona</item>
-        <item name="android:layout_width">@dimen/anchoGenerales</item>
-        <item name="android:layout_height">@dimen/alturaGenerales</item>
-        <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:layout_marginEnd">@dimen/disDerechaPersonLand</item>
         <item name="android:background">@color/white</item>
     </style>
 
@@ -265,11 +243,140 @@
         <!--app:srcCompat="@drawable/perropan"-->
     </style>
 
+    <style name="generalCorreoPersona">
+        <item name="android:hint">Correo</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
+        <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:layout_marginEnd">@dimen/disDerechGenPers</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="generalUserPersona">
+        <item name="android:hint">Usuario</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
+        <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:layout_marginEnd">@dimen/disDerechGenPers</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="generalPassPersona">
+        <item name="android:hint">Contraseña</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
+        <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:layout_marginEnd">@dimen/disDerechGenPers</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="generalTelefonoPersona">
+        <item name="android:hint">Telefono</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
+        <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:layout_marginEnd">@dimen/disDerechGenPers</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="generalPaisPersona">
+        <item name="android:hint">Pais</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
+        <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:layout_marginEnd">@dimen/disDerechGenPers</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="generalLocPersona">
+        <item name="android:hint">Localidad</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
+        <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:layout_marginEnd">@dimen/disDerechGenPers</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="generalTipoPersona">
+        <item name="android:hint">Tipo</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
+        <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:layout_marginEnd">@dimen/disDerechGenPers</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="generalPlatoPersona">
+        <item name="android:hint">Plato</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
+        <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:layout_marginEnd">@dimen/disDerechGenPers</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
     <style name="btnPerfil">
         <item name="android:layout_width">@dimen/btnPerfilAncho</item>
         <item name="android:layout_height">@dimen/btnPerfilLargo</item>
         <item name="android:text">@string/btnPerfil</item>
         <item name="android:backgroundTint">@color/colorBotones</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="perfilCorreoPersonaLand">
+        <item name="android:hint">Correo</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
+        <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:layout_marginStart">@dimen/disDerechPerfilLand</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="perfilUserPersonaLand">
+        <item name="android:hint">Usuario</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
+        <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:layout_marginStart">@dimen/disDerechPerfilLand</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="perfilPassPersonaLand">
+        <item name="android:hint">Contraseña</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
+        <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:layout_marginStart">@dimen/disDerechPerfilLand</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="perfilTelefonoPersonaLand">
+        <item name="android:hint">Telefono</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
+        <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="PerfilTipoPersonaLand">
+        <item name="android:hint">Tipo</item>
+        <item name="android:textSize">@dimen/sizeLblPersona</item>
+        <item name="android:layout_width">@dimen/anchoGenerales</item>
+        <item name="android:layout_height">@dimen/alturaGenerales</item>
+        <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
+        <item name="android:layout_marginStart">@dimen/disDerechPerfilLand</item>
         <item name="android:background">@color/white</item>
     </style>
 

@@ -8,8 +8,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.artiguez.proyectoma.R;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
+import controller.Data;
 import controller.PersonaCtrl;
+import logic.AdaptadorLista;
 import logic.DatosFromDB;
 
 public class FrmPersona extends AppCompatActivity {
@@ -38,6 +42,20 @@ public class FrmPersona extends AppCompatActivity {
         PersonaCtrl.getDatosPersona(lblCorreoPersona, lblUsuarioPersona, lblPlatoPersona, lblLocalidadPersona, lblPaisPersona, lblTelefonoPersona, lblTipoPersona);
 
         imgPerfilPersona = findViewById(R.id.imgPerfilPersona);
-        DatosFromDB.downloadImagenUsers();
+        downloadImagenUsers();
+    }
+
+    public static void downloadImagenUsers() {
+        int idImgUser = AdaptadorLista.prod.get(AdaptadorLista.cardPosition).getId_Usuario();
+
+        String url = Data.HOSTING +"/imagen/"+idImgUser+".jpg";
+
+        imgPerfilPersona.setImageDrawable(null);
+
+        Glide
+                .with(ListaView.context.getApplicationContext())
+                .load(url)
+                .apply(RequestOptions.centerCropTransform())
+                .into(imgPerfilPersona);
     }
 }

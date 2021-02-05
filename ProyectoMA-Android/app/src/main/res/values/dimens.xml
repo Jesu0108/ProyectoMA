@@ -34,4 +34,10 @@
 
     <dimen name="imgPersonaAncho">108dp</dimen>
     <dimen name="imgPersonaAlto">88dp</dimen>
+
+    <dimen name="disDerechaPersonLand">404dp</dimen>
+
+    <dimen name="disDerechPerfilLand">16dp</dimen>
+
+    <dimen name="disDerechGenPers">32dp</dimen>
 </resources>

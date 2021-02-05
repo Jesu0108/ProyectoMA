@@ -19,16 +19,13 @@
 
     <EditText
         android:id="@+id/txtCorreoUser"
-        style="@style/generalCorreoPersona"
-        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/perfilCorreoPersonaLand"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgPerfilUser" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtUserUser"
-        style="@style/generalUserPersona"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        style="@style/perfilUserPersonaLand"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCorreoUser" />
 
@@ -36,14 +33,13 @@
         android:id="@+id/txtTelefonoUser"
         style="@style/generalTelefonoPersona"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.936"
+        app:layout_constraintStart_toEndOf="@+id/txtUserUser"
         app:layout_constraintTop_toBottomOf="@+id/txtPlatoUser" />
 
     <Spinner
         android:id="@+id/spTipoUser"
-        style="@style/generalTipoPersona"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        style="@style/PerfilTipoPersonaLand"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPassUser" />
 
@@ -51,29 +47,31 @@
         android:id="@+id/txtPaisUser"
         style="@style/generalPaisPersona"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.937"
+        app:layout_constraintStart_toEndOf="@+id/txtPassUser"
         app:layout_constraintTop_toBottomOf="@+id/txtTelefonoUser" />
 
     <EditText
         android:id="@+id/txtLocalidadUser"
         style="@style/generalLocPersona"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.936"
+        app:layout_constraintStart_toEndOf="@+id/spTipoUser"
         app:layout_constraintTop_toBottomOf="@+id/txtPaisUser" />
 
     <EditText
         android:id="@+id/txtPlatoUser"
         style="@style/generalPlatoPersona"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spTipoUser" />
+        app:layout_constraintHorizontal_bias="0.937"
+        app:layout_constraintStart_toEndOf="@+id/txtCorreoUser"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtPassUser"
-        style="@style/generalPassPersona"
+        style="@style/perfilCorreoPersonaLand"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtUserUser" />
 
@@ -82,7 +80,6 @@
         style="@style/btnPerfil"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLocalidadUser" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

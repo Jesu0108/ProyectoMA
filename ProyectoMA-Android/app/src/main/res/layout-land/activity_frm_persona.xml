@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/imagen_cocina"
+    android:orientation="vertical"
+    tools:context="view.FrmPersona">
+
+    <ImageView
+        android:id="@+id/imgPerfilPersona"
+        style="@style/imgPersona"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lblCorreoPersona"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/perropan_peque" />
+
+    <TextView
+        android:id="@+id/lblCorreoPersona"
+        style="@style/CorreoPersonaLand"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblUserPersona"
+        style="@style/UserPersonaLand"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblCorreoPersona" />
+
+    <TextView
+        android:id="@+id/lblTelefonoPersona"
+        style="@style/TelefonoPersonaLand"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblUserPersona" />
+
+    <TextView
+        android:id="@+id/lblTipoPersona"
+        style="@style/TipoPersonaLand"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblTelefonoPersona" />
+
+    <TextView
+        android:id="@+id/lblPaisPersona"
+        style="@style/generalPaisPersona"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblPlatoPersona" />
+
+    <TextView
+        android:id="@+id/lblLocalidadPersona"
+        style="@style/generalLocPersona"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblPaisPersona" />
+
+    <TextView
+        android:id="@+id/lblPlatoPersona"
+        style="@style/generalPlatoPersona"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgPerfilPersona" />
+
+    <TextView
+        android:id="@+id/lblInfoCorreo"
+        style="@style/infoCorreo"
+        app:layout_constraintEnd_toStartOf="@+id/lblCorreoPersona"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblInfoUser"
+        style="@style/infoUsuario"
+        app:layout_constraintEnd_toStartOf="@+id/lblUserPersona"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblInfoCorreo" />
+
+    <TextView
+        android:id="@+id/lblInfoTelefono"
+        style="@style/infoTelefono"
+        app:layout_constraintEnd_toStartOf="@+id/lblTelefonoPersona"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblInfoUser" />
+
+    <TextView
+        android:id="@+id/lblInfoTipo"
+        style="@style/infoTipo"
+        app:layout_constraintEnd_toStartOf="@+id/lblTipoPersona"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblInfoTelefono" />
+
+    <TextView
+        android:id="@+id/lblInfoPais"
+        style="@style/infoPlato"
+        android:layout_marginStart="73dp"
+        app:layout_constraintEnd_toStartOf="@+id/lblPlatoPersona"
+        app:layout_constraintStart_toEndOf="@+id/lblCorreoPersona"
+        app:layout_constraintTop_toBottomOf="@+id/imgPerfilPersona" />
+
+    <TextView
+        android:id="@+id/lblInfoLocalidad"
+
+        style="@style/infoPais"
+        app:layout_constraintEnd_toStartOf="@+id/lblPaisPersona"
+        app:layout_constraintHorizontal_bias="0.976"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblInfoPais" />
+
+    <TextView
+        android:id="@+id/lblInfoPlato"
+        style="@style/infoLocalidad"
+        app:layout_constraintEnd_toStartOf="@+id/lblLocalidadPersona"
+        app:layout_constraintHorizontal_bias="0.976"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblInfoLocalidad" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
