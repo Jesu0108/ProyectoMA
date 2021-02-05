@@ -14,7 +14,6 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import controller.EdicionPerfilCtrl;
-import controller.ImagenesCtrl;
 
 import java.awt.Font;
 import java.awt.Color;
