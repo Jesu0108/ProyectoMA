@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CookToMe</string>
+    <string name="txtUsuario">Usuario</string>
+    <string name="txtPassword">Contraseña</string>
+    <string name="btnRegistro">Resgitrarse</string>
+    <string name="btnLogueo">Loguearse</string>
+    <string name="lblWelcome">Bienvenido/a</string>
+    <string name="lblRegistro">¿No tienes cuenta?</string>
+    <string name="txtEmailReg">Mail</string>
+    <string name="txtNameReg">Name</string>
+    <string name="txtPlato">Plato estrella</string>
+    <string name="txtTelefono">Telefono</string>
+    <string name="txtLocalidad">Localidad</string>
+    <string name="txtPais">Pais</string>
+    <string name="btnCrear">Crear</string>
+    <string name="btnPerfil">Editar</string>
+    <string name="infoCorreo">Correo:</string>
+    <string name="infoUsuario">Usuario:</string>
+    <string name="infoTipo">Tipo:</string>
+    <string name="infoPlato">Plato:</string>
+    <string name="infoPais">Pais:</string>
+    <string name="infoLocalidad">Localidad:</string>
+    <string name="infoTelefono">Telefono:</string>
+</resources>

@@ -11,6 +11,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -23,6 +24,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.artiguez.proyectoma.R;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.util.Hashtable;
 import java.util.Map;
@@ -101,6 +103,13 @@ public class FrmPerfil extends AppCompatActivity {
         }
     }
 
+    public static String getStringImage(Bitmap bmp) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        return Base64.encodeToString(imageBytes, Base64.DEFAULT);
+    }
+
     private void upload() {
 
         String strURL = Data.HOSTING +"/imagen.php";
@@ -120,7 +129,7 @@ public class FrmPerfil extends AppCompatActivity {
             @Override
             public Map<String, String> getParams() {
                 Hashtable<String, String> params = new Hashtable<>();
-                params.put("imgData", DatosFromDB.getStringImage(bitmap));
+                params.put("imgData", getStringImage(bitmap));
                 params.put("imgName", "" + DatosFromDB.listPerfilLog.get(0).getId_Usuario());
 
                 return params;

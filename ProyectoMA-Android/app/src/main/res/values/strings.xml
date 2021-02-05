@@ -1,25 +1,25 @@
 <resources>
     <string name="app_name">CookToMe</string>
-    <string name="txtUsuario">Usuario</string>
-    <string name="txtPassword">Contraseña</string>
-    <string name="btnRegistro">Resgitrarse</string>
-    <string name="btnLogueo">Loguearse</string>
-    <string name="lblWelcome">Bienvenido/a</string>
-    <string name="lblRegistro">¿No tienes cuenta?</string>
+    <string name="txtUsuario">User</string>
+    <string name="txtPassword">Password</string>
+    <string name="btnRegistro">Sign up</string>
+    <string name="btnLogueo">Sign in</string>
+    <string name="lblWelcome">Welcome</string>
+    <string name="lblRegistro">Don\'t have an account?</string>
     <string name="txtEmailReg">Email</string>
     <string name="txtNameReg">Nombre</string>
-    <string name="txtPlato">Plato estrella</string>
-    <string name="txtTelefono">Telefono</string>
-    <string name="txtLocalidad">Localidad</string>
-    <string name="txtPais">Pais</string>
-    <string name="btnCrear">Crear</string>
-    <string name="btnPerfil">Editar</string>
+    <string name="txtPlato">Best dish</string>
+    <string name="txtTelefono">Phone</string>
+    <string name="txtLocalidad">Locality</string>
+    <string name="btnCrear">Create</string>
+    <string name="btnPerfil">Edit</string>
 
-    <string name="infoCorreo">Correo:</string>
-    <string name="infoUsuario">Usuario:</string>
-    <string name="infoTipo">Tipo:</string>
-    <string name="infoPlato">Plato:</string>
-    <string name="infoPais">Pais:</string>
-    <string name="infoLocalidad">Localidad:</string>
-    <string name="infoTelefono">Telefono:</string>
+    <string name="infoCorreo">Mail:</string>
+    <string name="infoUsuario">User:</string>
+    <string name="infoTipo">Type:</string>
+    <string name="infoPlato">Dish:</string>
+    <string name="infoPais">Country:</string>
+    <string name="infoLocalidad">Locality:</string>
+    <string name="infoTelefono">Phone:</string>
+    <string name="txtPais">Country</string>
 </resources>
