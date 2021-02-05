@@ -5,7 +5,7 @@
     <string name="btnRegistro">Sign up</string>
     <string name="btnLogueo">Sign in</string>
     <string name="lblWelcome">Welcome</string>
-    <string name="lblRegistro">Don\'t have an account?</string>
+    <string name="lblRegistro">Dont have an account?</string>
     <string name="txtEmailReg">Email</string>
     <string name="txtNameReg">Nombre</string>
     <string name="txtPlato">Best dish</string>

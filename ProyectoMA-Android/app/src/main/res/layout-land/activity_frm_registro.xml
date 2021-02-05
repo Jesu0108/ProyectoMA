@@ -10,7 +10,7 @@
 
     <ImageView
         android:id="@+id/imgReg"
-        style="@style/imgReg"
+        style="@style/imgRegLand"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/txtEmailReg"
         app:layout_constraintHorizontal_bias="0.494"

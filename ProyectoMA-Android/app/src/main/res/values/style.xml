@@ -50,6 +50,7 @@
         <item name="android:text">@string/lblWelcome</item>
         <item name="android:textSize">@dimen/sizeLblWelcome</item>
         <item name="android:layout_marginBottom">@dimen/disLabels</item>
+        <item name="android:layout_centerHorizontal">true</item>
     </style>
 
     <style name="lblRegistro">

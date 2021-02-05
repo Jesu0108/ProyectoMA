@@ -3,12 +3,18 @@
     <dimen name="disComponentsEstandar">16dp</dimen>
     <dimen name="disLabels">36dp</dimen>
     <dimen name="disLblLogueo">10dp</dimen>
+
     <dimen name="disGirado">40dp</dimen>
+
     <dimen name="sizeLblWelcome">24sp</dimen>
     <dimen name="sizeLblRegistro">15sp</dimen>
+
     <dimen name="disSpinnerTipo">28sp</dimen>
+
     <dimen name="disFrmPersona">24dp</dimen>
+
     <dimen name="sizeLblPersona">16sp</dimen>
+
     <dimen name="alturaGenerales">40dp</dimen>
     <dimen name="anchoGenerales">230dp</dimen>
 
@@ -25,12 +31,13 @@
     <dimen name="spRegAncho">110dp</dimen>
     <dimen name="spRegAlto">26dp</dimen>
 
-    <dimen name="imgRegAncho">130dp</dimen>
-    <dimen name="imgRegAlto">168dp</dimen>
+
+    <dimen name="imgRegAlto">94dp</dimen>
+    <dimen name="imgRegAncho">91dp</dimen>
     <dimen name="imgmarginReg">16dp</dimen>
 
-    <dimen name="imgRegAnchoLand">179dp</dimen>
-    <dimen name="imgRegAltoLand">91dp</dimen>
+    <dimen name="imgRegAnchoLand">141dp</dimen>
+    <dimen name="imgRegAltoLand">160dp</dimen>
 
     <dimen name="imgPersonaAncho">108dp</dimen>
     <dimen name="imgPersonaAlto">88dp</dimen>
