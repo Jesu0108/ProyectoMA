@@ -1,10 +1,9 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -14,17 +13,18 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import controller.EdicionPerfilCtrl;
+import controller.ImagenesCtrl;
 
-import java.awt.Font;
-import java.awt.Color;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FrmEdicionPerfil extends JDialog {
 
 	private static final long serialVersionUID = 1L;
-	public static JPanel contentPane = new JPanel();;
-	
+
+	private final JPanel contentPanel = new JPanel();
+
 	public static JTextField txtCorreo;
 	public static JTextField txtContra;
 	public static JTextField txtUsuario;
@@ -33,48 +33,45 @@ public class FrmEdicionPerfil extends JDialog {
 	public static JTextField txtTelefono;
 	public static JTextField txtPlato;
 	public static JTextField txtTipo;
-	
+
+	private static JLabel lblCorreo;
+	private static JLabel lblUsuario;
+	private static JLabel lblContra;
+	private static JLabel lblTipo;
+	private static JLabel lblTelefono;
+	private static JLabel lblPlato;
+	private static JLabel lblLocalidad;
+	private static JLabel lblPais;
+
 	private JPanel imgPanel;
 	public static JLabel imgUsuario;
-	private JButton btnBorrar;
-	
+
+	private JButton btnBorrarUser;
+	private JButton btnGuardarCamb;
+	private JButton btnCancelar;
+
 	private Font lblFont;
 	private Font txtFont;
-	
-	private Color colorFondo;
+	private Font btnFont;
+
+	private Color colorFondo = new Color(250, 200, 107);
+	private JPanel guarCambPanel;
+	private JPanel CancelBorrPanel;
+
 
 	public FrmEdicionPerfil() {
-		
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent e) {
-				EdicionPerfilCtrl.confirmExit();
-			}
-		});
-		
 		createForm();
 		EdicionPerfilCtrl.loadData();
-		
-		//ImagenesCtrl.download();
+		ImagenesCtrl.download();
 	}
-	
+
 	public void createForm() {
-		
-		setModal(true);
-		setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 339, 252);
-		setTitle("Editar perfil");
+
+		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setVisible(true);
-		setResizable(false);
-		
-		contentPane.setLayout(new BorderLayout());
-		contentPane.setBackground(colorFondo);
-		
-		//Definimos las fuentes 
-		lblFont = new Font("Script MT Bold", Font.PLAIN, 16);
-		txtFont = new Font("Times New Roman", Font.PLAIN, 14);
-		
-		colorFondo = new Color(250, 200, 107);
+
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(new BorderLayout());
 		
 		imgPanel = new JPanel();
 		imgPanel.setBackground(colorFondo);
@@ -82,114 +79,121 @@ public class FrmEdicionPerfil extends JDialog {
 		
 		imgUsuario = new JLabel("");
 		imgPanel.add(imgUsuario);
-		contentPane.setBackground(colorFondo);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		getContentPane().add(contentPane, BorderLayout.CENTER);
-		contentPane.setLayout(new GridLayout(8, 2, 0, 0));
+		contentPanel.setBackground(colorFondo);
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(new GridLayout(8, 2, 0, 0));
 
-		//Correo
-		JLabel lblCorreo = new JLabel("Correo:");
-		lblCorreo.setFont(lblFont);
-		contentPane.add(lblCorreo);
+		// Definimos las fuentes
+		lblFont = new Font("Script MT Bold", Font.PLAIN, 16);
+		txtFont = new Font("Times New Roman", Font.PLAIN, 14);
+		btnFont = new Font("Times New Roman", Font.PLAIN, 13);
 		
+		// Correo
+		lblCorreo = new JLabel("Correo:");
+		lblCorreo.setFont(lblFont);
+		contentPanel.add(lblCorreo);
+
 		txtCorreo = new JTextField();
 		txtCorreo.setFont(txtFont);
-		contentPane.add(txtCorreo);
-		
-		//Usuario
-		JLabel lblUsuario = new JLabel("Usuario:");
+		contentPanel.add(txtCorreo);
+
+		// Usuario
+		lblUsuario = new JLabel("Usuario:");
 		lblUsuario.setFont(lblFont);
-		contentPane.add(lblUsuario);
-		
+		contentPanel.add(lblUsuario);
+
 		txtUsuario = new JTextField();
 		txtUsuario.setFont(txtFont);
-		contentPane.add(txtUsuario);
+		contentPanel.add(txtUsuario);
 
-		//Contraseña
-		JLabel lblContra = new JLabel("Contraseña:");
+		// Contraseña
+		lblContra = new JLabel("Contraseña:");
 		lblContra.setFont(lblFont);
-		contentPane.add(lblContra);
-		
+		contentPanel.add(lblContra);
+
 		txtContra = new JTextField();
 		txtContra.setFont(txtFont);
-		contentPane.add(txtContra);
+		contentPanel.add(txtContra);
 
-		//Tipo
-		JLabel lblTipo = new JLabel("Tipo:");
+		// Tipo
+		lblTipo = new JLabel("Tipo:");
 		lblTipo.setFont(lblFont);
-		contentPane.add(lblTipo);
-		
+		contentPanel.add(lblTipo);
+
 		txtTipo = new JTextField();
 		txtTipo.setFont(txtFont);
-		contentPane.add(txtTipo);
-		
-		//Telefono
-		JLabel lblTelefono = new JLabel("Telefono:");
+		contentPanel.add(txtTipo);
+
+		// Telefono
+		lblTelefono = new JLabel("Telefono:");
 		lblTelefono.setFont(lblFont);
-		contentPane.add(lblTelefono);
-		
+		contentPanel.add(lblTelefono);
+
 		txtTelefono = new JTextField();
 		txtTelefono.setFont(txtFont);
-		contentPane.add(txtTelefono);
-		
-		//Plato
-		JLabel lblPlato = new JLabel("Plato:");
+		contentPanel.add(txtTelefono);
+
+		// Plato
+		lblPlato = new JLabel("Plato:");
 		lblPlato.setFont(lblFont);
-		contentPane.add(lblPlato);
-		
+		contentPanel.add(lblPlato);
+
 		txtPlato = new JTextField();
 		txtPlato.setFont(txtFont);
-		contentPane.add(txtPlato);
-		
-		//Localidad
-		JLabel lblLocalidad = new JLabel("Localidad:");
+		contentPanel.add(txtPlato);
+
+		// Localidad
+		lblLocalidad = new JLabel("Localidad:");
 		lblLocalidad.setFont(lblFont);
-		contentPane.add(lblLocalidad);
-		
+		contentPanel.add(lblLocalidad);
+
 		txtLocalidad = new JTextField();
 		txtLocalidad.setFont(txtFont);
-		contentPane.add(txtLocalidad);
-		
-		//Pais
-		JLabel lblPais = new JLabel("Pais:");
+		contentPanel.add(txtLocalidad);
+
+		// Pais
+		lblPais = new JLabel("Pais:");
 		lblPais.setFont(lblFont);
-		contentPane.add(lblPais);
-		
+		contentPanel.add(lblPais);
+
 		txtPais = new JTextField();
 		txtPais.setFont(txtFont);
-		contentPane.add(txtPais);		
+		contentPanel.add(txtPais);
 
 		JPanel buttonPane = new JPanel();
-		buttonPane.setBackground(colorFondo);
-		buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		getContentPane().add(buttonPane, BorderLayout.SOUTH);
+		buttonPane.setLayout(new GridLayout(1, 2, 0, 0));
 
-		JButton okButton = new JButton("Guardar cambios");
-		okButton.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		okButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//controller.CtrlDetalleCoche.saveData();
-				//controller.CtrlListaCoches.loadData();
-				dispose();
-			}
-		});
-		okButton.setActionCommand("OK");
-		buttonPane.add(okButton);
-		getRootPane().setDefaultButton(okButton);
+		CancelBorrPanel = new JPanel();
+		CancelBorrPanel.setBackground(colorFondo);
+		buttonPane.add(CancelBorrPanel);
 
-		JButton cancelButton = new JButton("Cancelar");
-		cancelButton.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		cancelButton.addActionListener(new ActionListener() {
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
-		
-		btnBorrar = new JButton("Borrar usuario");
-		btnBorrar.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		buttonPane.add(btnBorrar);
-		cancelButton.setActionCommand("Cancel");
-		buttonPane.add(cancelButton);
+		btnCancelar.setFont(btnFont);
+		CancelBorrPanel.add(btnCancelar);
+		btnCancelar.setActionCommand("Cancel");
+
+		btnBorrarUser = new JButton("Borrar usuario");
+		btnBorrarUser.setFont(btnFont);
+		CancelBorrPanel.add(btnBorrarUser);
+
+		guarCambPanel = new JPanel();
+		guarCambPanel.setBackground(colorFondo);
+		buttonPane.add(guarCambPanel);
+
+		btnGuardarCamb = new JButton("Guardar cambios");
+		btnGuardarCamb.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EdicionPerfilCtrl.saveData();
+			}
+		});
+		btnGuardarCamb.setFont(btnFont);
+		guarCambPanel.add(btnGuardarCamb);
 	}
-
 }

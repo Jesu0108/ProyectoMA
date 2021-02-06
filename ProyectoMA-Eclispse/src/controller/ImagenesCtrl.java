@@ -18,8 +18,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
+import utils.Data;
 import view.FrmEdicionPerfil;
-import view.FrmPrincipal;
+import view.FrmListaPerfiles;
 
 public class ImagenesCtrl {
 
@@ -40,12 +41,17 @@ public class ImagenesCtrl {
 	}
 
 	public static void download() {
-		String noImg = "img\\interrogante.png";
-		//String fileName = view.FrmPrincipal.txtFileName.getText().toString();
-		//String path = "http://jesusmedac.tk/imagen/" + fileName + ".jpg";
+		
+		int idSelected = Integer.parseInt(
+				FrmListaPerfiles.tblResult.getValueAt(FrmListaPerfiles.tblResult.getSelectedRow(), 0).toString());
+		
+		//String imgPrueba = "img\\interrogante.png";
+		
+		String fileName = ""+idSelected;
+		String path = Data.URL+"/imagen/" + fileName + ".jpg";
 
 		try {
-			URL url = new URL(noImg);
+			URL url = new URL(path);
 			Image image = ImageIO.read(url);
 			FrmEdicionPerfil.imgUsuario.setIcon(new ImageIcon(image));
 
@@ -61,7 +67,7 @@ public class ImagenesCtrl {
 			String fileName = archivo.getName();
 			String fileNameWithOutExt = fileName.replaceFirst("[.][^.]+$", "");
 
-			String path = "https://preyectoma.000webhostapp.com/imagen/imagen.php";
+			String path = Data.URL+"/imagen/imagen.php";
 
 			// Establecemos la conexion...
 			URL url = new URL(path);

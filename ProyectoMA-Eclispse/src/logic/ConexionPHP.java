@@ -34,6 +34,25 @@ public class ConexionPHP {
 		return lstResultado;
 	}
 	
+	public static List<String> JsonToTipo(String respuesta) {
+
+		List<String> lstResultado = new ArrayList<>();
+
+		JSONArray jsonA = new JSONArray(respuesta);
+
+		for (int i = 0; i < jsonA.length(); i++) {
+
+			JSONObject jsonO = jsonA.getJSONObject(i);
+
+			String s = jsonO.getString("tipo");
+			
+			lstResultado.add(s);
+
+		}
+
+		return lstResultado;
+	}
+	
 	public static List<Perfil> JsonToPerfilesLog(String respuesta) {
 
 		List<Perfil> lstResultado = new ArrayList<>();
@@ -102,7 +121,6 @@ public class ConexionPHP {
 
 		// cerramos el buffered
 		rd.close();
-
 		return resultado.toString();
 	}
 

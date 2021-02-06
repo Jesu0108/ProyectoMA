@@ -13,13 +13,23 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
+
 import controller.ListaPerfilesCtrl;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JLabel;
-import javax.swing.JComboBox;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JSeparator;
 
 public class FrmListaPerfiles extends JDialog {
 
@@ -29,9 +39,19 @@ public class FrmListaPerfiles extends JDialog {
 	
 	private JLabel lblInfoEleccion;
 	private JPanel panel;
-	private JComboBox lstFiltros;
 
 	private Color colorFondo;
+	private JMenuBar menuBar;
+	private JMenu mnPerfiles;
+	private JMenuItem mntmNuevo;
+	private JMenu mnGraficas;
+	private JMenuItem mntmPorLocalidad;
+	private JMenuItem mntmPorTipo;
+	private JMenuItem mntmSalir;
+	private JSeparator separator;
+	
+	private DefaultPieDataset data;
+	private JFreeChart chart;
 	
 	public FrmListaPerfiles() {
 		
@@ -56,6 +76,52 @@ public class FrmListaPerfiles extends JDialog {
 		
 		colorFondo = new Color(250, 200, 107);
 		
+		menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		mnPerfiles = new JMenu("Archivo");
+		menuBar.add(mnPerfiles);
+		
+		mntmNuevo = new JMenuItem("Nuevo perfil");
+		mntmNuevo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new FrmCrearNuevo();
+			}
+		});
+		mnPerfiles.add(mntmNuevo);
+		
+		separator = new JSeparator();
+		mnPerfiles.add(separator);
+		
+		mntmSalir = new JMenuItem("Salir");
+		mntmSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ListaPerfilesCtrl.confirmExit();
+			}
+		});
+		mnPerfiles.add(mntmSalir);
+		
+		mnGraficas = new JMenu("Graficas");
+		menuBar.add(mnGraficas);
+		
+		mntmPorLocalidad = new JMenuItem("Por localidad");
+		mntmPorLocalidad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				data = new DefaultPieDataset();
+				chart = ChartFactory.createPieChart("Localidades mas usadas", data, true, false, false);
+				
+				ChartPanel frameG = new ChartPanel(chart);
+				frameG.setBounds(0, 0, 300, 250);
+				contentPane.add(frameG);
+			}
+		});
+		mnGraficas.add(mntmPorLocalidad);
+		
+		mntmPorTipo = new JMenuItem("Por tipo");
+		mnGraficas.add(mntmPorTipo);
+		
 		contentPane = new JPanel();
 		contentPane.setBackground(colorFondo);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -66,15 +132,10 @@ public class FrmListaPerfiles extends JDialog {
 		panel.setBackground(colorFondo);
 		contentPane.add(panel, BorderLayout.NORTH);
 		
-		lblInfoEleccion = new JLabel("Seleccione el filtro:");
+		lblInfoEleccion = new JLabel("Seleccione el perfil a editar");
 		lblInfoEleccion.setFont(new Font("Script MT Bold", Font.PLAIN, 14));
 		panel.add(lblInfoEleccion);
-		
-		String[] filtros = {"Ninguno","Cocinero", "Catador", "Empresa"};
-		lstFiltros = new JComboBox(filtros);
-		lstFiltros.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		panel.add(lstFiltros);
-		
+				
 		JScrollPane panelDat = new JScrollPane();
 		panelDat.setBackground(colorFondo);
 		contentPane.add(panelDat, BorderLayout.CENTER);

@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -27,18 +26,18 @@ import java.awt.event.WindowEvent;
 public class FrmPrincipal extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private static JLabel lblContrasenia;
 	private static JLabel lblCorreo;
-	
+
 	public static JTextField txtUsuario;
 	public static JPasswordField txtContra;
-	
+
 	private Color colorFondo;
-	
+
 	public static JPanel contentPane;
 
-	public FrmPrincipal(){
+	public FrmPrincipal() {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -47,7 +46,7 @@ public class FrmPrincipal extends JFrame {
 		});
 		createForm();
 	}
-	
+
 	public void createForm() {
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -55,9 +54,9 @@ public class FrmPrincipal extends JFrame {
 		setTitle("Inicio");
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("img\\chef_color_fondo.png"));
-		
+
 		colorFondo = new Color(250, 200, 107);
-		
+
 		contentPane = new JPanel();
 		contentPane.setBackground(colorFondo);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -94,6 +93,7 @@ public class FrmPrincipal extends JFrame {
 		txtUsuario.setColumns(10);
 
 		txtContra = new JPasswordField();
+		txtContra.setText("pass");
 		txtContra.setBounds(221, 92, 148, 20);
 		panelCentral.add(txtContra);
 		txtContra.setColumns(10);
@@ -128,16 +128,15 @@ public class FrmPrincipal extends JFrame {
 	}
 
 	public void logueo() {
-		if (txtUsuario.getText().toString().length() > 0 || txtContra.getText().toString().length() > 0) {
+		if (txtUsuario.getText().toString().equals("") || txtContra.getText().toString().equals("")) {
+			JOptionPane.showMessageDialog(contentPane, "Por favor, rellene todos los campos para continuar");
+		} else {
 			if (PrincipalCtrl.checkLogin()) {
 				dispose();
 				new FrmListaPerfiles();
-				
 			} else {
 				JOptionPane.showMessageDialog(contentPane, "Correo o contraseña incorrectos");
 			}
-		} else {
-			JOptionPane.showMessageDialog(contentPane, "Por favor, rellene todos los campos para continuar");
 		}
 	}
 }
