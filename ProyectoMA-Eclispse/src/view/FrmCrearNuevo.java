@@ -2,7 +2,6 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -54,6 +53,7 @@ public class FrmCrearNuevo extends JDialog {
 	public FrmCrearNuevo() {
 		createForm();
 		CrearNuevoCtrl.addTipos();
+		CrearNuevoCtrl.borrarCampos();
 	}
 
 	public void createForm() {
@@ -185,9 +185,6 @@ public class FrmCrearNuevo extends JDialog {
 				new FrmListaPerfiles();
 			}
 		});
-		btnCrear.setActionCommand("OK");
-		getRootPane().setDefaultButton(btnCrear);
-
 	}
 
 }

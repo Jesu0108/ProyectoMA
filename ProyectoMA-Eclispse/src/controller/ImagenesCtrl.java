@@ -53,7 +53,7 @@ public class ImagenesCtrl {
 		try {
 			URL url = new URL(path);
 			Image image = ImageIO.read(url);
-			FrmEdicionPerfil.imgUsuario.setIcon(new ImageIcon(image));
+			FrmEdicionPerfil.imgUsuario.setIcon(new ImageIcon(image.getScaledInstance(90, 125, Image.SCALE_SMOOTH)));
 
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Ha ocurrido un error: "+e.getMessage(), "Error de DOWNLOAD", JOptionPane.ERROR_MESSAGE);

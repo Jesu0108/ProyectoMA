@@ -37,18 +37,18 @@ public class FrmListaPerfiles extends JDialog {
 	public static JTable tblResult = new JTable();
 	public static JPanel contentPane;
 	
-	private JLabel lblInfoEleccion;
-	private JPanel panel;
+	private static JLabel lblInfoEleccion;
+	private static JPanel panel;
 
-	private Color colorFondo;
-	private JMenuBar menuBar;
-	private JMenu mnPerfiles;
-	private JMenuItem mntmNuevo;
-	private JMenu mnGraficas;
-	private JMenuItem mntmPorLocalidad;
-	private JMenuItem mntmPorTipo;
-	private JMenuItem mntmSalir;
-	private JSeparator separator;
+	private static Color colorFondo;
+	private static JMenuBar menuBar;
+	private static JMenu mnPerfiles;
+	private static JMenuItem mntmNuevo;
+	private static JMenu mnGraficas;
+	private static JMenuItem mntmPorLocalidad;
+	private static JMenuItem mntmPorTipo;
+	private static JMenuItem mntmSalir;
+	private static JSeparator separator;
 	
 	private DefaultPieDataset data;
 	private JFreeChart chart;

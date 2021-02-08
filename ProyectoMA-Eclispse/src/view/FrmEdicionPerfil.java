@@ -2,10 +2,10 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.Font;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -32,8 +32,8 @@ public class FrmEdicionPerfil extends JDialog {
 	public static JTextField txtPais;
 	public static JTextField txtTelefono;
 	public static JTextField txtPlato;
-	public static JTextField txtTipo;
-
+	public static JComboBox spTipo;
+	
 	private static JLabel lblCorreo;
 	private static JLabel lblUsuario;
 	private static JLabel lblContra;
@@ -61,6 +61,7 @@ public class FrmEdicionPerfil extends JDialog {
 
 	public FrmEdicionPerfil() {
 		createForm();
+		EdicionPerfilCtrl.addTipos();
 		EdicionPerfilCtrl.loadData();
 		ImagenesCtrl.download();
 	}
@@ -70,7 +71,7 @@ public class FrmEdicionPerfil extends JDialog {
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setVisible(true);
 
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 430);
 		getContentPane().setLayout(new BorderLayout());
 		
 		imgPanel = new JPanel();
@@ -121,9 +122,9 @@ public class FrmEdicionPerfil extends JDialog {
 		lblTipo.setFont(lblFont);
 		contentPanel.add(lblTipo);
 
-		txtTipo = new JTextField();
-		txtTipo.setFont(txtFont);
-		contentPanel.add(txtTipo);
+		spTipo = new JComboBox();
+		spTipo.setFont(txtFont);
+		contentPanel.add(spTipo);
 
 		// Telefono
 		lblTelefono = new JLabel("Telefono:");
