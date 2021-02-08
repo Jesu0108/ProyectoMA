@@ -71,11 +71,11 @@ public class EdicionPerfilCtrl {
 			ConexionPHP.peticionHttp(url);
 
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + e.getMessage(), "Error cargando en saveData (edicionPerfiles)",
-					JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + e.getMessage(),
+					"Error cargando en saveData (edicionPerfiles)", JOptionPane.ERROR_MESSAGE);
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public static void addTipos() {
 
@@ -83,26 +83,39 @@ public class EdicionPerfilCtrl {
 			String url = Data.URL + "/getTipo.php";
 			String respuesta = ConexionPHP.peticionHttp(url);
 			List<String> resultado = ConexionPHP.JsonToTipo(respuesta);
-			
+
 			for (String s : resultado) {
 				FrmEdicionPerfil.spTipo.addItem(s);
 			}
-			
+
 		} catch (Exception e) {
 
 			e.printStackTrace();
 		}
 
 	}
-	
+
 	public static void deleteUSer() {
 		try {
-			String url = Data.URL + "/deleteUser.php?id_Usuario="+ id;
+			String url = Data.URL + "/deleteUser.php?id_Usuario=" + id;
 			ConexionPHP.peticionHttp(url);
 
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + e.getMessage(), "Error eliminando el usuario",
-					JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + e.getMessage(),
+					"Error eliminando el usuario", JOptionPane.ERROR_MESSAGE);
 		}
+	}
+
+	public static boolean confirmDelete() {
+		boolean bExito;
+		
+		if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea borrar este usuario?", "Confirmacion borrado",
+				JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+			bExito = true;
+		} else {
+			bExito = false;
+		}
+
+		return bExito;
 	}
 }

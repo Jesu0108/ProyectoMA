@@ -13,8 +13,10 @@ import javax.swing.border.EmptyBorder;
 
 import controller.CrearNuevoCtrl;
 import controller.ListaPerfilesCtrl;
+import utils.Data;
 
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
@@ -63,6 +65,8 @@ public class FrmCrearNuevo extends JDialog {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		setTitle("Crear perfil");
+		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Data.icono));
 
 		contentPane.setBackground(colorFondo);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

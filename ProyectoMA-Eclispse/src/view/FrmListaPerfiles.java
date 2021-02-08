@@ -19,11 +19,13 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 
 import controller.ListaPerfilesCtrl;
+import utils.Data;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JMenuBar;
@@ -73,6 +75,7 @@ public class FrmListaPerfiles extends JDialog {
 		setBounds(100, 100, 639, 300);
 		setTitle("Listado");
 		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Data.icono));
 		
 		colorFondo = new Color(250, 200, 107);
 		

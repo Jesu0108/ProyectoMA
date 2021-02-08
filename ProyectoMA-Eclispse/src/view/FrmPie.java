@@ -3,6 +3,7 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
 
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -15,6 +16,7 @@ import org.jfree.data.general.DefaultPieDataset;
 
 import controller.ListaPerfilesCtrl;
 import model.Perfil;
+import utils.Data;
 
 public class FrmPie extends JDialog {
 
@@ -39,6 +41,8 @@ public class FrmPie extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		setVisible(true);
+		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Data.icono));
 
 		// Fuente de datos - Pie
 		DefaultPieDataset data = new DefaultPieDataset();

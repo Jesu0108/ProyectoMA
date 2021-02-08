@@ -3,8 +3,8 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
 
-import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -17,6 +17,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 import controller.ListaPerfilesCtrl;
 import model.Perfil;
+import utils.Data;
 
 public class FrmBar extends JDialog {
 
@@ -38,6 +39,8 @@ public class FrmBar extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		setVisible(true);
+		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Data.icono));
 
 		int iSevilla = 0;
 		int iHuelva = 0;

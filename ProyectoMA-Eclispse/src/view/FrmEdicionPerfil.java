@@ -15,8 +15,10 @@ import javax.swing.border.EmptyBorder;
 import controller.EdicionPerfilCtrl;
 import controller.ImagenesCtrl;
 import controller.ListaPerfilesCtrl;
+import utils.Data;
 
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -71,6 +73,9 @@ public class FrmEdicionPerfil extends JDialog {
 
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setVisible(true);
+		setTitle("Edicion");
+		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Data.icono));
 
 		setBounds(100, 100, 450, 430);
 		getContentPane().setLayout(new BorderLayout());
@@ -184,9 +189,13 @@ public class FrmEdicionPerfil extends JDialog {
 		btnBorrarUser = new JButton("Borrar usuario");
 		btnBorrarUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				EdicionPerfilCtrl.deleteUSer();
-				ListaPerfilesCtrl.loadData();
+				if(EdicionPerfilCtrl.confirmDelete()) {
+					dispose();
+					EdicionPerfilCtrl.deleteUSer();
+					ListaPerfilesCtrl.loadData();
+				}else {
+					dispose();
+				}
 			}
 		});
 		btnBorrarUser.setFont(btnFont);
