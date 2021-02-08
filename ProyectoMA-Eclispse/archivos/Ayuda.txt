@@ -1,6 +1,7 @@
 --Menú Archivo:
 
 	·Nuevo perfil: Se mostrará una ventana para la creacion de un nuevo usuario en la aplicación.
+	·Gestionar tipos: Se mostrará una tabla con los tipos de usuarios disponibles para poder editarlos.
 	·Cerrar sesión: Saldrá de la aplicación y de la sesión iniciada, al volver a abrir la app le pedirá de nuevo los datos de usuario.
 	
 --Menú Graficas:

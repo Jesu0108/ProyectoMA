@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -35,6 +34,7 @@ public class FrmEdicionPerfil extends JDialog {
 	public static JTextField txtPais;
 	public static JTextField txtTelefono;
 	public static JTextField txtPlato;
+	@SuppressWarnings("rawtypes")
 	public static JComboBox spTipo;
 	
 	private static JLabel lblCorreo;
@@ -57,7 +57,6 @@ public class FrmEdicionPerfil extends JDialog {
 	private Font txtFont;
 	private Font btnFont;
 
-	private Color colorFondo = new Color(250, 200, 107);
 	private JPanel guarCambPanel;
 	private JPanel CancelBorrPanel;
 
@@ -69,6 +68,7 @@ public class FrmEdicionPerfil extends JDialog {
 		ImagenesCtrl.download();
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void createForm() {
 
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -81,12 +81,12 @@ public class FrmEdicionPerfil extends JDialog {
 		getContentPane().setLayout(new BorderLayout());
 		
 		imgPanel = new JPanel();
-		imgPanel.setBackground(colorFondo);
+		imgPanel.setBackground(Data.colorFondo);
 		getContentPane().add(imgPanel, BorderLayout.NORTH);
 		
 		imgUsuario = new JLabel("");
 		imgPanel.add(imgUsuario);
-		contentPanel.setBackground(colorFondo);
+		contentPanel.setBackground(Data.colorFondo);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(new GridLayout(8, 2, 0, 0));
@@ -173,7 +173,7 @@ public class FrmEdicionPerfil extends JDialog {
 		buttonPane.setLayout(new GridLayout(1, 2, 0, 0));
 
 		CancelBorrPanel = new JPanel();
-		CancelBorrPanel.setBackground(colorFondo);
+		CancelBorrPanel.setBackground(Data.colorFondo);
 		buttonPane.add(CancelBorrPanel);
 
 		btnCancelar = new JButton("Cancelar");
@@ -202,7 +202,7 @@ public class FrmEdicionPerfil extends JDialog {
 		CancelBorrPanel.add(btnBorrarUser);
 
 		guarCambPanel = new JPanel();
-		guarCambPanel.setBackground(colorFondo);
+		guarCambPanel.setBackground(Data.colorFondo);
 		buttonPane.add(guarCambPanel);
 
 		btnGuardarCamb = new JButton("Guardar cambios");

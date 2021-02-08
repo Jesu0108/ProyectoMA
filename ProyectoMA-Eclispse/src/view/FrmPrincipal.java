@@ -8,6 +8,8 @@ import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
 import controller.PrincipalCtrl;
+import utils.Data;
+import utils.EdicionFch;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -19,7 +21,6 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
-import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -33,18 +34,25 @@ public class FrmPrincipal extends JFrame {
 	public static JTextField txtUsuario;
 	public static JPasswordField txtContra;
 
-	private Color colorFondo;
+	public static String user;
+	public static String pass;
 
 	public static JPanel contentPane;
 
 	public FrmPrincipal() {
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent e) {
-				PrincipalCtrl.confirmExit();
-			}
-		});
-		createForm();
+
+		if (userPreferences()) {
+			dispose();
+			new FrmListaPerfiles();
+		} else {
+			addWindowListener(new WindowAdapter() {
+				@Override
+				public void windowClosing(WindowEvent e) {
+					PrincipalCtrl.confirmExit();
+				}
+			});
+			createForm();
+		}
 	}
 
 	public void createForm() {
@@ -55,16 +63,14 @@ public class FrmPrincipal extends JFrame {
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("img\\chef_color_fondo.png"));
 
-		colorFondo = new Color(250, 200, 107);
-
 		contentPane = new JPanel();
-		contentPane.setBackground(colorFondo);
+		contentPane.setBackground(Data.colorFondo);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 
 		JPanel panelSup = new JPanel();
-		panelSup.setBackground(colorFondo);
+		panelSup.setBackground(Data.colorFondo);
 		contentPane.add(panelSup, BorderLayout.NORTH);
 
 		JLabel lblBienvenido = new JLabel("Bienvenido/a !!");
@@ -72,7 +78,7 @@ public class FrmPrincipal extends JFrame {
 		panelSup.add(lblBienvenido);
 
 		JPanel panelCentral = new JPanel();
-		panelCentral.setBackground(colorFondo);
+		panelCentral.setBackground(Data.colorFondo);
 		contentPane.add(panelCentral, BorderLayout.CENTER);
 		panelCentral.setLayout(null);
 
@@ -104,7 +110,7 @@ public class FrmPrincipal extends JFrame {
 		panelCentral.add(lblInfo);
 
 		JPanel panelBotones = new JPanel();
-		panelBotones.setBackground(colorFondo);
+		panelBotones.setBackground(Data.colorFondo);
 		contentPane.add(panelBotones, BorderLayout.SOUTH);
 		panelBotones.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
@@ -127,16 +133,37 @@ public class FrmPrincipal extends JFrame {
 		panelBotones.add(btnBorrar);
 	}
 
+	@SuppressWarnings("deprecation")
 	public void logueo() {
-		if (txtUsuario.getText().toString().equals("") || txtContra.getText().toString().equals("")) {
+
+		user = txtUsuario.getText().toString();
+		pass = txtContra.getText().toString();
+
+		if (user.equals("") || pass.equals("")) {
 			JOptionPane.showMessageDialog(contentPane, "Por favor, rellene todos los campos para continuar");
 		} else {
+			// Comprobamos si los datos existen en la DB
 			if (PrincipalCtrl.checkLogin()) {
 				dispose();
+				// Generamos las preferencias
+				EdicionFch.genBinario(user, pass);
+				// Mandamos al usuario a la lista de perfiles
 				new FrmListaPerfiles();
 			} else {
 				JOptionPane.showMessageDialog(contentPane, "Correo o contraseña incorrectos");
 			}
 		}
+	}
+
+	private boolean userPreferences() {
+		boolean bExito;
+
+		if (EdicionFch.leerBin().get(0).equals("no") || EdicionFch.leerBin().get(1).equals("no")) {
+			bExito = false;
+		} else {
+			bExito = true;
+		}
+
+		return bExito;
 	}
 }

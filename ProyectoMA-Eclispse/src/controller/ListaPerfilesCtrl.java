@@ -1,9 +1,5 @@
 package controller;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -12,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import logic.ConexionPHP;
 import model.Perfil;
 import utils.Data;
+import utils.EdicionFch;
 import utils.GUI;
 import view.FrmListaPerfiles;
 
@@ -50,38 +47,15 @@ public class ListaPerfilesCtrl {
 
 	public static void textoAyuda() {
 
-		JOptionPane.showMessageDialog(FrmListaPerfiles.contentPane, leerFichero("archivos\\Ayuda.txt"));
+		JOptionPane.showMessageDialog(FrmListaPerfiles.contentPane, EdicionFch.leerFichero(Data.txtAyuda));
 	}
 
 	public static void textoAcercaDe() {
 
-		JOptionPane.showMessageDialog(FrmListaPerfiles.contentPane, leerFichero("archivos\\AcercaDe.txt"));
+		JOptionPane.showMessageDialog(FrmListaPerfiles.contentPane, EdicionFch.leerFichero(Data.txtAcercaDe));
 	}
 	
-	public static String leerFichero(String FILE_NAME) {
-
-		String contenido = "";
-		FileReader fch;
-		try {
-
-			fch = new FileReader(FILE_NAME);
-			BufferedReader lectura = new BufferedReader(fch);
-			String lineaLeida = lectura.readLine();
-
-			while (lineaLeida != null) {
-				contenido += lineaLeida + "\n";
-				lineaLeida = lectura.readLine();
-
-			}
-
-			lectura.close();
-			fch.close();
-		} catch (FileNotFoundException e) {
-			System.err.println("No se encuentra el fichero " + FILE_NAME);
-		} catch (IOException e) {
-			System.err.println("Error accediendo al fichero " + FILE_NAME);
-		}
-
-		return contenido;
+	public static void LogOut() {
+		EdicionFch.genBinario("no", "no");
 	}
 }

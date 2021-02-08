@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -12,11 +11,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
-
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.data.general.DefaultPieDataset;
 
 import controller.ListaPerfilesCtrl;
 import utils.Data;
@@ -42,7 +36,6 @@ public class FrmListaPerfiles extends JDialog {
 	private static JLabel lblInfoEleccion;
 	private static JPanel panel;
 
-	private static Color colorFondo;
 	private static JMenuBar menuBar;
 	private static JMenu mnPerfiles;
 	private static JMenuItem mntmNuevo;
@@ -52,13 +45,13 @@ public class FrmListaPerfiles extends JDialog {
 	private static JMenuItem mntmSalir;
 	private static JSeparator separator;
 	
-	private DefaultPieDataset data;
-	private JFreeChart chart;
 	private JMenu mnAyuda;
 	private JMenuItem mntmAyuda;
 	private JMenuItem mntmAcercaDe;
+	private JMenuItem mnuGestionTipos;
 	
 	public FrmListaPerfiles() {
+		
 		
 		addWindowListener(new WindowAdapter() {
 			@Override
@@ -78,10 +71,9 @@ public class FrmListaPerfiles extends JDialog {
 		setBounds(100, 100, 639, 300);
 		setTitle("Listado");
 		setResizable(false);
+		setBackground(Data.colorFondo);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Data.icono));
-		
-		colorFondo = new Color(250, 200, 107);
-		
+
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
@@ -96,13 +88,18 @@ public class FrmListaPerfiles extends JDialog {
 		});
 		mnPerfiles.add(mntmNuevo);
 		
+		mnuGestionTipos = new JMenuItem("Gestionar tipos");
+		mnPerfiles.add(mnuGestionTipos);
+		
 		separator = new JSeparator();
 		mnPerfiles.add(separator);
 		
 		mntmSalir = new JMenuItem("Cerrar sesion");
 		mntmSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ListaPerfilesCtrl.confirmExit();
+				dispose();
+				new FrmPrincipal();
+				ListaPerfilesCtrl.LogOut();
 			}
 		});
 		mnPerfiles.add(mntmSalir);
@@ -147,13 +144,13 @@ public class FrmListaPerfiles extends JDialog {
 		mnAyuda.add(mntmAcercaDe);
 		
 		contentPane = new JPanel();
-		contentPane.setBackground(colorFondo);
+		contentPane.setBackground(Data.colorFondo);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
 		panel = new JPanel();
-		panel.setBackground(colorFondo);
+		panel.setBackground(Data.colorFondo);
 		contentPane.add(panel, BorderLayout.NORTH);
 		
 		lblInfoEleccion = new JLabel("Seleccione el perfil a editar");
@@ -161,10 +158,10 @@ public class FrmListaPerfiles extends JDialog {
 		panel.add(lblInfoEleccion);
 				
 		JScrollPane panelDat = new JScrollPane();
-		panelDat.setBackground(colorFondo);
+		panelDat.setBackground(Data.colorFondo);
 		contentPane.add(panelDat, BorderLayout.CENTER);
 
-		tblResult.setBackground(colorFondo);
+		tblResult.setBackground(Data.colorFondo);
 		tblResult.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tblResult.addMouseListener(new MouseAdapter() {
 			@Override

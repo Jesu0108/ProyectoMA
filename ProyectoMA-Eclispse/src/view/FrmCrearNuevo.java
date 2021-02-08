@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -32,6 +31,7 @@ public class FrmCrearNuevo extends JDialog {
 	public static JTextField txtNewPais;
 	public static JTextField txtNewTelefono;
 	public static JTextField txtNewPlato;
+	@SuppressWarnings("rawtypes")
 	public static JComboBox spTipo;
 
 	private static JLabel lblNewCorreo;
@@ -43,11 +43,7 @@ public class FrmCrearNuevo extends JDialog {
 	private static JLabel lblNewLocalidad;
 	private static JLabel lblNewPais;
 
-	private Font lblFont;
 	private Font txtFont;
-	private Font btnFont;
-
-	private Color colorFondo = new Color(250, 200, 107);;
 
 	public static final JPanel contentPane = new JPanel();
 	private JPanel crearPanel;
@@ -59,6 +55,7 @@ public class FrmCrearNuevo extends JDialog {
 		CrearNuevoCtrl.borrarCampos();
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void createForm() {
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setVisible(true);
@@ -68,19 +65,14 @@ public class FrmCrearNuevo extends JDialog {
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Data.icono));
 
-		contentPane.setBackground(colorFondo);
+		contentPane.setBackground(Data.colorFondo);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPane, BorderLayout.CENTER);
 		contentPane.setLayout(new GridLayout(8, 2, 0, 0));
 
-		// Definimos las fuentes
-		lblFont = new Font("Script MT Bold", Font.PLAIN, 16);
-		txtFont = new Font("Times New Roman", Font.PLAIN, 14);
-		btnFont = new Font("Times New Roman", Font.PLAIN, 13);
-		
 		// Correo
 		lblNewCorreo = new JLabel("Correo:");
-		lblNewCorreo.setFont(lblFont);
+		lblNewCorreo.setFont(Data.lblFont);
 		contentPane.add(lblNewCorreo);
 
 		txtNewCorreo = new JTextField();
@@ -89,7 +81,7 @@ public class FrmCrearNuevo extends JDialog {
 
 		// Usuario
 		lblNewUsuario = new JLabel("Usuario:");
-		lblNewUsuario.setFont(lblFont);
+		lblNewUsuario.setFont(Data.lblFont);
 		contentPane.add(lblNewUsuario);
 
 		txtNewUsuario = new JTextField();
@@ -98,7 +90,7 @@ public class FrmCrearNuevo extends JDialog {
 
 		// Contraseña
 		lblNewContra = new JLabel("Contraseña:");
-		lblNewContra.setFont(lblFont);
+		lblNewContra.setFont(Data.lblFont);
 		contentPane.add(lblNewContra);
 
 		txtNewContra = new JTextField();
@@ -107,7 +99,7 @@ public class FrmCrearNuevo extends JDialog {
 
 		// Tipo
 		lblNewTipo = new JLabel("Tipo:");
-		lblNewTipo.setFont(lblFont);
+		lblNewTipo.setFont(Data.lblFont);
 		contentPane.add(lblNewTipo);
 
 		spTipo = new JComboBox();
@@ -115,7 +107,7 @@ public class FrmCrearNuevo extends JDialog {
 
 		// Telefono
 		lblNewTelefono = new JLabel("Telefono:");
-		lblNewTelefono.setFont(lblFont);
+		lblNewTelefono.setFont(Data.lblFont);
 		contentPane.add(lblNewTelefono);
 
 		txtNewTelefono = new JTextField();
@@ -124,7 +116,7 @@ public class FrmCrearNuevo extends JDialog {
 
 		// Plato
 		lblNewPlato = new JLabel("Plato:");
-		lblNewPlato.setFont(lblFont);
+		lblNewPlato.setFont(Data.lblFont);
 		contentPane.add(lblNewPlato);
 
 		txtNewPlato = new JTextField();
@@ -133,7 +125,7 @@ public class FrmCrearNuevo extends JDialog {
 
 		// Localidad
 		lblNewLocalidad = new JLabel("Localidad:");
-		lblNewLocalidad.setFont(lblFont);
+		lblNewLocalidad.setFont(Data.lblFont);
 		contentPane.add(lblNewLocalidad);
 
 		txtNewLocalidad = new JTextField();
@@ -142,7 +134,7 @@ public class FrmCrearNuevo extends JDialog {
 
 		// Pais
 		lblNewPais = new JLabel("Pais:");
-		lblNewPais.setFont(lblFont);
+		lblNewPais.setFont(Data.lblFont);
 		contentPane.add(lblNewPais);
 
 		txtNewPais = new JTextField();
@@ -154,12 +146,12 @@ public class FrmCrearNuevo extends JDialog {
 		buttonPane.setLayout(new GridLayout(1, 2, 0, 0));
 
 		delCanPanel = new JPanel();
-		delCanPanel.setBackground(colorFondo);
+		delCanPanel.setBackground(Data.colorFondo);
 		buttonPane.add(delCanPanel);
 
 		JButton btnCancelar = new JButton("Cancelar");
 		delCanPanel.add(btnCancelar);
-		btnCancelar.setFont(btnFont);
+		btnCancelar.setFont(Data.btnFont);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -168,7 +160,7 @@ public class FrmCrearNuevo extends JDialog {
 		});
 
 		JButton borrarBtn = new JButton("Borrar campos");
-		borrarBtn.setFont(btnFont);
+		borrarBtn.setFont(Data.btnFont);
 		delCanPanel.add(borrarBtn);
 		borrarBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -177,12 +169,12 @@ public class FrmCrearNuevo extends JDialog {
 		});
 
 		crearPanel = new JPanel();
-		crearPanel.setBackground(colorFondo);
+		crearPanel.setBackground(Data.colorFondo);
 		buttonPane.add(crearPanel);
 
 		JButton btnCrear = new JButton("Crear");
 		crearPanel.add(btnCrear);
-		btnCrear.setFont(btnFont);
+		btnCrear.setFont(Data.btnFont);
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CrearNuevoCtrl.addPerfil();

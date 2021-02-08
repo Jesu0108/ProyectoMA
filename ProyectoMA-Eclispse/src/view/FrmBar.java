@@ -23,8 +23,6 @@ public class FrmBar extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 
-	private static Color colorFondo = new Color(250, 200, 107);
-
 	private final JPanel contentPanel = new JPanel();
 
 	public FrmBar() {
@@ -68,7 +66,7 @@ public class FrmBar extends JDialog {
 				PlotOrientation.VERTICAL, true, true, false);
 
 		// Personalizar el grafico
-		gra.setBackgroundPaint(colorFondo);
+		gra.setBackgroundPaint(Data.colorFondo);
 		gra.getTitle().setPaint(Color.BLACK);
 
 		// Mostrar Grafico

@@ -7,7 +7,6 @@ import javax.swing.JOptionPane;
 
 import logic.ConexionPHP;
 import model.Perfil;
-import view.FrmListaPerfiles;
 import view.FrmPrincipal;
 
 public class PrincipalCtrl {
@@ -17,8 +16,9 @@ public class PrincipalCtrl {
 		List<Perfil> lstPerfiles = new ArrayList<Perfil>();
 		String sCorreo, sContra;
 
-		sCorreo = FrmPrincipal.txtUsuario.getText();
-		sContra = FrmPrincipal.txtContra.getText();
+		sCorreo = FrmPrincipal.user;
+		sContra = FrmPrincipal.pass;
+		
 		try {
 			String url = "https://preyectoma.000webhostapp.com/getUserCorreo.php?correo="+sCorreo+"&contrasenia="+sContra;
 			String respuesta = ConexionPHP.peticionHttp(url);

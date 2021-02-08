@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Toolkit;
 
@@ -22,12 +21,10 @@ public class FrmPie extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	
-	private static Color colorFondo = new Color(250, 200, 107);
-	
 	private final JPanel contentPanel = new JPanel();
 
 	public FrmPie() {
-		getContentPane().setBackground(colorFondo);
+		getContentPane().setBackground(Data.colorFondo);
 		setResizable(false);
 		createForm();
 	}
@@ -36,7 +33,7 @@ public class FrmPie extends JDialog {
 		setBounds(100, 100, 320, 270);
 		setTitle("Grafica por tipos");
 		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setBackground(colorFondo);
+		contentPanel.setBackground(Data.colorFondo);
 		contentPanel.setLayout(new FlowLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -69,7 +66,7 @@ public class FrmPie extends JDialog {
 
 		// Creamos grafico - Pie
 		JFreeChart chart = ChartFactory.createPieChart("Tipos mas usados por los usuarios", data, true, true, false);
-		chart.setBackgroundPaint(colorFondo);
+		chart.setBackgroundPaint(Data.colorFondo);
 		
 		// Mostramos Grafico
 		ChartPanel frameG = new ChartPanel(chart);
