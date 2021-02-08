@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import controller.CrearNuevoCtrl;
+import controller.ListaPerfilesCtrl;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
@@ -182,7 +183,7 @@ public class FrmCrearNuevo extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				CrearNuevoCtrl.addPerfil();
 				dispose();
-				new FrmListaPerfiles();
+				ListaPerfilesCtrl.loadData();
 			}
 		});
 	}

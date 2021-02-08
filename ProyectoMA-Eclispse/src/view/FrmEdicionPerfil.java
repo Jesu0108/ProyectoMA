@@ -14,6 +14,7 @@ import javax.swing.border.EmptyBorder;
 
 import controller.EdicionPerfilCtrl;
 import controller.ImagenesCtrl;
+import controller.ListaPerfilesCtrl;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
@@ -181,6 +182,13 @@ public class FrmEdicionPerfil extends JDialog {
 		btnCancelar.setActionCommand("Cancel");
 
 		btnBorrarUser = new JButton("Borrar usuario");
+		btnBorrarUser.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				EdicionPerfilCtrl.deleteUSer();
+				ListaPerfilesCtrl.loadData();
+			}
+		});
 		btnBorrarUser.setFont(btnFont);
 		CancelBorrPanel.add(btnBorrarUser);
 

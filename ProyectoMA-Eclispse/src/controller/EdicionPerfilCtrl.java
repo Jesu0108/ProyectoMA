@@ -94,4 +94,15 @@ public class EdicionPerfilCtrl {
 		}
 
 	}
+	
+	public static void deleteUSer() {
+		try {
+			String url = Data.URL + "/deleteUser.php?id_Usuario="+ id;
+			ConexionPHP.peticionHttp(url);
+
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + e.getMessage(), "Error eliminando el usuario",
+					JOptionPane.ERROR_MESSAGE);
+		}
+	}
 }

@@ -85,7 +85,6 @@ public class FrmListaPerfiles extends JDialog {
 		mntmNuevo = new JMenuItem("Nuevo perfil");
 		mntmNuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
 				new FrmCrearNuevo();
 			}
 		});
