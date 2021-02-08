@@ -5,6 +5,11 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
+
 import logic.ConexionPHP;
 import model.Perfil;
 import utils.Data;
@@ -13,12 +18,14 @@ import view.FrmListaPerfiles;
 
 public class ListaPerfilesCtrl {
 
+	public static List<Perfil> resultado;
+	
 	public static void loadData() {
 		try {
 			String url = Data.URL + "/getUsers.php";
 			String respuesta = ConexionPHP.peticionHttp(url);
 
-			List<Perfil> resultado = ConexionPHP.JsonToPerfiles(respuesta);
+			resultado = ConexionPHP.JsonToPerfiles(respuesta);
 
 			DefaultTableModel modelo = GUI.generarTablaPerfiles(resultado);
 
@@ -41,5 +48,4 @@ public class ListaPerfilesCtrl {
 			System.exit(0);
 		}
 	}
-
 }

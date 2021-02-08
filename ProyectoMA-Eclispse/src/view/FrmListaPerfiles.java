@@ -93,7 +93,7 @@ public class FrmListaPerfiles extends JDialog {
 		separator = new JSeparator();
 		mnPerfiles.add(separator);
 		
-		mntmSalir = new JMenuItem("Salir");
+		mntmSalir = new JMenuItem("Cerrar sesion");
 		mntmSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ListaPerfilesCtrl.confirmExit();
@@ -108,17 +108,17 @@ public class FrmListaPerfiles extends JDialog {
 		mntmPorLocalidad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				data = new DefaultPieDataset();
-				chart = ChartFactory.createPieChart("Localidades mas usadas", data, true, false, false);
-				
-				ChartPanel frameG = new ChartPanel(chart);
-				frameG.setBounds(0, 0, 300, 250);
-				contentPane.add(frameG);
+				new FrmBar();
 			}
 		});
 		mnGraficas.add(mntmPorLocalidad);
 		
 		mntmPorTipo = new JMenuItem("Por tipo");
+		mntmPorTipo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new FrmPie();
+			}
+		});
 		mnGraficas.add(mntmPorTipo);
 		
 		contentPane = new JPanel();
