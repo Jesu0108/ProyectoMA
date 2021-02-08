@@ -7,6 +7,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controller.CrearTipoCtrl;
 import utils.Data;
 
 import java.awt.GridLayout;
@@ -79,7 +80,7 @@ public class FrmCrearTipo extends JDialog {
 		btnCrear = new JButton("Crear");
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				CrearTipoCtrl.addTipo();
 			}
 		});
 		btnCrear.setFont(Data.btnFont);
