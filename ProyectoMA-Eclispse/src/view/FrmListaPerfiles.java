@@ -54,6 +54,9 @@ public class FrmListaPerfiles extends JDialog {
 	
 	private DefaultPieDataset data;
 	private JFreeChart chart;
+	private JMenu mnAyuda;
+	private JMenuItem mntmAyuda;
+	private JMenuItem mntmAcercaDe;
 	
 	public FrmListaPerfiles() {
 		
@@ -123,6 +126,25 @@ public class FrmListaPerfiles extends JDialog {
 			}
 		});
 		mnGraficas.add(mntmPorTipo);
+		
+		mnAyuda = new JMenu("Ayuda");
+		menuBar.add(mnAyuda);
+		
+		mntmAyuda = new JMenuItem("Ayuda");
+		mntmAyuda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ListaPerfilesCtrl.textoAyuda();
+			}
+		});
+		mnAyuda.add(mntmAyuda);
+		
+		mntmAcercaDe = new JMenuItem("Acerca de");
+		mntmAcercaDe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ListaPerfilesCtrl.textoAcercaDe();
+			}
+		});
+		mnAyuda.add(mntmAcercaDe);
 		
 		contentPane = new JPanel();
 		contentPane.setBackground(colorFondo);

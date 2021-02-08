@@ -1,0 +1,14 @@
+--Menú Archivo:
+
+	·Nuevo perfil: Se mostrará una ventana para la creacion de un nuevo usuario en la aplicación.
+	·Cerrar sesión: Saldrá de la aplicación y de la sesión iniciada, al volver a abrir la app le pedirá de nuevo los datos de usuario.
+	
+--Menú Graficas:
+
+	·Por localidad: Se mostrará una grafica con las localidades más usadas por los usuarios.
+	·Por tipo: Se mostrará una grafica con los tipos de usuario más utilizados.
+	
+--Menú Ayuda:
+
+	·Ayuda: Esta ventana.
+	·Acerca de: Muestra una ventana indicando datos basicos del programa y del autor del mismo.

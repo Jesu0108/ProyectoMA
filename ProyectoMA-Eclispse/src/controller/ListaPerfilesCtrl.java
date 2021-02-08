@@ -1,14 +1,13 @@
 package controller;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.data.general.DefaultPieDataset;
 
 import logic.ConexionPHP;
 import model.Perfil;
@@ -19,7 +18,7 @@ import view.FrmListaPerfiles;
 public class ListaPerfilesCtrl {
 
 	public static List<Perfil> resultado;
-	
+
 	public static void loadData() {
 		try {
 			String url = Data.URL + "/getUsers.php";
@@ -47,5 +46,42 @@ public class ListaPerfilesCtrl {
 				JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
 			System.exit(0);
 		}
+	}
+
+	public static void textoAyuda() {
+
+		JOptionPane.showMessageDialog(FrmListaPerfiles.contentPane, leerFichero("archivos\\Ayuda.txt"));
+	}
+
+	public static void textoAcercaDe() {
+
+		JOptionPane.showMessageDialog(FrmListaPerfiles.contentPane, leerFichero("archivos\\AcercaDe.txt"));
+	}
+	
+	public static String leerFichero(String FILE_NAME) {
+
+		String contenido = "";
+		FileReader fch;
+		try {
+
+			fch = new FileReader(FILE_NAME);
+			BufferedReader lectura = new BufferedReader(fch);
+			String lineaLeida = lectura.readLine();
+
+			while (lineaLeida != null) {
+				contenido += lineaLeida + "\n";
+				lineaLeida = lectura.readLine();
+
+			}
+
+			lectura.close();
+			fch.close();
+		} catch (FileNotFoundException e) {
+			System.err.println("No se encuentra el fichero " + FILE_NAME);
+		} catch (IOException e) {
+			System.err.println("Error accediendo al fichero " + FILE_NAME);
+		}
+
+		return contenido;
 	}
 }

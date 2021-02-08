@@ -1,0 +1,10 @@
+--Sobre el programa
+
+·Nombre: CookToMe_Manager.
+·Versión: 1.0.
+·Fecha de ultima actualizacion: 8/2/2021.
+
+--Sobre el autor
+
+·Nombre: Jesús.
+·Apellidos: Artíguez Rodríguez.
