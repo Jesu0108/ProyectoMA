@@ -1,13 +1,23 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
@@ -15,24 +25,12 @@ import javax.swing.border.EmptyBorder;
 import controller.ListaPerfilesCtrl;
 import utils.Data;
 
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Toolkit;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JSeparator;
-
-public class FrmListaPerfiles extends JDialog {
+public class FrmListaPerfiles extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	public static JTable tblResult = new JTable();
 	public static JPanel contentPane;
-	
+
 	private static JLabel lblInfoEleccion;
 	private static JPanel panel;
 
@@ -44,13 +42,14 @@ public class FrmListaPerfiles extends JDialog {
 	private static JMenuItem mntmPorTipo;
 	private static JMenuItem mntmSalir;
 	private static JSeparator separator;
-	
+
 	private JMenu mnAyuda;
 	private JMenuItem mntmAyuda;
 	private JMenuItem mntmAcercaDe;
 	private JMenuItem mnuGestionTipos;
-	
+
 	public FrmListaPerfiles() {
+		setResizable(false);
 		
 		
 		addWindowListener(new WindowAdapter() {
@@ -66,11 +65,10 @@ public class FrmListaPerfiles extends JDialog {
 	
 	private void createForm() {
 		setVisible(true);
-		setModal(true);
+		
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 639, 300);
 		setTitle("Listado");
-		setResizable(false);
 		setBackground(Data.colorFondo);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Data.icono));
 
@@ -103,8 +101,8 @@ public class FrmListaPerfiles extends JDialog {
 		mntmSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new FrmPrincipal();
 				ListaPerfilesCtrl.LogOut();
+				new FrmPrincipal();
 			}
 		});
 		mnPerfiles.add(mntmSalir);

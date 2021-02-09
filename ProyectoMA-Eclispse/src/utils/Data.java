@@ -8,7 +8,7 @@ public class Data {
 	public static String icono = "img\\chef_color_fondo.png";
 	public static String txtAyuda = "archivos\\Ayuda.txt";
 	public static String txtAcercaDe = "archivos\\AcercaDe.txt";
-	public static String fchBin = "archivos\\Preferencias.dat";
+	public static String fchBin = "archivos/Preferencias.dat";
 	
 	public static Color colorFondo = new Color(250, 200, 107);
 	public static Font btnFont = new Font("Times New Roman", Font.PLAIN, 13);

@@ -16,15 +16,14 @@ import javax.swing.JTextArea;
 
 import model.Perfil;
 
-
 public class EdicionFch {
 
 	public static void genBinario(String correo, String pass) {
 
 		try {
 			ObjectOutputStream oStream = new ObjectOutputStream(new FileOutputStream(Data.fchBin));
-			
-			oStream.writeObject(new Perfil(correo,pass));
+
+			oStream.writeObject(new Perfil(correo, pass));
 
 			oStream.close();
 
@@ -41,24 +40,21 @@ public class EdicionFch {
 		try {
 			ObjectInputStream oStream = new ObjectInputStream(new FileInputStream(Data.fchBin));
 
-			Object obj = oStream.readObject();
-			
-			while(obj!=null) {
-				if(obj instanceof String) {
-					lst.add((Perfil) obj);
-				}
-				obj = oStream.readUTF();
-			}
+			Perfil obj = (Perfil) oStream.readObject();
+
+			lst.add((Perfil) obj);
+
 			oStream.close();
 
 		} catch (IOException | ClassNotFoundException e) {
+
 			JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + e.getMessage(), "Leyendo bin",
 					JOptionPane.ERROR_MESSAGE);
 		}
 
 		return lst;
 	}
-	
+
 	public static String leerFichero(String FILE_NAME) {
 
 		String contenido = "";

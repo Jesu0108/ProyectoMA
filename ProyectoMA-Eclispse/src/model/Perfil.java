@@ -1,7 +1,11 @@
 package model;
 
-public class Perfil {
+import java.io.Serializable;
 
+public class Perfil implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
 	private String sCorreo, sUsuario, sContra, sTipo, sPlato, sLocalidad, sPais, sTelefono;
 	private int id_Usuario; //PK
 

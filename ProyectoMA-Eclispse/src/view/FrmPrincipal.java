@@ -8,6 +8,7 @@ import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
 import controller.PrincipalCtrl;
+import model.Perfil;
 import utils.Data;
 import utils.EdicionFch;
 
@@ -54,6 +55,7 @@ public class FrmPrincipal extends JFrame {
 			createForm();
 		}
 	}
+	
 
 	public void createForm() {
 		setVisible(true);
@@ -158,7 +160,9 @@ public class FrmPrincipal extends JFrame {
 	private boolean userPreferences() {
 		boolean bExito;
 
-		if (EdicionFch.leerBin().get(0).getsCorreo().equals("no") || EdicionFch.leerBin().get(0).getsContra().equals("no")) {
+		Perfil u = EdicionFch.leerBin().get(0);
+		
+		if (u.getsCorreo().equals("no") || u.getsContra().equals("no")) {
 			bExito = false;
 		} else {
 			bExito = true;
