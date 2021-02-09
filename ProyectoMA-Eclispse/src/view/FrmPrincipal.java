@@ -8,7 +8,6 @@ import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
 import controller.PrincipalCtrl;
-import model.Perfil;
 import utils.Data;
 import utils.EdicionFch;
 
@@ -41,21 +40,16 @@ public class FrmPrincipal extends JFrame {
 	public static JPanel contentPane;
 
 	public FrmPrincipal() {
-		
-		if (userPreferences()) {
-			dispose();
-			new FrmListaPerfiles();
-		} else {
-			addWindowListener(new WindowAdapter() {
-				@Override
-				public void windowClosing(WindowEvent e) {
-					PrincipalCtrl.confirmExit();
-				}
-			});
-			createForm();
-		}
+
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				PrincipalCtrl.confirmExit();
+			}
+		});
+		createForm();
+
 	}
-	
 
 	public void createForm() {
 		setVisible(true);
@@ -155,19 +149,5 @@ public class FrmPrincipal extends JFrame {
 				JOptionPane.showMessageDialog(contentPane, "Correo o contraseña incorrectos");
 			}
 		}
-	}
-
-	private boolean userPreferences() {
-		boolean bExito;
-
-		Perfil u = EdicionFch.leerBin().get(0);
-		
-		if (u.getsCorreo().equals("no") || u.getsContra().equals("no")) {
-			bExito = false;
-		} else {
-			bExito = true;
-		}
-
-		return bExito;
 	}
 }
