@@ -89,13 +89,11 @@ public class FrmPrincipal extends JFrame {
 		panelCentral.add(lblContrasenia);
 
 		txtUsuario = new JTextField();
-		txtUsuario.setText("prueba@gmail.com");
 		txtUsuario.setBounds(221, 67, 148, 20);
 		panelCentral.add(txtUsuario);
 		txtUsuario.setColumns(10);
 
 		txtContra = new JPasswordField();
-		txtContra.setText("pass");
 		txtContra.setBounds(221, 92, 148, 20);
 		panelCentral.add(txtContra);
 		txtContra.setColumns(10);
