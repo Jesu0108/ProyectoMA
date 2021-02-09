@@ -2,31 +2,30 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/mnuFiltro"
-        android:title="Filtrar por">
-        <menu >
+        android:title="@string/mnuFiltrarPor">
+        <menu>
             <item
                 android:id="@+id/mnuFiltroNinguno"
-                android:title="Ninguno" />
+                android:title="@string/mnuFiltroNinguno" />
             <item
                 android:id="@+id/mnuFiltroCocinero"
-                android:title="Cocineros" />
+                android:title="@string/mnuFiltroCocineros" />
             <item
                 android:id="@+id/mnuFiltroCatadores"
-                android:title="Catadores" />
+                android:title="@string/mnuFiltroCatadores" />
             <item
                 android:id="@+id/mnuFiltroEmpresa"
-                android:title="Empresas" />
+                android:title="@string/mnuFiltroEmpresas" />
         </menu>
     </item>
 
     <item
         android:id="@+id/mnuPerfil"
-        android:title="Perfil">
-    </item>
+        android:title="@string/mnuPerfil"></item>
 
     <item
         android:id="@+id/mnuMusica"
-        android:title="Musica">
+        android:title="@string/mnuMusica">
         <menu>
             <item
                 android:id="@+id/mnuOn"
@@ -39,5 +38,5 @@
 
     <item
         android:id="@+id/mnuSalir"
-        android:title="Salir"></item>
+        android:title="@string/mnuSalir"></item>
 </menu>

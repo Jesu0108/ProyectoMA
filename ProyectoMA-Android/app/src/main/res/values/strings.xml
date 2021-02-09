@@ -22,4 +22,14 @@
     <string name="infoLocalidad">Locality:</string>
     <string name="infoTelefono">Phone:</string>
     <string name="txtPais">Country</string>
+
+    <string name="mnuFiltroNinguno">None</string>
+    <string name="mnuFiltroCocineros">Chefs</string>
+    <string name="mnuFiltroCatadores">Taster</string>
+    <string name="mnuFiltroEmpresas">Business</string>
+
+    <string name="mnuFiltrarPor">Filter by</string>
+    <string name="mnuPerfil">Profile</string>
+    <string name="mnuMusica">Music</string>
+    <string name="mnuSalir">Exit</string>
 </resources>

@@ -22,4 +22,13 @@
     <string name="infoPais">Pais:</string>
     <string name="infoLocalidad">Localidad:</string>
     <string name="infoTelefono">Telefono:</string>
+
+    <string name="mnuFiltroNinguno">Ninguno</string>
+    <string name="mnuFiltroCocineros">Cocineros</string>
+    <string name="mnuFiltroCatadores">Catadores</string>
+    <string name="mnuFiltroEmpresas">Empresas</string>
+    <string name="mnuFiltrarPor">Filtrar por</string>
+    <string name="mnuPerfil">Perfil</string>
+    <string name="mnuMusica">Musica</string>
+    <string name="mnuSalir">Salir</string>
 </resources>

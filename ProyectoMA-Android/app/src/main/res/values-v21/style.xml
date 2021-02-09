@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="btnPerfil">
+        <item name="android:layout_width">@dimen/btnPerfilAncho</item>
+        <item name="android:layout_height">@dimen/btnPerfilLargo</item>
+        <item name="android:text">@string/btnPerfil</item>
+        <item name="android:backgroundTint">@color/colorBotones</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+</resources>

@@ -252,6 +252,7 @@
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
         <item name="android:layout_marginEnd">@dimen/disDerechGenPers</item>
         <item name="android:background">@color/white</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 
     <style name="generalUserPersona">
@@ -262,6 +263,7 @@
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
         <item name="android:layout_marginEnd">@dimen/disDerechGenPers</item>
         <item name="android:background">@color/white</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 
     <style name="generalPassPersona">
@@ -272,6 +274,7 @@
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
         <item name="android:layout_marginEnd">@dimen/disDerechGenPers</item>
         <item name="android:background">@color/white</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 
     <style name="generalTelefonoPersona">
@@ -282,6 +285,7 @@
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
         <item name="android:layout_marginEnd">@dimen/disDerechGenPers</item>
         <item name="android:background">@color/white</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 
     <style name="generalPaisPersona">
@@ -292,6 +296,7 @@
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
         <item name="android:layout_marginEnd">@dimen/disDerechGenPers</item>
         <item name="android:background">@color/white</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 
     <style name="generalLocPersona">
@@ -302,6 +307,7 @@
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
         <item name="android:layout_marginEnd">@dimen/disDerechGenPers</item>
         <item name="android:background">@color/white</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 
     <style name="generalTipoPersona">
@@ -312,6 +318,7 @@
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
         <item name="android:layout_marginEnd">@dimen/disDerechGenPers</item>
         <item name="android:background">@color/white</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 
     <style name="generalPlatoPersona">
@@ -322,6 +329,7 @@
         <item name="android:layout_marginTop">@dimen/disFrmPersona</item>
         <item name="android:layout_marginEnd">@dimen/disDerechGenPers</item>
         <item name="android:background">@color/white</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 
     <style name="btnPerfil">
@@ -330,6 +338,7 @@
         <item name="android:text">@string/btnPerfil</item>
         <item name="android:backgroundTint">@color/colorBotones</item>
         <item name="android:background">@color/white</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 
     <style name="perfilCorreoPersonaLand">

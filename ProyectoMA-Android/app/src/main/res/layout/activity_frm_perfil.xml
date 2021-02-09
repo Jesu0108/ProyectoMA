@@ -8,81 +8,67 @@
     android:orientation="vertical"
     tools:context="view.FrmPersona">
 
-    <ImageButton
-        android:id="@+id/imgPerfilUser"
-        android:layout_width="105dp"
-        android:layout_height="102dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/perropan_peque" />
-
-    <EditText
-        android:id="@+id/txtCorreoUser"
-        style="@style/generalCorreoPersona"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgPerfilUser" />
-
-    <EditText
-        android:id="@+id/txtUserUser"
-        style="@style/generalUserPersona"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCorreoUser" />
-
-    <EditText
-        android:id="@+id/txtTelefonoUser"
-        style="@style/generalTelefonoPersona"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPlatoUser" />
-
-    <Spinner
-        android:id="@+id/spTipoUser"
-        style="@style/generalTipoPersona"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassUser" />
-
-    <EditText
-        android:id="@+id/txtPaisUser"
-        style="@style/generalPaisPersona"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTelefonoUser" />
-
-    <EditText
-        android:id="@+id/txtLocalidadUser"
-        style="@style/generalLocPersona"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPaisUser" />
-
-    <EditText
-        android:id="@+id/txtPlatoUser"
-        style="@style/generalPlatoPersona"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spTipoUser" />
-
-    <EditText
-        android:id="@+id/txtPassUser"
-        style="@style/generalPassPersona"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUserUser" />
-
-    <Button
-        android:id="@+id/btnPerfil"
-        style="@style/btnPerfil"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLocalidadUser" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imgPerfilUser"
+                android:layout_width="105dp"
+                android:layout_height="102dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/perropan_peque" />
+
+            <EditText
+                android:id="@+id/txtCorreoUser"
+                style="@style/generalCorreoPersona" />
+
+            <EditText
+                android:id="@+id/txtUserUser"
+                style="@style/generalUserPersona" />
+
+            <EditText
+                android:id="@+id/txtPassUser"
+                style="@style/generalPassPersona"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/txtTelefonoUser"
+                style="@style/generalTelefonoPersona" />
+
+            <Spinner
+                android:id="@+id/spTipoUser"
+                style="@style/generalTipoPersona" />
+
+            <EditText
+                android:id="@+id/txtPlatoUser"
+                style="@style/generalPlatoPersona" />
+
+            <EditText
+                android:id="@+id/txtPaisUser"
+                style="@style/generalPaisPersona" />
+
+            <EditText
+                android:id="@+id/txtLocalidadUser"
+                style="@style/generalLocPersona" />
+
+            <Button
+                android:id="@+id/btnPerfil"
+                style="@style/btnPerfil"
+                android:layout_marginTop="64dp" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
