@@ -17,6 +17,7 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 
+import controller.ListaTiposCtrl;
 import utils.Data;
 
 
@@ -32,16 +33,17 @@ public class FrmListaTipos extends JDialog {
 	private JButton btNuevo;
 
 	public FrmListaTipos() {
-		setResizable(false);
+		ListaTiposCtrl.loadData();
 		createForm();
 	}
 
 	public void createForm() {
 		setVisible(true);
 		setModal(true);
-		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 639, 300);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 342, 300);
 		setTitle("Listado");
+		setResizable(false);
 		setBackground(Data.colorFondo);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Data.icono));
 
@@ -76,7 +78,7 @@ public class FrmListaTipos extends JDialog {
 		btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new FrmListaPerfiles();
+				dispose();
 			}
 		});
 		buttonPane.add(btnVolver);

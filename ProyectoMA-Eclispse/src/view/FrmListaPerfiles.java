@@ -89,6 +89,11 @@ public class FrmListaPerfiles extends JDialog {
 		mnPerfiles.add(mntmNuevo);
 		
 		mnuGestionTipos = new JMenuItem("Gestionar tipos");
+		mnuGestionTipos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new FrmListaTipos();
+			}
+		});
 		mnPerfiles.add(mnuGestionTipos);
 		
 		separator = new JSeparator();

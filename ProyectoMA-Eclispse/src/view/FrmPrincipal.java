@@ -34,13 +34,13 @@ public class FrmPrincipal extends JFrame {
 	public static JTextField txtUsuario;
 	public static JPasswordField txtContra;
 
-	public static String user;
+	public static String correo;
 	public static String pass;
 
 	public static JPanel contentPane;
 
 	public FrmPrincipal() {
-
+		
 		if (userPreferences()) {
 			dispose();
 			new FrmListaPerfiles();
@@ -136,17 +136,17 @@ public class FrmPrincipal extends JFrame {
 	@SuppressWarnings("deprecation")
 	public void logueo() {
 
-		user = txtUsuario.getText().toString();
+		correo = txtUsuario.getText().toString();
 		pass = txtContra.getText().toString();
 
-		if (user.equals("") || pass.equals("")) {
+		if (correo.equals("") || pass.equals("")) {
 			JOptionPane.showMessageDialog(contentPane, "Por favor, rellene todos los campos para continuar");
 		} else {
 			// Comprobamos si los datos existen en la DB
 			if (PrincipalCtrl.checkLogin()) {
 				dispose();
 				// Generamos las preferencias
-				EdicionFch.genBinario(user, pass);
+				EdicionFch.genBinario(correo, pass);
 				// Mandamos al usuario a la lista de perfiles
 				new FrmListaPerfiles();
 			} else {
@@ -158,7 +158,7 @@ public class FrmPrincipal extends JFrame {
 	private boolean userPreferences() {
 		boolean bExito;
 
-		if (EdicionFch.leerBin().get(0).equals("no") || EdicionFch.leerBin().get(1).equals("no")) {
+		if (EdicionFch.leerBin().get(0).getsCorreo().equals("no") || EdicionFch.leerBin().get(0).getsContra().equals("no")) {
 			bExito = false;
 		} else {
 			bExito = true;

@@ -2,7 +2,6 @@ package utils;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -15,16 +14,17 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
+import model.Perfil;
+
 
 public class EdicionFch {
 
-	public static void genBinario(String user, String pass) {
+	public static void genBinario(String correo, String pass) {
 
 		try {
 			ObjectOutputStream oStream = new ObjectOutputStream(new FileOutputStream(Data.fchBin));
-
-			oStream.writeUTF(user);
-			oStream.writeUTF(pass);
+			
+			oStream.writeObject(new Perfil(correo,pass));
 
 			oStream.close();
 
@@ -34,30 +34,29 @@ public class EdicionFch {
 		}
 	}
 
-	public static List<String> leerBin() {
+	public static List<Perfil> leerBin() {
 
-		List<String> lProd = new ArrayList<String>();
+		List<Perfil> lst = new ArrayList<Perfil>();
 
 		try {
 			ObjectInputStream oStream = new ObjectInputStream(new FileInputStream(Data.fchBin));
 
-			String str = oStream.readUTF();
+			Object obj = oStream.readObject();
 			
-			while(str!=null) {
-				if(str instanceof String) {
-					lProd.add(str);
+			while(obj!=null) {
+				if(obj instanceof String) {
+					lst.add((Perfil) obj);
 				}
-				str = oStream.readUTF();
+				obj = oStream.readUTF();
 			}
-			
 			oStream.close();
 
-		} catch (IOException e) {
+		} catch (IOException | ClassNotFoundException e) {
 			JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + e.getMessage(), "Leyendo bin",
 					JOptionPane.ERROR_MESSAGE);
 		}
 
-		return lProd;
+		return lst;
 	}
 	
 	public static String leerFichero(String FILE_NAME) {

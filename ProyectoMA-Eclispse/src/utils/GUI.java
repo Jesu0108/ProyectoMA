@@ -58,4 +58,19 @@ public class GUI {
 		
 		return modelo;
 	}
+	
+	public static DefaultTableModel generarTablaTipos(List<String> resultado) {
+		DefaultTableModel modelo = new DefaultTableModel();
+
+		// Añadir la cabecera de las columnas
+		modelo.addColumn("tipo");
+
+
+		// Añadir cada fila de valores
+		for (String p : resultado) {
+			modelo.addRow(new Object[] {p});
+		}
+		
+		return modelo;
+	}
 }
