@@ -114,7 +114,7 @@ public class FrmPerfil extends AppCompatActivity {
 
         String strURL = Data.HOSTING +"/imagen.php";
 
-        final ProgressDialog loading = ProgressDialog.show(context, "Subiendo...", "Espere por favor", false, false);
+        final ProgressDialog loading = ProgressDialog.show(context.getApplicationContext(), "Subiendo...", "Espere por favor", false, false);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, strURL,
                 s -> {

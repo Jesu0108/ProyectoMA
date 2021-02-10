@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 
 public class Data {
-	public static String URL ="https://preyectoma.000webhostapp.com";
+	public static String URL ="https://preyectoma.000webhostapp.com/php";
 	public static String icono = "img\\chef_color_fondo.png";
 	public static String txtAyuda = "archivos\\Ayuda.txt";
 	public static String txtAcercaDe = "archivos\\AcercaDe.txt";
