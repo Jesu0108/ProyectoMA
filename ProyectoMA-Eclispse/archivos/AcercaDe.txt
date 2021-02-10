@@ -2,7 +2,7 @@
 
 ·Nombre: CookToMe_Manager.
 ·Versión: 1.0.
-·Fecha de ultima actualizacion: 8/2/2021.
+·Fecha de ultima actualizacion: 9/2/2021.
 
 --Sobre el autor
 
