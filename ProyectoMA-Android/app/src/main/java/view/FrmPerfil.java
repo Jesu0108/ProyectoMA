@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -72,6 +73,8 @@ public class FrmPerfil extends AppCompatActivity {
         btnPerfil = findViewById(R.id.btnPerfil);
         btnPerfil.setOnClickListener(v -> {
             PerfilCtrl.updateUser(txtCorreoUser, txtUsuarioUser, txtPassUser,txtPlatoUser, txtLocalidadUser, txtPaisUser, txtTelefonoUser, spTipoUser);
+            upload();
+
         });
 
         imgPersona = findViewById(R.id.imgPerfilUser);
@@ -85,19 +88,17 @@ public class FrmPerfil extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         intent.setType("image/");
         startActivityForResult(Intent.createChooser(intent, "Seleccione una aplicacion"), 0);
-
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == RESULT_OK) try {
+        if (resultCode == RESULT_OK && data != null) try {
 
             Uri path = data.getData();
             bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(path), null, null);
             imgPersona.setImageBitmap(bitmap);
 
-            upload();
         } catch (NullPointerException | FileNotFoundException ignored) {
 
         }
@@ -114,7 +115,7 @@ public class FrmPerfil extends AppCompatActivity {
 
         String strURL = Data.HOSTING +"/imagen.php";
 
-        final ProgressDialog loading = ProgressDialog.show(context.getApplicationContext(), "Subiendo...", "Espere por favor", false, false);
+        final ProgressDialog loading = ProgressDialog.show(this, "Subiendo...", "Espere por favor", false, false);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, strURL,
                 s -> {

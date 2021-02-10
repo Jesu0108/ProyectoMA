@@ -77,6 +77,7 @@ public class DatosFromDB {
                 .with(FrmPerfil.context.getApplicationContext())
                 .load(url)
                 .apply(RequestOptions.centerCropTransform())
+                .skipMemoryCache(true)
                 .into(FrmPerfil.imgPersona);
     }
 

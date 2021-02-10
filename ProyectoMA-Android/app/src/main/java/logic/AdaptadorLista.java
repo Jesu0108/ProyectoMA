@@ -52,6 +52,7 @@ public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.HolderPr
             .with(ListaView.context.getApplicationContext())
             .load(Data.HOSTING + "/imagen/" + prod.get(position).getId_Usuario() + ".jpg")
             .apply(RequestOptions.centerCropTransform())
+            .skipMemoryCache(true)
             .into(holder.imgPerfil);
 
         holder.cardProductos.setOnClickListener(new View.OnClickListener() {
