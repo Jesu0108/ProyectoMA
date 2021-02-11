@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.artiguez.proyectoma.R;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.signature.ObjectKey;
 
 import java.util.ArrayList;
 
@@ -52,6 +53,7 @@ public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.HolderPr
             .with(ListaView.context.getApplicationContext())
             .load(Data.HOSTING + "/imagen/" + prod.get(position).getId_Usuario() + ".jpg")
             .apply(RequestOptions.centerCropTransform())
+            .signature(new ObjectKey(System.currentTimeMillis()))
             .skipMemoryCache(true)
             .into(holder.imgPerfil);
 

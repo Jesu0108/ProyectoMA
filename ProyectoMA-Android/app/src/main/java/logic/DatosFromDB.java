@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.signature.ObjectKey;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -77,6 +78,7 @@ public class DatosFromDB {
                 .with(FrmPerfil.context.getApplicationContext())
                 .load(url)
                 .apply(RequestOptions.centerCropTransform())
+                .signature(new ObjectKey(System.currentTimeMillis()))
                 .skipMemoryCache(true)
                 .into(FrmPerfil.imgPersona);
     }
