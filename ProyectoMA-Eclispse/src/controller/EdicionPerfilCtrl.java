@@ -29,7 +29,7 @@ public class EdicionPerfilCtrl {
 			FrmEdicionPerfil.txtUsuario.setText(lstPerfil.get(0).getsUsuario());
 			FrmEdicionPerfil.txtContra.setText(lstPerfil.get(0).getsContra());
 			FrmEdicionPerfil.spTipo.setSelectedIndex(indexTipo(lstPerfil));
-			;
+			
 			FrmEdicionPerfil.txtTelefono.setText(lstPerfil.get(0).getsTelefono());
 			FrmEdicionPerfil.txtPlato.setText(lstPerfil.get(0).getsPlato());
 			FrmEdicionPerfil.txtLocalidad.setText(lstPerfil.get(0).getsLocalidad());
