@@ -24,8 +24,7 @@ public class FrmPrincipal extends AppCompatActivity {
     Button btnLogin, btnRegistro;
     public static Context context;
     public static MediaPlayer musica;
-    public static String userPref;
-    public static String userPass;
+    public static SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +32,7 @@ public class FrmPrincipal extends AppCompatActivity {
         setContentView(R.layout.activity_frm_principal);
 
         context = getApplicationContext();
-
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
         musica = MediaPlayer.create(this,R.raw.musica_fondo);
 
         compruebaMusica();
@@ -65,7 +64,6 @@ public class FrmPrincipal extends AppCompatActivity {
 
     private boolean userLogueado(){
         boolean bExito = true;
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         //Leer de las preferencias
         String sUsuario = prefs.getString("user",null);
@@ -81,21 +79,20 @@ public class FrmPrincipal extends AppCompatActivity {
     }
 
     private void logueoDirecto(){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-
         //Leemos las preferencias y lo guardamos en variables
-        userPref = prefs.getString("user",null);
-        userPass = prefs.getString("pass",null);
+        String userPref = prefs.getString("user",null);
+        String userPass = prefs.getString("pass",null);
 
         PreferenciasCtrl.logueoPreferencias(userPref,userPass);
     }
 
     private void compruebaMusica(){
-        if(!musica.isPlaying()){
-            musica.start();
+        if(musica.isPlaying()){
+            musica.stop();
+            musica.reset();
             musica.setLooping(true);
         }else{
-            musica.reset();
+            musica.start();
             musica.setLooping(true);
         }
     }

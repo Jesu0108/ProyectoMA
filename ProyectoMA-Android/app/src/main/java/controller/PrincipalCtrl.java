@@ -18,10 +18,10 @@ public class PrincipalCtrl {
         if(sUsuario.equals("") || sPass.equals("")){
             Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Por favor, rellene todos los campos para continuar", Toast.LENGTH_LONG).show();
         }else{
-            //Comprobamos el login
-            DatosFromDB.logeoUser(sUsuario, sPass);
             //Guardamos sus preferencias
             PreferenciasCtrl.insertPreferencias(sUsuario,sPass);
+            //Comprobamos el login
+            DatosFromDB.logeoUser(sUsuario, sPass);
         }
     }
 

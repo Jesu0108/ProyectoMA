@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Base64;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -58,7 +59,7 @@ public class DatosFromDB {
     }
 
     public static void getPerfil() {
-        new Load_Perfil_AsyncTask().execute(Data.HOSTING +"/get_Datos_1_User.php?usuario=" + FrmPrincipal.userPref + "&contrasenia=" + FrmPrincipal.userPass);
+        new Load_Perfil_AsyncTask().execute(Data.HOSTING +"/get_Datos_1_User.php?usuario=" + FrmPrincipal.prefs.getString("user",null) + "&contrasenia=" + FrmPrincipal.prefs.getString("pass",null));
     }
 
     public static void filtroCocineros(String tipo) {
@@ -85,7 +86,7 @@ public class DatosFromDB {
 
     public static void updateUser(String correo, String user, String contrasenia, String type, String plato, String localidad, String pais, String telefono) {
         new Update_User_AsyncTask().execute(Data.HOSTING +"/updateUser.php?correo=" + correo + "&user=" + user + "&contrasenia=" + contrasenia
-                + "&tipo=" + type + "&plato=" + plato + "&pais=" + pais + "&localidad=" + localidad + "&telefono=" + telefono + "&usuario=" + FrmPrincipal.userPref);
+                + "&tipo=" + type + "&plato=" + plato + "&pais=" + pais + "&localidad=" + localidad + "&telefono=" + telefono + "&usuario=" + FrmPrincipal.prefs.getString("user",null));
     }
 
     private static class Insert_User_AsyncTask extends AsyncTask<String, Void, Void> {
