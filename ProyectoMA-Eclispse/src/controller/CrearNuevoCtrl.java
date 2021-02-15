@@ -7,20 +7,19 @@ import javax.swing.JOptionPane;
 import logic.ConexionPHP;
 import utils.Data;
 import view.FrmCrearNuevo;
-import view.FrmPrincipal;
 
 public class CrearNuevoCtrl {
 
 	public static void addPerfil() {
 		try {
-			String correo = FrmCrearNuevo.txtNewCorreo.getText().toString();
-			String usuario = FrmCrearNuevo.txtNewUsuario.getText().toString();
-			String pass = FrmCrearNuevo.txtNewContra.getText().toString();
-			String tipo = FrmCrearNuevo.spTipo.getSelectedItem().toString();
-			String plato = FrmCrearNuevo.txtNewPlato.getText().toString();
-			String pais = FrmCrearNuevo.txtNewPais.getText().toString();
-			String localidad = FrmCrearNuevo.txtNewLocalidad.getText().toString();
-			String telefono = FrmCrearNuevo.txtNewTelefono.getText().toString();
+			String correo = FrmCrearNuevo.txtNewCorreo.getText().toString().replace(" ", "%20");
+			String usuario = FrmCrearNuevo.txtNewUsuario.getText().toString().replace(" ", "%20");
+			String pass = FrmCrearNuevo.txtNewContra.getText().toString().replace(" ", "%20");
+			String tipo = FrmCrearNuevo.spTipo.getSelectedItem().toString().replace(" ", "%20");
+			String plato = FrmCrearNuevo.txtNewPlato.getText().toString().replace(" ", "%20");
+			String pais = FrmCrearNuevo.txtNewPais.getText().toString().replace(" ", "%20");
+			String localidad = FrmCrearNuevo.txtNewLocalidad.getText().toString().replace(" ", "%20");
+			String telefono = FrmCrearNuevo.txtNewTelefono.getText().toString().replace(" ", "%20");
 			
 			String url = Data.URL + "/insert1User.php?correo=" + correo + "&usuario=" + usuario + "&contrasenia=" + pass
 					+ "&tipo=" + tipo + "&plato=" + plato + "&pais=" + pais + "&localidad=" + localidad + "&telefono="

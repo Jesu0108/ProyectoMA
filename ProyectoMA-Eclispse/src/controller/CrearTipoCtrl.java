@@ -12,7 +12,7 @@ public class CrearTipoCtrl {
 	
 	public static void addTipo() {
 		try {
-			String newTipo = FrmCrearTipo.txtNuevoTipo.getText().toString();
+			String newTipo = FrmCrearTipo.txtNuevoTipo.getText().toString().replace(" ", "%20");
 
 			String url = Data.URL + "/insert1Tipo.php?tipo=" + newTipo;
 
