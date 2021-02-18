@@ -23,29 +23,29 @@ public class EdicionPerfilCtrl {
 			String url = Data.URL + "/get1UserPk.php?id_Usuario=" + id;
 			String respuesta = ConexionPHP.peticionHttp(url);
 
-			List<Perfil> lstPerfil = ConexionPHP.JsonToPerfiles(respuesta);
+			Perfil perfil = ConexionPHP.JsonToEditPerfil(respuesta);
 
-			FrmEdicionPerfil.txtCorreo.setText(lstPerfil.get(0).getsCorreo());
-			FrmEdicionPerfil.txtUsuario.setText(lstPerfil.get(0).getsUsuario());
-			FrmEdicionPerfil.txtContra.setText(lstPerfil.get(0).getsContra());
-			FrmEdicionPerfil.spTipo.setSelectedIndex(indexTipo(lstPerfil));
+			FrmEdicionPerfil.txtCorreo.setText(perfil.getsCorreo());
+			FrmEdicionPerfil.txtUsuario.setText(perfil.getsUsuario());
+			FrmEdicionPerfil.txtContra.setText(perfil.getsContra());
+			FrmEdicionPerfil.spTipo.setSelectedIndex(indexTipo(perfil.getsTipo()));
 			
-			FrmEdicionPerfil.txtTelefono.setText(lstPerfil.get(0).getsTelefono());
-			FrmEdicionPerfil.txtPlato.setText(lstPerfil.get(0).getsPlato());
-			FrmEdicionPerfil.txtLocalidad.setText(lstPerfil.get(0).getsLocalidad());
-			FrmEdicionPerfil.txtPais.setText(lstPerfil.get(0).getsPais());
+			FrmEdicionPerfil.txtTelefono.setText(perfil.getsTelefono());
+			FrmEdicionPerfil.txtPlato.setText(perfil.getsPlato());
+			FrmEdicionPerfil.txtLocalidad.setText(perfil.getsLocalidad());
+			FrmEdicionPerfil.txtPais.setText(perfil.getsPais());
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + e.getMessage(),
 					"Error cargando en loadData (edicionPerfiles)", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
-	private static int indexTipo(List<Perfil> lstPerfil) {
+	private static int indexTipo(String tipoPerfil) {
 		int iIndex;
 
-		if (lstPerfil.get(0).getsTipo().equals("Catador")) {
+		if (tipoPerfil.equals("Catador")) {
 			iIndex = 0;
-		} else if (lstPerfil.get(0).getsTipo().equals("Cocinero")) {
+		} else if (tipoPerfil.equals("Cocinero")) {
 			iIndex = 1;
 		} else {
 			iIndex = 2;

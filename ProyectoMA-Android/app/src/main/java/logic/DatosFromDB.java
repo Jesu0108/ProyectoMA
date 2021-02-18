@@ -36,42 +36,43 @@ import view.ListaView;
 public class DatosFromDB {
 
     public static ArrayList<Perfil> listPerfiles;
-    public static List<Perfil> listPerfilLog;
+    public static Perfil perfilLog;
     public static List<String> lstTipo;
     public static String nameIntent;
 
     public static void logeoUser(String user, String pass) {
-        new Logueo_User_AsyncTask().execute(Data.HOSTING +"/get1User.php?usuario=" + user + "&contrasenia=" + pass);
+        new Logueo_User_AsyncTask().execute(Data.HOSTING + "/get1User.php?usuario=" + user + "&contrasenia=" + pass);
     }
 
     public static void insert1User(String correo, String user, String pass, String type, String plato, String localidad, String pais, String telefono) {
-        new Insert_User_AsyncTask().execute(Data.HOSTING +"/insert1User.php?correo=" + correo + "&usuario=" + user + "&contrasenia=" + pass
+        new Insert_User_AsyncTask().execute(Data.HOSTING + "/insert1User.php?correo=" + correo + "&usuario=" + user + "&contrasenia=" + pass
                 + "&tipo=" + type + "&plato=" + plato + "&pais=" + pais + "&localidad=" + localidad + "&telefono=" + telefono);
     }
 
     public static void get1User() {
-        new Load_1User_AsyncTask().execute(Data.HOSTING +"/get1UserPk.php?id_Usuario=" + (AdaptadorLista.cardPosition + 1));
+        new Load_1User_AsyncTask().execute(Data.HOSTING + "/get1UserPk.php?id_Usuario=" + (AdaptadorLista.cardPosition + 1));
     }
 
     public static void getTipos(String nombreIntent) {
         nameIntent = nombreIntent;
-        new Get_Tipo_AsyncTask().execute(Data.HOSTING +"/getTipo.php");
+        new Get_Tipo_AsyncTask().execute(Data.HOSTING + "/getTipo.php");
     }
 
     public static void getPerfil() {
-        new Load_Perfil_AsyncTask().execute(Data.HOSTING +"/get_Datos_1_User.php?usuario=" + FrmPrincipal.prefs.getString("user",null) + "&contrasenia=" + FrmPrincipal.prefs.getString("pass",null));
+        new Load_Perfil_AsyncTask().execute(Data.HOSTING + "/get_Datos_1_User.php?usuario=" + FrmPrincipal.prefs.getString("user", null) + "&contrasenia=" + FrmPrincipal.prefs.getString("pass", null));
     }
 
     public static void filtroCocineros(String tipo) {
-        new LoadDataUsers_AsyncTask().execute(Data.HOSTING +"/filtroUsers.php?tipo=" + tipo);
+        new LoadDataUsers_AsyncTask().execute(Data.HOSTING + "/filtroUsers.php?tipo=" + tipo);
     }
 
     public static void getAllPerfiles() {
-        new LoadDataUsers_AsyncTask().execute(Data.HOSTING +"/getUsers.php");
+        new LoadDataUsers_AsyncTask().execute(Data.HOSTING + "/getUsers.php");
     }
 
     public static void downloadImagenPerfil() {
-        String url = Data.HOSTING + "/imagen/"+ DatosFromDB.listPerfilLog.get(0).getId_Usuario()+".jpg";
+
+        String url = Data.HOSTING + "/imagen/" + DatosFromDB.perfilLog.getId_Usuario() + ".jpg";
 
         FrmPerfil.imgPersona.setImageDrawable(null);
 
@@ -85,8 +86,8 @@ public class DatosFromDB {
     }
 
     public static void updateUser(String correo, String user, String contrasenia, String type, String plato, String localidad, String pais, String telefono) {
-        new Update_User_AsyncTask().execute(Data.HOSTING +"/updateUser.php?correo=" + correo + "&user=" + user + "&contrasenia=" + contrasenia
-                + "&tipo=" + type + "&plato=" + plato + "&pais=" + pais + "&localidad=" + localidad + "&telefono=" + telefono + "&usuario=" + FrmPrincipal.prefs.getString("user",null));
+        new Update_User_AsyncTask().execute(Data.HOSTING + "/updateUser.php?correo=" + correo + "&user=" + user + "&contrasenia=" + contrasenia
+                + "&tipo=" + type + "&plato=" + plato + "&pais=" + pais + "&localidad=" + localidad + "&telefono=" + telefono + "&usuario=" + FrmPrincipal.prefs.getString("user", null));
     }
 
     private static class Insert_User_AsyncTask extends AsyncTask<String, Void, Void> {
@@ -112,13 +113,14 @@ public class DatosFromDB {
             Toast.makeText(FrmRegistro.context.getApplicationContext(), "Registrado con éxito", Toast.LENGTH_SHORT).show();
 
             //Cargamos los datos
-            new LoadDataUsers_AsyncTask().execute(Data.HOSTING +"/getUsers.php");
+            new LoadDataUsers_AsyncTask().execute(Data.HOSTING + "/getUsers.php");
 
         }
     }
 
     private static class Get_Tipo_AsyncTask extends AsyncTask<String, Void, Void> {
         String resultado;
+
         @Override
         protected Void doInBackground(String... params) {
             try {
@@ -147,7 +149,8 @@ public class DatosFromDB {
             super.onPostExecute(aVoid);
 
             Gson gson = new Gson();
-            Type type = new TypeToken<List<Perfil>>() {}.getType();
+            Type type = new TypeToken<List<Perfil>>() {
+            }.getType();
             List<Perfil> listTipos = gson.fromJson(resultado, type);
 
             lstTipo = new ArrayList<>();
@@ -157,16 +160,16 @@ public class DatosFromDB {
                     lstTipo.add(p.getTipo());
                 }
                 spinnerElegido();
-            }else{
+            } else {
                 Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Ha ocurrido un error cargando los datos", Toast.LENGTH_LONG).show();
             }
         }
 
-        private void spinnerElegido(){
+        private void spinnerElegido() {
 
-            if(nameIntent.equals("Perfil")){
+            if (nameIntent.equals("Perfil")) {
                 FrmPerfil.spTipoUser.setAdapter(new ArrayAdapter<String>(FrmPerfil.context.getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, lstTipo));
-            }else{
+            } else {
                 FrmRegistro.spTipo.setAdapter(new ArrayAdapter<String>(FrmRegistro.context.getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, lstTipo));
             }
         }
@@ -226,21 +229,15 @@ public class DatosFromDB {
         public void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             Gson gson = new Gson();
-            Type type = new TypeToken<List<Perfil>>() {
+            Type type = new TypeToken<Perfil>() {
             }.getType();
+            perfilLog = gson.fromJson(resultado, type);
 
-            listPerfilLog = gson.fromJson(resultado, type);
-
-            if (listPerfilLog != null) {
-                if (listPerfilLog.size() > 0) {
-                    //Cargamos los datos
-                    new LoadDataUsers_AsyncTask().execute(Data.HOSTING +"/getUsers.php");
-
-                } else {
-                    Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
-                }
+            if (perfilLog != null) {
+                //Cargamos los datos
+                new LoadDataUsers_AsyncTask().execute(Data.HOSTING + "/getUsers.php");
             } else {
-                Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Ha ocurrido un error, por favor revise los campos", Toast.LENGTH_LONG).show();
+                Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -291,7 +288,6 @@ public class DatosFromDB {
 
     private static class Load_1User_AsyncTask extends AsyncTask<String, Void, Void> {
         String resultado;
-        Perfil perfil;
 
         @Override
         protected Void doInBackground(String... params) {
@@ -322,25 +318,20 @@ public class DatosFromDB {
             super.onPostExecute(aVoid);
 
             Gson gson = new Gson();
-            Type type = new TypeToken<List<Perfil>>() {
+            Type type = new TypeToken<Perfil>() {
             }.getType();
-            List<Perfil> listPerfiles = gson.fromJson(resultado, type);
+            Perfil perfil = new Gson().fromJson(resultado, type);
 
-            if (listPerfiles != null) {
-                if (listPerfiles.size() > 0) {
-                    perfil = listPerfiles.get(0);
+            if (perfil != null) {
 
-                    PersonaCtrl.correo.setText(perfil.getCorreo());
-                    PersonaCtrl.usuario.setText(perfil.getUsuario());
-                    PersonaCtrl.telefono.setText(perfil.getTelefono());
-                    PersonaCtrl.tipo.setText(perfil.getTipo());
-                    PersonaCtrl.plato.setText(perfil.getPlato());
-                    PersonaCtrl.pais.setText(perfil.getPais());
-                    PersonaCtrl.localidad.setText(perfil.getLocalidad());
+                PersonaCtrl.correo.setText(perfil.getCorreo());
+                PersonaCtrl.usuario.setText(perfil.getUsuario());
+                PersonaCtrl.telefono.setText(perfil.getTelefono());
+                PersonaCtrl.tipo.setText(perfil.getTipo());
+                PersonaCtrl.plato.setText(perfil.getPlato());
+                PersonaCtrl.pais.setText(perfil.getPais());
+                PersonaCtrl.localidad.setText(perfil.getLocalidad());
 
-                } else {
-                    Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Ha ocurrido un error, por favor recarge la app", Toast.LENGTH_LONG).show();
-                }
             } else {
                 Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Ha ocurrido un error, por favor recarge la app", Toast.LENGTH_LONG).show();
             }
@@ -380,40 +371,35 @@ public class DatosFromDB {
             super.onPostExecute(aVoid);
 
             Gson gson = new Gson();
-            Type type = new TypeToken<List<Perfil>>() {
+            Type type = new TypeToken<Perfil>() {
             }.getType();
-            List<Perfil> listPerfiles = gson.fromJson(resultado, type);
+            perfil = gson.fromJson(resultado, type);
 
-            if (listPerfiles != null) {
-                if (listPerfiles.size() > 0) {
-                    perfil = listPerfiles.get(0);
+            if (perfil != null) {
 
-                    FrmPerfil.txtCorreoUser.setText(perfil.getCorreo());
-                    FrmPerfil.txtUsuarioUser.setText(perfil.getUsuario());
-                    FrmPerfil.txtPassUser.setText(perfil.getContrasenia());
-                    FrmPerfil.spTipoUser.setSelection(tipoUser());
-                    FrmPerfil.txtPlatoUser.setText(perfil.getPlato());
-                    FrmPerfil.txtTelefonoUser.setText(perfil.getTelefono());
-                    FrmPerfil.txtPaisUser.setText(perfil.getPais());
-                    FrmPerfil.txtLocalidadUser.setText(perfil.getLocalidad());
+                FrmPerfil.txtCorreoUser.setText(perfil.getCorreo());
+                FrmPerfil.txtUsuarioUser.setText(perfil.getUsuario());
+                FrmPerfil.txtPassUser.setText(perfil.getContrasenia());
+                FrmPerfil.spTipoUser.setSelection(tipoUser());
+                FrmPerfil.txtPlatoUser.setText(perfil.getPlato());
+                FrmPerfil.txtTelefonoUser.setText(perfil.getTelefono());
+                FrmPerfil.txtPaisUser.setText(perfil.getPais());
+                FrmPerfil.txtLocalidadUser.setText(perfil.getLocalidad());
 
-                } else {
-                    Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Ha ocurrido un error, por favor reinicie la app", Toast.LENGTH_LONG).show();
-                }
             } else {
                 Toast.makeText(FrmPrincipal.context.getApplicationContext(), "Ha ocurrido un error, por favor reinicie la app", Toast.LENGTH_LONG).show();
             }
         }
 
-        private int tipoUser(){
+        private int tipoUser() {
             int iNumero;
 
-            if(perfil.getTipo().equals("Catador")){
-                iNumero=0;
-            }else if (perfil.getTipo().equals("Cocinero")){
-                iNumero=1;
-            }else{
-                iNumero=2;
+            if (perfil.getTipo().equals("Catador")) {
+                iNumero = 0;
+            } else if (perfil.getTipo().equals("Cocinero")) {
+                iNumero = 1;
+            } else {
+                iNumero = 2;
             }
             return iNumero;
         }

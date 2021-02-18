@@ -1,6 +1,5 @@
 package logic;
 
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -26,14 +25,14 @@ public class ConexionPHP {
 			JSONObject jsonO = jsonA.getJSONObject(i);
 
 			Perfil c = JsonToPerfil(jsonO);
-						
+
 			lstResultado.add(c);
 
 		}
 
 		return lstResultado;
 	}
-	
+
 	public static List<String> JsonToTipo(String respuesta) {
 
 		List<String> lstResultado = new ArrayList<>();
@@ -45,43 +44,47 @@ public class ConexionPHP {
 			JSONObject jsonO = jsonA.getJSONObject(i);
 
 			String s = jsonO.getString("tipo");
-			
+
 			lstResultado.add(s);
 
 		}
 
 		return lstResultado;
 	}
-	
-	public static List<Perfil> JsonToPerfilesLog(String respuesta) {
 
-		List<Perfil> lstResultado = new ArrayList<>();
+	public static Perfil JsonToPerfilLog(String respuesta) {
 
-		JSONArray jsonA = new JSONArray(respuesta);
-
-		for (int i = 0; i < jsonA.length(); i++) {
-
-			JSONObject jsonO = jsonA.getJSONObject(i);
-
-			Perfil c = JsonToPerfilLog(jsonO);
-
-			lstResultado.add(c);
-
-		}
-
-		return lstResultado;
-	}
-
-	public static Perfil JsonToPerfilLog(JSONObject jsonO) {
+		JSONObject jsonO = new JSONObject(respuesta);
 
 		String correo = jsonO.getString("correo");
 		String contrasenia = jsonO.getString("contrasenia");
 
-		Perfil c = new Perfil(correo, contrasenia);
+		Perfil perfilLog = new Perfil(correo, contrasenia);
 
-		return c;
+		return perfilLog;
 	}
 	
+	
+	public static Perfil JsonToEditPerfil(String respuesta) {
+
+		JSONObject jsonO = new JSONObject(respuesta);
+
+		int id_Usuario = jsonO.getInt("id_Usuario");
+		String correo = jsonO.getString("correo");
+		String usuario = jsonO.getString("usuario");
+		String contrasenia = jsonO.getString("contrasenia");
+		String tipo = jsonO.getString("tipo");
+		String plato = jsonO.getString("plato");
+		String telefono = jsonO.getString("telefono");
+		String localidad = jsonO.getString("localidad");
+		String pais = jsonO.getString("pais");
+
+		Perfil perfilLog = new Perfil(id_Usuario, correo, usuario, contrasenia, tipo, plato, telefono, localidad, pais);
+
+		return perfilLog;
+	}
+
+
 	public static Perfil JsonToPerfil(JSONObject jsonO) {
 
 		int id_Usuario = jsonO.getInt("id_Usuario");
@@ -93,9 +96,8 @@ public class ConexionPHP {
 		String telefono = jsonO.getString("telefono");
 		String localidad = jsonO.getString("localidad");
 		String pais = jsonO.getString("pais");
-		
 
-		Perfil c = new Perfil(id_Usuario,correo, usuario, contrasenia, tipo, plato, telefono,localidad,pais);
+		Perfil c = new Perfil(id_Usuario, correo, usuario, contrasenia, tipo, plato, telefono, localidad, pais);
 
 		return c;
 	}

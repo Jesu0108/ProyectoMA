@@ -1,8 +1,5 @@
 package controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.JOptionPane;
 
 import logic.ConexionPHP;
@@ -14,7 +11,7 @@ public class PrincipalCtrl {
 
 	public static boolean checkLogin() {
 		boolean bExito = false;
-		List<Perfil> lstPerfiles = new ArrayList<Perfil>();
+		Perfil perfilLog = new Perfil();
 		String sCorreo, sContra;
 
 		sCorreo = FrmPrincipal.correo;
@@ -24,9 +21,9 @@ public class PrincipalCtrl {
 			String url = Data.URL+"/getUserCorreo.php?correo="+sCorreo+"&contrasenia="+sContra;
 			String respuesta = ConexionPHP.peticionHttp(url);
 
-			lstPerfiles = ConexionPHP.JsonToPerfilesLog(respuesta);
+			perfilLog = ConexionPHP.JsonToPerfilLog(respuesta);
 
-			if (lstPerfiles.isEmpty()) {
+			if (perfilLog == null) {
 				bExito = false;
 			} else {
 				bExito = true;

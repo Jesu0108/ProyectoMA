@@ -131,7 +131,7 @@ public class FrmPerfil extends AppCompatActivity {
             public Map<String, String> getParams() {
                 Hashtable<String, String> params = new Hashtable<>();
                 params.put("imgData", getStringImage(bitmap));
-                params.put("imgName", "" + DatosFromDB.listPerfilLog.get(0).getId_Usuario());
+                params.put("imgName", "" + DatosFromDB.perfilLog.getId_Usuario());
 
                 return params;
             }
