@@ -53,37 +53,43 @@ public class ConexionPHP {
 	}
 
 	public static Perfil JsonToPerfilLog(String respuesta) {
+		Perfil perfilLog;
 
-		JSONObject jsonO = new JSONObject(respuesta);
+		try {
+			JSONObject jsonO = new JSONObject(respuesta);
+			String correo = jsonO.getString("correo");
+			String contrasenia = jsonO.getString("contrasenia");
 
-		String correo = jsonO.getString("correo");
-		String contrasenia = jsonO.getString("contrasenia");
-
-		Perfil perfilLog = new Perfil(correo, contrasenia);
+			perfilLog = new Perfil(correo, contrasenia);
+		} catch (Exception e) {
+			perfilLog = null;
+		}
 
 		return perfilLog;
 	}
-	
-	
+
 	public static Perfil JsonToEditPerfil(String respuesta) {
+		Perfil perfilLog;
 
-		JSONObject jsonO = new JSONObject(respuesta);
+		try {
+			JSONObject jsonO = new JSONObject(respuesta);
+			int id_Usuario = jsonO.getInt("id_Usuario");
+			String correo = jsonO.getString("correo");
+			String usuario = jsonO.getString("usuario");
+			String contrasenia = jsonO.getString("contrasenia");
+			String tipo = jsonO.getString("tipo");
+			String plato = jsonO.getString("plato");
+			String telefono = jsonO.getString("telefono");
+			String localidad = jsonO.getString("localidad");
+			String pais = jsonO.getString("pais");
 
-		int id_Usuario = jsonO.getInt("id_Usuario");
-		String correo = jsonO.getString("correo");
-		String usuario = jsonO.getString("usuario");
-		String contrasenia = jsonO.getString("contrasenia");
-		String tipo = jsonO.getString("tipo");
-		String plato = jsonO.getString("plato");
-		String telefono = jsonO.getString("telefono");
-		String localidad = jsonO.getString("localidad");
-		String pais = jsonO.getString("pais");
-
-		Perfil perfilLog = new Perfil(id_Usuario, correo, usuario, contrasenia, tipo, plato, telefono, localidad, pais);
+			perfilLog = new Perfil(id_Usuario, correo, usuario, contrasenia, tipo, plato, telefono, localidad, pais);
+		} catch (Exception e) {
+			perfilLog = null;
+		}
 
 		return perfilLog;
 	}
-
 
 	public static Perfil JsonToPerfil(JSONObject jsonO) {
 
